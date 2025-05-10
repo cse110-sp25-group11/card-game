@@ -6,7 +6,7 @@ import {sum} from "./sum_function.js"
 
 // true tests
 test('Checks the sum function for 1 + 2', () => {
-    expect(sum(1, 2)).toBe(3);
+    expect(sum(1, 2)).toBe(4);  // wrong test
 });
 
 test('Checks the sum function -3 + -5', () => {
