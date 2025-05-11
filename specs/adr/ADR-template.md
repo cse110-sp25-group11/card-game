@@ -1,4 +1,4 @@
-# Decision Made
+# [Decision Made/Final Decision]
 
 ## Context and Problem Statement
 
@@ -15,3 +15,14 @@
 ## Decision Outcome
 
 [State the option that was chosen and explain why that specific option was chosen]
+
+#### Positives of choice
+- [Pro 1]
+- [Pro 2]
+- ...
+- [Pro 3]
+#### Negatives of choice
+- [Con 1]
+- [Con 2]
+- ...
+- [Con 3]
