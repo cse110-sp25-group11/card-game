@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>app.js - Documentation</title>
+    <title>storage.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">app.js</h1>
+    <h1 class="page-title">storage.js</h1>
     
 
     
@@ -40,14 +40,15 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Show an alert when the button is clicked.
+ * Clears all key/value pairs from the browser's localStorage.
+ *
+ * @function deleteLocalStorage
  * @returns {void}
  */
-function handleClick() {
-  alert('Button clicked!');
+function deleteLocalStorage(){
+    localStorage.clear();
 }
-
-document.getElementById('btn').addEventListener('click', handleClick);</code></pre>
+</code></pre>
         </article>
     </section>
 
