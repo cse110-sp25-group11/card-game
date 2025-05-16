@@ -14,13 +14,15 @@
 
 ## Decision Outcome
 
-All of the considered options were chosen expect for manually writing documentation. In that case, we decided to go with JSDocs since it would speed up the process. 
+All of the considered options were chosen expect for manually writing documentation. In that case, we decided to go with JSDocs since it would speed up the process.
 
 #### Positives of choice
+
 - Qlty makes it really easy to lint our code locally and also helps to refactor them. This will save us a lot fo time.
 - Jest is what we are most familiar with and given our timeline, we didn't want to explore more options and learn them.
-- 2 reviewers makes sure that all code pushed to the main branch is checked very thoroughly. We also have templates for the code reviews. 
+- 2 reviewers makes sure that all code pushed to the main branch is checked very thoroughly. We also have templates for the code reviews.
 
 #### Negatives of choice
+
 - Qlty only works on Linux or Mac so Windows users have to use Ubuntu
-- JSDocs might struggle with creating documentation so we will have to double check it 
+- JSDocs might struggle with creating documentation so we will have to double check it
