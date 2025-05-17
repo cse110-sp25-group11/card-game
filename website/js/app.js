@@ -3,7 +3,7 @@
  * @returns {void}
  */
 function handleClick() {
-  alert('Button clicked!');
+  alert("Button clicked!");
 }
 
-document.getElementById('btn').addEventListener('click', handleClick);
+document.getElementById("btn").addEventListener("click", handleClick);
