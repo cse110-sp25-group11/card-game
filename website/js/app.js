@@ -1,6 +1,6 @@
 /**
- * Show an alert when the button is clicked.
- * @returns {void}
+ * Example function to show an alert when the button is clicked.
+ * @returns {void} 
  */
 function handleClick() {
   alert("Button clicked!");
@@ -9,8 +9,8 @@ function handleClick() {
 /**
  * updates the specific data in localStorage given the key.
  * If it doesn't exist, it will create it
- * @param {*} key the key of the data
- * @param {*} newData the new details for an event
+ * @param {string} key the key of the data
+ * @param {Object} newData the new details for an event
  * @returns {void}
  */
 function updateLocalStorage(key, newData) {
@@ -51,7 +51,7 @@ function updateLocalStorage(key, newData) {
 
 /**
  * Checks if all the entries for our event are valid
- * @param {*} event the event we want to check
+ * @param {Object} event the event we want to check
  * @returns {boolean} whether it is valid or not
  */
 function checkValidEvent(event) {
