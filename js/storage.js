@@ -4,6 +4,6 @@
  * @function deleteLocalStorage
  * @returns {void}
  */
-function deleteLocalStorage(){
-    localStorage.clear();
+function deleteLocalStorage() {
+  localStorage.clear();
 }
