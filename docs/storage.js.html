@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>storage.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,25 +29,45 @@
 
 <div id="main">
     
+    <h1 class="page-title">storage.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Clears all key/value pairs from the browser's localStorage.
+ *
+ * @function deleteLocalStorage
+ * @returns {void}
+ */
+function deleteLocalStorage() {
+  localStorage.clear();
+}
 
-
-
-
-
-
-
-
-
-    
-
-
-
+/**
+ * Add item to localStorage if it doesn't already exist.
+ * If the item already exists or key already pertains to antoher value, it will not be added.
+ *
+ * @function addToStorage
+ * @param string key - The key to store in localStorage.
+ * @param string value - The value to store in localStorage.
+ * @returns {boolean} - Returns true if the item was added, false if it already exists.
+ */
+function addToStorage(key, value) {
+  if (localStorage.getItem(key) === null) {
+    localStorage.setItem(key, value);
+    return true;
+  }
+  return false;
+}
+</code></pre>
+        </article>
+    </section>
 
 
 
