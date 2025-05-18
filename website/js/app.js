@@ -61,10 +61,12 @@ function checkValidEvent(event) {
     description: "string",
     date: "string",
     org: "string",
-    img_link: "string",
+    imgLink: "string",
+    imgAltText: "string",
+    location: "string",
     food: "boolean",
-    start_time: "string",
-    end_time: "string",
+    startTime: "string",
+    endTime: "string",
   };
   // Check each field
   for (let key in requiredFields) {
