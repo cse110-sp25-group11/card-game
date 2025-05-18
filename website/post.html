@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Swipe - Post Event</title>
+  </head>
+  <body>
+    <header>
+      <h1>Campus Swipe</h1>
+      <nav>
+        <button>Search</button>
+        <button>Add Event</button>
+        <button>All Events</button>
+        <button>Liked Events</button>
+        <button>Reset</button>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Post An Event</h2>
+
+      <form>
+        <div class="form-group">
+          <label for="eventName">Event Name</label>
+          <input
+            type="text"
+            id="eventName"
+            name="eventName"
+            placeholder="String Input"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="orgName">Club/Org Name</label>
+          <input
+            type="text"
+            id="orgName"
+            name="orgName"
+            placeholder="String Input"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input
+            type="text"
+            id="date"
+            name="date"
+            placeholder="MM/DD/YYYY"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="duration">Duration</label>
+          <input
+            type="text"
+            id="duration"
+            name="duration"
+            placeholder="String Input"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="String Input"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="String Input"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Food:</label>
+          <div class="radio-group">
+            <input type="radio" id="foodYes" name="food" value="yes" required />
+            <label for="foodYes">Yes</label>
+
+            <input type="radio" id="foodNo" name="food" value="no" required />
+            <label for="foodNo">No</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="photo">Upload Flyer/Photo</label>
+          <input
+            type="file"
+            id="photo"
+            name="photo"
+            accept="image/*"
+            required
+          />
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>
