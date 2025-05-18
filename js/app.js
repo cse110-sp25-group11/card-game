@@ -1,6 +1,6 @@
 /**
  * Example function to show an alert when the button is clicked.
- * @returns {void} 
+ * @returns {void}
  */
 function handleClick() {
   alert("Button clicked!");
