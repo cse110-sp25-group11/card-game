@@ -2,7 +2,6 @@ name: Auto-format with Qlty
 
 permissions:
   contents: write       # needed for normal git operations
-  workflows: write      # needed to allow updating workflow files
 
 on:
   push:
@@ -41,6 +40,8 @@ jobs:
           # Customize your commit message
           commit_message: "chore: apply Qlty auto-formatting"
           # Only commit if there are changes
-          file_pattern: "**/*"
+          file_pattern: |
+            **/*
+            !.github/workflows/**
           # Push back to the same branch
           push: true
