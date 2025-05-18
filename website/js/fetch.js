@@ -1,5 +1,5 @@
 /*  Fetches data from local storageg and verifies that it is a valid JSON
- *  @param {data} 
+ *  @param {data}
  *  @returns {int}
  */
 function fetchData(data) {
