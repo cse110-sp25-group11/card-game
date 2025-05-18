@@ -1,5 +1,9 @@
 name: Auto-format with Qlty
 
+permissions:
+  contents: write       # needed for normal git operations
+  workflows: write      # needed to allow updating workflow files
+
 on:
   push:
     branches:
