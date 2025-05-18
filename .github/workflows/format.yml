@@ -7,7 +7,6 @@ on:
   push:
     branches:
       - main      # or whichever branches you want
-      - 50-other-qlty-auto-linter
 
 jobs:
   fmt:
