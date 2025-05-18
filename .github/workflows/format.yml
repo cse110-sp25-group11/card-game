@@ -1,0 +1,42 @@
+name: Auto-format with Qlty
+
+on:
+  push:
+    branches:
+      - main      # or whichever branches you want
+      - 50-other-qlty-auto-linter
+
+jobs:
+  fmt:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Install Qlty CLI (via the official installer action)
+      - name: Install Qlty CLI
+        uses: qltysh/qlty-action/install@v1
+        # (no inputs required—this will curl & install the latest binary)  [oai_citation:0‡GitHub](https://github.com/qltysh/qlty-action)
+
+      # 3. Run auto-formatting
+      - name: Run qlty fmt
+        uses: qltysh/qlty-action/fmt@v1
+        with:
+          # By default this will only format files changed in the diff.
+          # To format the whole repo, uncomment the line below:
+          # all: true
+          #
+          # You can also filter by plugin, path, etc.—see the Qlty docs for more flags  [oai_citation:1‡docs.qlty.sh](https://docs.qlty.sh/cli/commands/fmt?utm_source=chatgpt.com)
+
+      # 4. Commit & push any formatting changes
+      - name: Commit formatted code
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          # Customize your commit message
+          commit_message: "chore: apply Qlty auto-formatting"
+          # Only commit if there are changes
+          file_pattern: "**/*"
+          # Push back to the same branch
+          push: true
