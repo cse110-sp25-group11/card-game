@@ -23,7 +23,7 @@ jobs:
       # 3. Run auto-formatting
       - name: Run qlty fmt
         uses: qltysh/qlty-action/fmt@v1
-        with:
+#        with:
           # By default this will only format files changed in the diff.
           # To format the whole repo, uncomment the line below:
           # all: true
