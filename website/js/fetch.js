@@ -2,7 +2,7 @@
  *  @param {data} 
  *  @returns {int}
  */
-function fetechData(data) {
+function fetchData(data) {
     if(!data){
         console.warn(`[!] Failed to parse "${data}"`);
         return [];
