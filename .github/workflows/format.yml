@@ -45,5 +45,3 @@ jobs:
           file_pattern: |
             **/*
             !.github/workflows/**
-          # Push back to the same branch
-          push: true
