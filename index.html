@@ -4,21 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Campus Swipe</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
-      <h1>Campus Swipe</h1>
-      <nav>
-        <button>Search</button>
-        <a href="custom_form.html">
-          <button>Add Event</button>
-        </a>
-        <button>All Events</button>
-        <button>Liked Events</button>
-        <button>Reset</button>
+      <nav class="navbar">
+        <h1><a href="index.html">Campus Swipe</a></h1>
+        <div class="navbar-items">
+          <a href="browse.html">
+            <button>Browse Events</button>
+          </a>
+          <a href="custom_form.html">
+            <button>Add Event</button>
+          </a>
+          <a href="liked.html">
+            <button>Liked Events</button>
+          </a>
+        </div>
       </nav>
     </header>
-
     <main>
       <div class="card-container">
         <article class="event-card">
@@ -43,10 +47,13 @@
         </article>
 
         <div class="swipe-buttons">
-          <button>Dislike</button>
-          <button>Like</button>
+          <button id="rejectBtn">X</button>
+          <button id="acceptBtn">✓</button>
         </div>
+
+        <button id="undoBtn" style="display: none">Undo</button>
       </div>
     </main>
+    <script src="js/swipe.js"></script>
   </body>
 </html>
