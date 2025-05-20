@@ -7,6 +7,7 @@ function fetchData(data) {
         console.warn(`[!] Failed to parse "${data}"`);
         return [];
     }
+    
 	const rawdata = localStorage.getItem(data);
 	if (!rawdata){
         console.warn(`[!] Failed to parse "${data}"`);
