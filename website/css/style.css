@@ -4,8 +4,44 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  margin-top: 100px;
+  margin-top: 200px;
 }
+/*Nav Bar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  background-color: #ffcd00;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.navbar h1 a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-items {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-items a button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 /*Event Card*/
 .event-card {
   background-color: white;
