@@ -26,6 +26,9 @@ window.addEventListener("DOMContentLoaded", () => {
       foodDetails: form.elements["food-details"].value,
     };
 
+    // validate form data
+    
+
     // storing all this in local storage
     localStorage.setItem("postedEvent", JSON.stringify(eventData));
 
