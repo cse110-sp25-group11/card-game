@@ -1,9 +1,56 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
+  font-weight: 400px;
   padding: 2rem;
-  background: #f7f7f7;
+  background: #03629C;
 }
+
 #btn {
   padding: 0.5rem 1rem;
   font-size: 1rem;
 }
+
+#post-header {
+  color: white;
+  background-color: #9B8F8F;
+  padding: 10px;
+  width: 180px;
+  text-align: center;
+}
+
+.form-group{
+  display: grid;
+  grid-template-columns: 250px 350px;
+  margin-bottom: 15px;
+}
+
+.form-group label{
+  color: white;
+}
+
+.form-group input::placeholder, textarea::placeholder {
+  color: black;
+  font-family: "Inter", sans-serif;
+}
+
+.form-group input::file-selector-button{
+  padding: 5px;
+  font-family: "Inter", sans-serif;
+  border-radius: 5px;
+  background-color: white;
+  border: none;
+  box-shadow: none;
+}
+#submit-button{
+  background-color: #6AE053;
+  font-family: "Inter", san-serif;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+#submit-button:hover{
+  background-color: #206513;
+}
+
