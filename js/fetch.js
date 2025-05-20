@@ -3,15 +3,15 @@
  *  @returns {int}
  */
 function fetchData(data) {
-    if(!data){
-        console.warn(`[!] Failed to parse "${data}"`);
-        return [];
-    }
-    
-	const rawdata = localStorage.getItem(data);
-	if (!rawdata){
-        console.warn(`[!] Failed to parse "${data}"`);
-        return [];
-    } 
-    return JSON.parse(rawdata);
+  if (!data) {
+    console.warn(`[!] Failed to parse "${data}"`);
+    return [];
+  }
+
+  const rawdata = localStorage.getItem(data);
+  if (!rawdata) {
+    console.warn(`[!] Failed to parse "${data}"`);
+    return [];
+  }
+  return JSON.parse(rawdata);
 }
