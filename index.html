@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Campus Swipe</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
@@ -15,38 +16,57 @@
         </a>
         <button>All Events</button>
         <button>Liked Events</button>
-        <button>Reset</button>
+        <button onclick="resetSwipe()">Reset</button>
       </nav>
     </header>
 
-    <main>
-      <div class="card-container">
-        <article class="event-card">
-          <div class="event-image">
-            <img src="#" alt="Event Photo" />
-          </div>
+<main>
+  <div class="card-container">
+    <article class="event-card" id="card">
+      <div class="event-image">
+        <img src="https://via.placeholder.com/300x150" alt="Event Photo" />
+      </div>
 
-          <div class="event-details">
-            <div class="event-header">
-              <h2>Title</h2>
-              <span>Org</span>
-            </div>
+      <div class="event-details">
+        <div class="event-header">
+          <h2>Game Night</h2>
+          <span>Fun Club</span>
+        </div>
 
-            <div class="event-date">
-              <span>Date/Duration</span>
-            </div>
+        <div class="event-date">
+          <span>May 22, 7–9PM</span>
+        </div>
 
-            <div class="event-description">
-              <p>Description</p>
-            </div>
-          </div>
-        </article>
-
-        <div class="swipe-buttons">
-          <button>Dislike</button>
-          <button>Like</button>
+        <div class="event-description">
+          <p>Come play board games and eat pizza with us!</p>
         </div>
       </div>
-    </main>
+    </article>
+  </div>
+
+  <div class="swipe-buttons">
+    <button class="dislike-button" onclick="swipeLeft()">❌</button>
+    <button class="like-button" onclick="swipeRight()">✅</button>
+  </div>
+</main>
+
+    <script>
+      function swipeLeft() {
+        const card = document.getElementById('card');
+        card.classList.remove('swipe-right');
+        card.classList.add('swipe-left');
+      }
+
+      function swipeRight() {
+        const card = document.getElementById('card');
+        card.classList.remove('swipe-left');
+        card.classList.add('swipe-right');
+      }
+
+      function resetSwipe() {
+        const card = document.getElementById('card');
+        card.classList.remove('swipe-left', 'swipe-right');
+      }
+    </script>
   </body>
 </html>
