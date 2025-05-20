@@ -1,84 +1,56 @@
-/*Layout and Containers*/
-.card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  margin-top: 100px;
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400px;
+  padding: 2rem;
+  background: #03629C;
 }
-/*Event Card*/
-.event-card {
+
+#btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+#post-header {
+  color: white;
+  background-color: #9B8F8F;
+  padding: 10px;
+  width: 180px;
+  text-align: center;
+}
+
+.form-group{
+  display: grid;
+  grid-template-columns: 250px 350px;
+  margin-bottom: 15px;
+}
+
+.form-group label{
+  color: white;
+}
+
+.form-group input::placeholder, textarea::placeholder {
+  color: black;
+  font-family: "Inter", sans-serif;
+}
+
+.form-group input::file-selector-button{
+  padding: 5px;
+  font-family: "Inter", sans-serif;
+  border-radius: 5px;
   background-color: white;
-  outline: 2px solid #000000;
-  outline-offset: 4px;
-  border-radius: 8px;
-  padding: 16px;
-  width: 500px;
-  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
 }
-/*Buttons*/
-.swipe-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  width: 100%;
-}
-.swipe-buttons button {
-  padding: 10px 20px;
+#submit-button{
+  background-color: #6AE053;
+  font-family: "Inter", san-serif;
   font-size: 18px;
-  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
 }
-#undoBtn {
-  display: block;
-  margin: 0 auto 20px auto;
-  padding: 8px 16px;
-  font-size: 16px;
-  cursor: pointer;
+
+#submit-button:hover{
+  background-color: #206513;
 }
-/*Animations*/
-@keyframes slideOutLeft {
-  from {
-    transform: translateX(0) rotateZ(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(-500px) rotateZ(-15deg);
-    opacity: 0;
-  }
-}
-@keyframes slideOutRight {
-  from {
-    transform: translateX(0) rotateZ(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(500px) rotateZ(15deg);
-    opacity: 0;
-  }
-}
-/*Animation Classes*/
-.card {
-  transition:
-    transform 0.4s ease,
-    opacity 0.4s ease;
-}
-.slide-out-left {
-  animation: slideOutLeft 0.6s forwards ease;
-}
-.slide-out-right {
-  animation: slideOutRight 0.6s forwards ease;
-}
-.swipe-right {
-  transform: translateX(500px) rotateZ(15deg);
-  opacity: 0;
-  transition:
-    transform 0.6s ease,
-    opacity 0.6s ease;
-}
-.swipe-left {
-  transform: translateX(-500px) rotateZ(-15deg);
-  opacity: 0;
-  transition:
-    transform 0.6s ease,
-    opacity 0.6s ease;
-}
+
