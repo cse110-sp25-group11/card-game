@@ -1,137 +1,103 @@
-/*Layout and Containers*/
-.card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  margin-top: 200px;
-}
 body {
-  background-color: #03629c;
-}
-/*Nav Bar*/
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 40px;
-  background-color: #ffcd00;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 400px;
+  padding: 2rem;
+  background: #03629c;
 }
 
-.navbar h1 {
-  margin: 0;
-  font-size: 30px;
+#btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
 }
 
-.navbar h1 a {
-  text-decoration: none;
-  font-family: "Merriweather Sans", sans-serif;
+/**
+ * Styling for Post Event
+ */
+#post-header {
   color: white;
-  font-size: 40px;
-  letter-spacing: 1.5px;
-  font-weight: bold;
+  background-color: #9b8f8f;
+  padding: 10px;
+  width: 180px;
+  text-align: center;
 }
 
-.navbar-items {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.form-group {
+  display: grid;
+  grid-template-columns: 250px 350px;
+  margin-bottom: 15px;
 }
 
-.navbar-items a button {
-  padding: 8px 20px;
-  font-size: 20px;
-  font-family: "Merriweather Sans", sans-serif;
-  cursor: pointer;
-  background-color: #03629c;
+.form-group label {
   color: white;
-  border-radius: 10px;
-  border-color: white;
 }
-.navbar-items a button i {
-  margin-right: 8px;
+
+.form-group input::placeholder,
+textarea::placeholder {
+  color: black;
+  font-family: "Inter", sans-serif;
 }
-/*Main Section*/
-main {
-  padding-top: 80px;
-}
-/*Event Card*/
-.event-card {
+
+.form-group input::file-selector-button {
+  padding: 5px;
+  font-family: "Inter", sans-serif;
+  border-radius: 5px;
   background-color: white;
-  outline: 2px solid #000000;
-  outline-offset: 4px;
-  border-radius: 8px;
-  padding: 16px;
-  width: 500px;
-  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
 }
-/*Buttons*/
-.swipe-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  width: 100%;
-}
-.swipe-buttons button {
-  padding: 10px 20px;
+#submit-button {
+  background-color: #6ae053;
+  font-family: "Inter", san-serif;
   font-size: 18px;
-  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
 }
-#undoBtn {
-  display: block;
-  margin: 0 auto 20px auto;
-  padding: 8px 16px;
-  font-size: 16px;
-  cursor: pointer;
+
+#submit-button:hover {
+  background-color: #206513;
 }
-/*Animations*/
-@keyframes slideOutLeft {
-  from {
-    transform: translateX(0) rotateZ(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(-500px) rotateZ(-15deg);
-    opacity: 0;
-  }
+
+/**
+ * styling browse.html 
+ */
+
+h2 {
+  color: white;
 }
-@keyframes slideOutRight {
-  from {
-    transform: translateX(0) rotateZ(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(500px) rotateZ(15deg);
-    opacity: 0;
-  }
+
+.event-carousel {
+  display: flex;
+  width: 80vw;
 }
-/*Animation Classes*/
-.card {
-  transition:
-    transform 0.4s ease,
-    opacity 0.4s ease;
+
+.event-cards {
+  display: flex;
 }
-.slide-out-left {
-  animation: slideOutLeft 0.6s forwards ease;
+
+.prev {
+  height: 20px;
 }
-.slide-out-right {
-  animation: slideOutRight 0.6s forwards ease;
+
+.next {
+  height: 20px;
 }
-.swipe-right {
-  transform: translateX(500px) rotateZ(15deg);
-  opacity: 0;
-  transition:
-    transform 0.6s ease,
-    opacity 0.6s ease;
+
+.event-carousel article {
+  background-color: #d9d9d9;
+  width: 200px;
+  margin: 30px;
+  align-items: center;
 }
-.swipe-left {
-  transform: translateX(-500px) rotateZ(-15deg);
-  opacity: 0;
-  transition:
-    transform 0.6s ease,
-    opacity 0.6s ease;
+
+.event-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+h3 {
+  background-color: #b2acb4;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
 }
