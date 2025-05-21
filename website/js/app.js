@@ -77,8 +77,6 @@ function checkValidEvent(event) {
   return true;
 }
 
-document.getElementById("btn").addEventListener("click", handleClick);
-
 const navButtons = document.querySelectorAll('nav button');
 if (navButtons.length >= 5) {
   navButtons[0].onclick = () => { window.location.href = 'index.html'; };
