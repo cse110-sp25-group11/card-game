@@ -12,6 +12,7 @@ For each of the following, check the box if satisfied. Otherwise add an addition
 - [ ] There are no unnecessary comments or print statements. Comments are clean and clear.
 - [ ] Indentation and spacing follows established style guidelines.
 - [ ] Variable/function/class names are descriptive and consistent with the rest of the codebase.
+- [ ] No "div-itis" or redundancies with the rest of the codebase.
 
 ## Would you merge this PR?
 *Insert answer + explanation* 
