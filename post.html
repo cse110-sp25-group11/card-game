@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Campus Swipe - Post Event</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <header>
@@ -19,11 +25,10 @@
     </header>
 
     <main>
-      <h2>Post An Event</h2>
-
+      <h2 id="post-header">Post An Event</h2>
       <form>
         <div class="form-group">
-          <label for="eventName">Event Name</label>
+          <label for="eventName">Event Name:</label>
           <input
             type="text"
             id="eventName"
@@ -34,7 +39,7 @@
         </div>
 
         <div class="form-group">
-          <label for="orgName">Club/Org Name</label>
+          <label for="orgName">Club/Org Name:</label>
           <input
             type="text"
             id="orgName"
@@ -45,7 +50,7 @@
         </div>
 
         <div class="form-group">
-          <label for="date">Date</label>
+          <label for="date">Date:</label>
           <input
             type="text"
             id="date"
@@ -56,7 +61,7 @@
         </div>
 
         <div class="form-group">
-          <label for="duration">Duration</label>
+          <label for="duration">Duration:</label>
           <input
             type="text"
             id="duration"
@@ -109,7 +114,7 @@
           />
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" id="submit-button">Submit</button>
       </form>
     </main>
   </body>
