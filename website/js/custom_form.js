@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     const photoInput = document.getElementById("photo");
     const photoFile = photoInput.files[0];
@@ -25,18 +25,18 @@ window.addEventListener("DOMContentLoaded", () => {
       description: form.elements["description"].value,
       food: form.querySelector('input[name="food"]:checked').value,
       photoFileName: photoFile ? photoFile.name : null,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
 
     let events = JSON.parse(localStorage.getItem("events") || "[]");
-    
+
     events.push(eventData);
-    
+
     localStorage.setItem("events", JSON.stringify(events));
 
     alert("Event Successfully Posted!");
-    form.reset(); 
-    foodRadios.forEach((r) => (r.checked = false)); 
-    food_details.style.display = "none"; 
+    form.reset();
+    foodRadios.forEach((r) => (r.checked = false));
+    food_details.style.display = "none";
   });
 });
