@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Minimum data lengths 
+    // Minimum data lengths
     if (eventData.event_name.length < 3) {
       alert("Event name must be at least 3 characters.");
       return;
@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
       alert("Please enter a valid date in YYYY-MM-DD format.");
       return;
     }
-    
+
     // storing all this in local storage
     localStorage.setItem("postedEvent", JSON.stringify(eventData));
 
