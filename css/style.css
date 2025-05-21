@@ -63,7 +63,7 @@ textarea::placeholder {
  */
 
 h2 {
-    color: white;
+  color: white;
 }
 
 .event-carousel {
@@ -84,7 +84,7 @@ h2 {
 }
 
 .event-carousel article {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   width: 200px;
   margin: 30px;
   align-items: center;
@@ -92,11 +92,11 @@ h2 {
 
 .event-info {
   display: flex;
-  justify-content: space-around;;
-} 
+  justify-content: space-around;
+}
 
 h3 {
-  background-color: #B2ACB4;
+  background-color: #b2acb4;
   padding: 5px;
   border-radius: 5px;
   color: white;
