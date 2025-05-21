@@ -1,6 +1,6 @@
 /**
  * Example function to show an alert when the button is clicked.
- * @returns {void}
+ * @returns {void} 
  */
 function handleClick() {
   alert("Button clicked!");
@@ -77,21 +77,4 @@ function checkValidEvent(event) {
   return true;
 }
 
-const navButtons = document.querySelectorAll("nav button");
-if (navButtons.length >= 5) {
-  navButtons[0].onclick = () => {
-    window.location.href = "index.html";
-  };
-  navButtons[1].onclick = () => {
-    window.location.href = "post.html";
-  };
-  navButtons[2].onclick = () => {
-    window.location.href = "browse.html";
-  };
-  navButtons[3].onclick = () => {
-    window.location.href = "liked.html";
-  };
-  navButtons[4].onclick = () => {
-    window.location.href = "index.html";
-  };
-}
+document.getElementById("btn").addEventListener("click", handleClick);
