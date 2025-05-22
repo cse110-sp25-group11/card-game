@@ -1,37 +1,47 @@
-name: PR Auto-Format
-
-on:
-  pull_request:
-    types: [opened, reopened, synchronize]
-    branches: [ main ]
+name: Auto-format with Qlty
 
 permissions:
-  contents: write
+  contents: write       # needed for normal git operations
+
+on:
+  push:
+    branches:
+      - main      # or whichever branches you want
+  pull_request:
+    branches:
+      - main      # or whichever branches you want
 
 jobs:
-  qlty-fmt:
-    name: fmt
+  fmt:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout PR branch
+      # 1. Check out the code
+      - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.FORMATTER_PAT }}
-          fetch-depth: 0
 
+      # 2. Install Qlty CLI (via the official installer action)
       - name: Install Qlty CLI
         uses: qltysh/qlty-action/install@v1
+        # (no inputs required—this will curl & install the latest binary)  [oai_citation:0‡GitHub](https://github.com/qltysh/qlty-action)
 
-      - name: Run Qlty fmt
+      # 3. Run auto-formatting
+      - name: Run qlty fmt
         uses: qltysh/qlty-action/fmt@v1
+        # with:
+          # By default this will only format files changed in the diff.
+          # To format the whole repo, uncomment the line below:
+          # all: true
+          #
+          # You can also filter by plugin, path, etc.—see the Qlty docs for more flags  [oai_citation:1‡docs.qlty.sh](https://docs.qlty.sh/cli/commands/fmt?utm_source=chatgpt.com)
 
-      - name: Commit formatting changes
+      # 4. Commit & push any formatting changes
+      - name: Commit formatted code
         uses: stefanzweifel/git-auto-commit-action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.FORMATTER_PAT }}
         with:
+          # Customize your commit message
           commit_message: "chore: apply Qlty auto-formatting"
+          # Only commit if there are changes
           file_pattern: |
             **/*
             !.github/workflows/**
