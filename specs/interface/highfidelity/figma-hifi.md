@@ -2,7 +2,7 @@
 
 Link to [Figma](https://www.figma.com/design/APaHWXQWyK5cgXz9PjAX71/Card-Design-for-Campus-Swipe?node-id=0-1&p=f&t=hxnMloNEjIp7Dtq3-0)
 
-## High Fidelity designs of the different pages on the App
+## High Fidelity designs of the different pages on the app
 
 1. Home Page:
    This is the home page where the user will first be brought to when the web page opens. It will contain one card on the screen at a time along with condensed information about that event (title, the organizer, a shortened version of the description, etc). The user will be prompted to either like or dislike this event.
