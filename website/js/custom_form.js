@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("custom-form");
-  const food_radios = Array.from(form.elements["food"]); // converts to array 
+  const food_radios = Array.from(form.elements["food"]); // converts to array
   const food_details = document.getElementById("food-details");
 
   food_radios.forEach((radio) => {
