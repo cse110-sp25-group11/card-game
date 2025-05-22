@@ -24,3 +24,22 @@ function addToStorage(key, value) {
   }
   return false;
 }
+
+/**
+ * Fetches data from local storage and verifies that it is a valid JSON
+ * @param {string} data - The key to retrieve from localStorage
+ * @returns {Array} - Returns parsed JSON data or empty array if parsing fails
+ */
+function fetchData(data) {
+  if (!data) {
+    console.warn(`[!] Failed to parse "${data}"`);
+    return [];
+  }
+
+  const rawdata = localStorage.getItem(data);
+  if (!rawdata) {
+    console.warn(`[!] Failed to parse "${data}"`);
+    return [];
+  }
+  return JSON.parse(rawdata);
+}
