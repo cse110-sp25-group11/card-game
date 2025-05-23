@@ -1,4 +1,10 @@
-
+/**
+ * updates the Carousel for one of 3 categories by fetching events from local storage.
+ * If there arent enough events to turn pages, will console log and return
+ * @param {string} category the category of the event carousel we want to update
+ * @param {string} direction direction of movement (prev, next)
+ * @returns {void}
+ */
 function changeCarousel(category, direction) {
 	//grab container for events
 	const currentID = category + "-event-cards";
