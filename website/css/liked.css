@@ -1,4 +1,4 @@
-/* subtitles in the main sections */
+/* Subtitles in the main sections */
 main h2 {
   color: #f5f0e6;
   margin-top: 100px;
@@ -13,7 +13,7 @@ main h2 {
   justify-items: center;
   padding: 40px;
 }
-/* adding responsive design for the liked events cards */
+/* Adding responsive design for the liked events cards */
 @media (max-width: 768px) {
   .liked-events-grid {
     grid-template-columns: 1fr;
