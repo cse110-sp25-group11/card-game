@@ -1,11 +1,6 @@
-name: Unit Tests
+name: Unit tests & coverage
 
-on:
-  pull_request:
-    branches: [ main ]
-
-permissions:
-  contents: read
+on: [push, pull_request]
 
 jobs:
   tests:
@@ -24,5 +19,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run unit tests
-        run: npm test ./__tests__/pseudo.tests.js
+      - name: Run tests with coverage
+        run: npm test   # assumes the "test" script runs Jest with --coverage
+
+      - name: Install Codacy coverage reporter
+        run: npm install --no-save codacy-coverage
+
+      - name: Send coverage to Codacy
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        run: |
+          # point at your lcov file; adjust path if needed
+          npx codacy-coverage < coverage/lcov.info
