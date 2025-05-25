@@ -29,5 +29,4 @@ jobs:
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
         run: |
-          # point at your lcov file; adjust path if needed
           npx codacy-coverage < coverage/lcov.info
