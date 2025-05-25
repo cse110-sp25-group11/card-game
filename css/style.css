@@ -59,6 +59,14 @@ body {
 main {
   padding-top: 80px;
 }
+/* subtitles in the main sections */
+main h2 {
+  color: #f5f0e6;
+  margin-top: 100px;
+  padding-left: 35px;
+  margin-left: 10px;
+  
+}
 /*Event Card*/
 .event-card {
   background-color: white;
@@ -69,6 +77,15 @@ main {
   width: 500px;
   box-sizing: border-box;
 }
+/* Spacing out the liked cards */
+.liked-events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  justify-items: center;
+  padding: 40px;
+}
+
 /*Buttons*/
 .swipe-buttons {
   display: flex;
@@ -134,4 +151,10 @@ main {
   transition:
     transform 0.6s ease,
     opacity 0.6s ease;
+}
+/* adding responsive design for the liked events cards */
+@media (max-width: 768px) {
+  .liked-events-grid {
+    grid-template-columns: 1fr;
+  }
 }
