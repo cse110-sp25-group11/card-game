@@ -1,4 +1,4 @@
-import { sum } from "./sum_function.js";
+import { sum } from "./sum_function.impl.js";
 
 /**
  * Testing function: {function name}
