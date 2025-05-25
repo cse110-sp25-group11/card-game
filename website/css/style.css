@@ -67,11 +67,10 @@ main {
 }
 /* subtitles in the main sections */
 main h2 {
-  color:#F5F0E6;
+  color: #f5f0e6;
   margin-top: 100px;
   padding-left: 35px;
   margin-left: 10px;
-  
 }
 /*Event Card*/
 .event-card {
@@ -87,9 +86,9 @@ main h2 {
 .liked-events-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px; 
+  gap: 24px;
   justify-items: center;
-  padding: 40px; 
+  padding: 40px;
 }
 
 /*Buttons*/
