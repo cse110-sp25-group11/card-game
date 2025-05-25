@@ -1,9 +1,12 @@
 # Campus Swipe Tool
 
 #### Introduction 👋
-This repository holds the 11x developers' campus swipe tool website. Everything regarding code, documentation, and other porject information can be found here. Navigate through the information below on how to get started. 
+This repository holds the 11x developers' campus swipe tool website. Everything regarding code, documentation, and other porject information can be found here. Navigate through the information below on how to get started.
 
-Our campus tool website is an online platform where UCSD students are able to see events that will take place across the university. This can range anywhere from club events to presentations. Anything taking place on campus is fair game! Users will get to explore each event in detail and be able to determine which events they like and don't like through our home page. They will also be able to add events onto the website themselves to help promote their own event! 
+
+#### What's a Campus Swipe Tool Anyways? 🤔
+
+Our campus tool website is an online platform where UCSD students are able to see events that will take place across the university. This can range anywhere from club events to presentations. Anything taking place on campus is fair game! Users will get to explore each event in detail and determine which events they like and don't like through our home page. Imagine something similar to Tiktok but with UCSD events! They will also be able to add activities onto the website themselves to help promote their own events! 
 
 #### How to Download and Get Started 💻
 Accessing the repository remotely is easy! Follow the steps shown below: 
@@ -22,6 +25,10 @@ After that, simply open the repository on Microsoft Visual Studio Code. We recom
 Please note that we are not using anything outside of basic HTML, CSS, and Javascript. We ask that you do not use any special tools outside of these languages, so libraries such as React are off limits! 
 
 As far as accessing the website goes, we are currently using a mix of live share and Github pages. 
+
+The only IDE you are allowed to use is Visual Studio Code. This ensures that we are all on the same page for what tools we have access too and allows for easier communication in case if something goes wrong.
+
+
 
 #### Build Pipeline 👷‍♂️
 
@@ -86,15 +93,16 @@ Use the following tree to navigate around our repository!
 │   │   ├── custom_form.js
 │   │   ├── storage.js
 │   │   └── swipe.js
-│   └── html
-│       ├── browse.html
-│       ├── event.html
-│       ├── index.html
-│       ├── liked.html
-│       └── post.html
+│   ├── browse.html
+│   ├── event.html
+│   ├── index.html
+│   ├── liked.html
+│   └── post.html
 ├── .gitignore
 ├── jsdoc.json
 ├── package-lock.json
 └── package.json
 ```
 
+#### Remember, We Are A Team! 👫
+**Never** be afraid to reach out if you have any questions or concerns about the project. We are a team and things will go better if we all work together! Our main communication will be done through the official 11x Developers Slack channel, so ping any of us if you have any questions! 
