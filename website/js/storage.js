@@ -19,7 +19,7 @@ function deleteLocalStorage() {
  */
 function addToStorage(key, value) {
   if (localStorage.getItem(key) === null) {
-    localStorage.setItem(key, value);
+localStorage.setItem(key, value);
     return true;
   }
   return false;
