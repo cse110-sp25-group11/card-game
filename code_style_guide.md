@@ -108,7 +108,7 @@
     font-family: Arial;
 }
 
-/*chocolate-chip-cookies-hater class (NOTE THAT THIS IS SEPERATED BY 1 EMPTY LINE)*/
+/*chocolate-chip-cookies-hater class (NOTE THAT THIS IS SEPARATED BY 1 EMPTY LINE)*/
 .chocolate-chip-cookies-hater
 {
      /*Coloring*/
@@ -121,7 +121,7 @@
 
 
 
-/*Whatever follows chocolate-chip-cookies-hater on the webiste will be written below this comment (NOTE THAT THIS IS SEPERATED BY 3 EMPTY LINES)*/
+/*Whatever follows chocolate-chip-cookies-hater on the website will be written below this comment (NOTE THAT THIS IS SEPARATED BY 3 EMPTY LINES)*/
 ```
 
 ## Javascript ⚙️
@@ -140,13 +140,13 @@
 - Avoid using "var" and use "let" instead
 
 #### Example 
-- The following shows an exmaple of all these style guides. Note that the two funtions are separated by 1 empty line: 
+- The following shows an example of all these style guides. Note that the two functions are separated by 1 empty line: 
 
 ```Javascript
 /**
  * Takes in two numbers and returns the sum of both numbers
  * @param {int} firstNum The first integer that will be added
- * @param {int} secondNum The second integere that will be added 
+ * @param {int} secondNum The second integer that will be added 
  * @return {int} The sum of both numbers 
  */
 function addTwoNumbers(firstNum, secondNum)
@@ -160,7 +160,7 @@ function addTwoNumbers(firstNum, secondNum)
  * Takes in two numbers and returns the difference of both numbers
  * @param {int} firstNum The initial value of the equation
  * @param {int} secondNum How much we are going to subtract from firstNum 
- * @return {int} The differnece of both numbers 
+ * @return {int} The difference of both numbers 
  */
 function subtractTwoNumbers(firstNum, secondNum)
 {
