@@ -1,9 +1,9 @@
 window.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("form");
-  const foodRadios = Array.from(form.elements["food"]);
+  const form = document.getElementById("custom-form");
+  const food_radios = Array.from(form.elements["food"]); // converts to array
   const food_details = document.getElementById("food-details");
 
-  foodRadios.forEach((radio) => {
+  food_radios.forEach((radio) => {
     radio.addEventListener("change", () => {
       food_details.style.display =
         radio.value === "Yes" && radio.checked ? "block" : "none";
@@ -11,32 +11,28 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    e.preventDefault(); // this prevents page reload during submission
 
-    const photoInput = document.getElementById("photo");
-    const photoFile = photoInput.files[0];
-
+    // creating a eventData object to be stored in local storage
     const eventData = {
-      eventName: form.elements["eventName"].value,
-      orgName: form.elements["orgName"].value,
-      date: form.elements["date"].value,
+      event_name: form.elements["event-name"].value,
+      org_name: form.elements["org-name"].value,
+      date: form.elements["event-date"].value,
       duration: form.elements["duration"].value,
       location: form.elements["location"].value,
-      description: form.elements["description"].value,
-      food: form.querySelector('input[name="food"]:checked').value,
-      photoFileName: photoFile ? photoFile.name : null,
-      timestamp: new Date().toISOString(),
+      short_description: form.elements["short-description"].value,
+      long_description: form.elements["long-description"].value,
+      food: form.elements["food"].value,
+      foodDetails: form.elements["food-details"].value,
     };
 
-    let events = JSON.parse(localStorage.getItem("events") || "[]");
+    // storing all this in local storage
+    localStorage.setItem("postedEvent", JSON.stringify(eventData));
 
-    events.push(eventData);
-
-    localStorage.setItem("events", JSON.stringify(events));
-
-    alert("Event Successfully Posted!");
-    form.reset();
-    foodRadios.forEach((r) => (r.checked = false));
-    food_details.style.display = "none";
+    // post submission
+    alert("Event Submitted!");
+    form.reset(); // resets the form
+    food_radios.forEach((r) => (r.checked = false)); // unchecks all radios
+    food_details.style.display = "none"; // hides the food-details box
   });
 });
