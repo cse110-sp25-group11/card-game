@@ -57,7 +57,7 @@ Use the following tree to navigate around our repository!
 │       └── Files containing the set up for unit tests and Qlty on this repository
 ├── 📁 qlty
 │   ├── 📁 configs
-│   │   └── Single file meant to set up Github linter
+│   │   └── 📄 Single file meant to set up Github linter
 │   └── 📄 Other files specifically meant to support the linter (ex: a .gitignore file)
 ├── 📁 __tests__
 │   └── 📄 Contains Javascript Tests
@@ -75,7 +75,7 @@ Use the following tree to navigate around our repository!
 │   ├── 📁 css
 │   │   └── 📄 Contains all needed CSS files for the website
 │   ├── 📁 js
-│   │   └── Contains all needed JS for the website
+│   │   └── 📄 Contains all needed JS for the website
 │   └── 📄 All other files are HTML files for the website
 └── 📄 Miscellaneous Files that do not apply to other 
 ```
