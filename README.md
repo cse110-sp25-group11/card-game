@@ -1,11 +1,11 @@
 # Campus Swipe Tool
 
 #### Introduction 👋
-This repository holds the 11x developers' campus swipe tool website. Everything regarding code, documentation, and other porject information can be found here. Navigate through the information below on how to get started.
+This repository holds the 11x developers' campus swipe tool website. Everything regarding code, documentation, and other project information can be found here. Navigate through the information below on how to get started.
 
 
 #### What's a Campus Swipe Tool Anyways? 🤔
-Our campus tool website is an online platform where UCSD students are able to see events that will take place across the university. This can range anywhere from club events to presentations. Anything taking place on campus is fair game! Users will get to explore each event in detail and determine which events they like and don't like through our home page. Imagine something similar to Tiktok but with UCSD events! They will also be able to add activities onto the website themselves to help promote their own events! 
+Our campus tool website is an online platform where UCSD students are able to see events that will take place across the university. This can range anywhere from club events to presentations. Anything taking place on campus is fair game! Users will get to explore each event in detail and determine which events they like and don't like through our home page. Imagine something similar to TikTok but with UCSD events! They will also be able to add activities onto the website themselves to help promote their own events! 
 
 #### How to Download and Get Started 💻
 Accessing the repository remotely is easy! Follow the steps shown below: 
@@ -50,56 +50,34 @@ Use the following tree to navigate around our repository!
 
 ```bash
 .
-├── github
-│   ├── ISSUE_TEMPLATE
-│   │   └── team-11-issue-template.md
-│   └── workflows
-│       ├── format.yml
-│       └── main.yml
-├── qlty
-│   ├── configs
-│   │   └── .yamllint.yaml
-│   ├── .gitignore
-│   └── qlty.toml
-├── __tests__
-│   ├── pseudo.tests.js
-│   └── sum_function.js
-├── specs
-│   ├── adr
-│   │   ├── 05112025-BuildPipeline.md
-│   │   ├── 05112025-Wireframe.md
-│   │   └── 05142025-Storage.md
-│   ├── assets
-│   │   ├── browseEventPageLoFi.png
-│   │   ├── calendarPageLoFi.png
-│   │   ├── homepageLoFi.png
-│   │   ├── postEventPageLoFi.png
-│   │   └── singleEventPageLoFi.png
-│   └── interface/lowfidelity
-│       └── wireframe-lowfi.md
-├── templates
-│   ├── ADR-template.md
-│   ├── code_review_template.md
-│   └── pull_request_template.md
-├── website
-│   ├── css
-│   │   ├── event.css
-│   │   └── style.css
-│   ├── js
-│   │   ├── EventCard.js
-│   │   ├── app.js
-│   │   ├── custom_form.js
-│   │   ├── storage.js
-│   │   └── swipe.js
-│   ├── browse.html
-│   ├── event.html
-│   ├── index.html
-│   ├── liked.html
-│   └── post.html
-├── .gitignore
-├── jsdoc.json
-├── package-lock.json
-└── package.json
+├── 📁 github 
+│   ├── 📁 ISSUE_TEMPLATE 
+│   │   └── 📄 Contains a yml file with a template for all of our issues
+│   └── 📁 workflows
+│       └── Files containing the set up for unit tests and Qlty on this repository
+├── 📁 qlty
+│   ├── 📁 configs
+│   │   └── Single file meant to set up Github linter
+│   └── 📄 Other files specifically meant to support the linter (ex: a .gitignore file)
+├── 📁 __tests__
+│   └── 📄 Contains Javascript Tests
+├── 📁 specs
+│   ├── 📁 adr
+│   │   └── 📄 Contains all ADRs made for the project
+│   ├── 📁 assets
+│   │   └── 📄 Contains screenshots of the Figma for UI
+│   └── 📁 interface
+│       └── 📁 lowfidelity
+│           └── 📄 Contains the low fidelity wireframe for the website 
+├── 📁 templates
+│   └── 📄 Contains templates for ADRs, pull requests, and other forms of documentation
+├── 📁 website
+│   ├── 📁 css
+│   │   └── 📄 Contains all needed CSS files for the website
+│   ├── 📁 js
+│   │   └── Contains all needed JS for the website
+│   └── 📄 All other files are HTML files for the website
+└── 📄 Miscellaneous Files that do not apply to other 
 ```
 
 #### Remember, We Are A Team! 👫

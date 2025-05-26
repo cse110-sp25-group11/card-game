@@ -18,7 +18,7 @@
 ## HTML 🧱
 
 #### Naming Conventions
-- Class names and ID names should be written using kebab case, where every letter is in lower case and words are seperated with hypens (ex: "my class" would be written as "my-class")
+- Class names and ID names should be written using kebab case, where every letter is in lower case and words are separated with hyphens (ex: "my class" would be written as "my-class")
 
 #### Tags
 - Starting ending tags for structural elements (`div`, `form`, `p`, etc) must be on the same indentation
@@ -31,7 +31,7 @@
 #### Spacing and Indentation
 - Keep exactly 1 empty line between structural elements (`div`, `form`, etc)
 - There should be no random spacing between elements, everything should be kept together
-- Everything *inside* of a structual element should be indented so that it's clear what is inside and outside of it 
+- Everything *inside* of a structural element should be indented so that it's clear what is inside and outside of it 
 
 #### Comments
 - The only comments on files should be the ones at the top of each structural elements describing what it holds, what it will let the user do (if applicable), etc 
@@ -79,7 +79,7 @@
 - All selector name should be exactly the same as how they were written in the HTML file 
 
 #### Selectors
-- All selectors must contain a commment at the top using `/* */` descrribing what it's editing 
+- All selectors must contain a comment at the top using `/* */` describing what it's editing 
 - Group the edits inside each selectors by categories such as the following: text, size, color, etc (add a comment for each category describing where one list starts and the other ends, see the example below)
 - Group all selectors by which sections of the page they apply to (ex: a button's styler and hover selectors should be grouped together)
 - Order these groups **by the order in which they appear on the page**, see below for an example 
@@ -90,7 +90,7 @@
 #### Spacing and Indentation
 - Selectors should be separated by exactly 1 empty line 
 - Grouped selectors will be separated by exactly 3 empty lines 
-- When editing specific elements, there should be exactly 1 space following the ":" charaacter 
+- When editing specific elements, there should be exactly 1 space following the ":" character 
 
 
 
