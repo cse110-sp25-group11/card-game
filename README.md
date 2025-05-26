@@ -5,7 +5,6 @@ This repository holds the 11x developers' campus swipe tool website. Everything 
 
 
 #### What's a Campus Swipe Tool Anyways? 🤔
-
 Our campus tool website is an online platform where UCSD students are able to see events that will take place across the university. This can range anywhere from club events to presentations. Anything taking place on campus is fair game! Users will get to explore each event in detail and determine which events they like and don't like through our home page. Imagine something similar to Tiktok but with UCSD events! They will also be able to add activities onto the website themselves to help promote their own events! 
 
 #### How to Download and Get Started 💻
@@ -31,7 +30,6 @@ The only IDE you are allowed to use is Visual Studio Code. This ensures that we 
 
 
 #### Build Pipeline 👷‍♂️
-
 We are currently using Qlty to lint our code for every pull request. This is automatically run in every pull request and will give you feedback if anything is wrong with your code. We are also 
 
 1. Create your own branch and write your code 
