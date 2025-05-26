@@ -40,7 +40,7 @@ We are currently using Qlty to lint our code for every pull request. This is aut
 
 
 #### Current Progress 🔄
-As of May 24, 2025, we are past the point of degsigning the UI and are currently working on coding the website and bringing it to life! Our top priorities are the following: 
+As of May 24, 2025, we are past the point of designing the UI and are currently working on coding the website and bringing it to life! Our top priorities are the following: 
 - Javascript unit testing is urgent since we want to start testing certain features as soon as possible
 - Making minor edits to the website UI is also urgent, since we were advised that the coloring looked too much like UCLA's colors rather than UCSD's 
 
