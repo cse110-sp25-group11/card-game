@@ -41,5 +41,5 @@ function fetchData(data) {
     console.warn(`[!] Failed to parse "${data}"`);
     return [];
   }
-  return JSON.parse(rawdata);
+  return JSON.parse(rawdata); // Return raw data parsed 
 }
