@@ -48,7 +48,7 @@ As of May 24, 2025, we are past the point of designing the UI and are currently 
 #### Repository Tree 🌳
 Use the following tree to navigate around our repository! 
 
-```bash
+```
 .
 ├── 📁 github 
 │   ├── 📁 ISSUE_TEMPLATE 
