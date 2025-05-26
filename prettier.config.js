@@ -1,5 +1,3 @@
 // prettier.config.js
-module.exports = {
-  useTabs: false,
-  tabWidth: 4,
-};
+export const useTabs = false;
+export const tabWidth = 4;
