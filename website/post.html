@@ -36,31 +36,31 @@
             </nav>
         </header>
         <main>
-            <h2 id="postHeader">Post An Event</h2>
+            <h2 id="post-header">Post An Event</h2>
             <form>
-                <div class="formGroup">
-                    <label for="eventName">Event Name</label>
+                <div class="form-group">
+                    <label for="event-name">Event Name</label>
                     <input
                         type="text"
-                        id="eventName"
-                        name="eventName"
+                        id="event-name"
+                        name="event-name"
                         placeholder="String Input"
                         required
                     />
                 </div>
 
-                <div class="formGroup">
-                    <label for="orgName">Club/Org Name</label>
+                <div class="form-group">
+                    <label for="org-name">Club/Org Name</label>
                     <input
                         type="text"
-                        id="orgName"
-                        name="orgName"
+                        id="org-name"
+                        name="org-name"
                         placeholder="String Input"
                         required
                     />
                 </div>
 
-                <div class="formGroup">
+                <div class="form-group">
                     <label for="date">Date</label>
                     <input
                         type="text"
@@ -71,9 +71,9 @@
                     />
                 </div>
 
-                <div class="formGroup">
+                <div class="form-group">
                     <label>Start and End Time</label>
-                    <div class="startAndEndTimes">
+                    <div class="start-end-times">
                         <input
                             type="time"
                             id="startTime"
@@ -89,7 +89,7 @@
                     </div>
                 </div>
 
-                <div class="formGroup">
+                <div class="form-group">
                     <label for="location">Location</label>
                     <input
                         type="text"
@@ -100,7 +100,7 @@
                     />
                 </div>
 
-                <div class="formGroup">
+                <div class="form-group">
                     <label for="description">Description</label>
                     <textarea
                         id="description"
@@ -110,20 +110,20 @@
                     ></textarea>
                 </div>
 
-                <div class="formGroup">
+                <div class="form-group">
                     <label>Food</label>
-                    <div class="foodGroup">
-                        <input type="radio" id="foodYes" name="food" value="yes" required />
-                        <label for="foodYes">Yes</label>
+                    <div class="food-group">
+                        <input type="radio" id="food-yes" name="food" value="yes" required />
+                        <label for="food-yes">Yes</label>
 
-                        <input type="radio" id="foodNo" name="food" value="no" required />
-                        <label for="foodNo">No</label>
+                        <input type="radio" id="food-no" name="food" value="no" required />
+                        <label for="food-no">No</label>
                     </div>
                 </div>
 
-                <div class="formGroup">
+                <div class="form-group">
                     <label>Upload Flyer/Photo</label>
-                    <div class="customFileUpload">
+                    <div class="custom-file-upload">
                         <label for="photo" class="upload-icon">
                             <img src="assets/uploadButton.svg" alt="Upload" />
                         </label>
@@ -135,22 +135,22 @@
                             required
                             hidden
                         />
-                        <p id="fileNameDisplay"></p>
+                        <p id="file-name-display"></p>
                     </div>
                 </div>
 
-                <div class="formGroup">
-                <label for="altText">Alt Text</label>
+                <div class="form-group">
+                <label for="alt-text">Alt Text</label>
                 <input
                     type="text"
-                    id="altText"
-                    name="altText"
+                    id="alt-text"
+                    name="alt-text"
                     placeholder="String Input"
                     required
                 />
                 </div>
 
-                <button type="submit" id="submitButton">Submit</button>
+                <button type="submit" id="submit-button">Submit</button>
             </form>
         </main>
     </body>
@@ -161,7 +161,7 @@
     <script>
             document.getElementById('photo').addEventListener('change', function () {
             const fileName = this.files[0]?.name || 'No file chosen';
-            document.getElementById('fileNameDisplay').textContent = `File Selected: ${fileName}`;
+            document.getElementById('file-name-display').textContent = `File Selected: ${fileName}`;
             });
     </script>
 </html>

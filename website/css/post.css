@@ -11,7 +11,7 @@ main {
 /**
  * Styling for Post Event page
  */
-#postHeader {
+#post-header {
     color: white;
     background-color: #9B8F8F;
     padding: 7px;
@@ -21,23 +21,23 @@ main {
     font-weight: 400;
 }
 
-.formGroup {
+.form-group {
     display: grid;
     grid-template-columns: 250px 350px;
     margin-bottom: 15px;
 }
 
-.formGroup label, legend{
+.form-group label, legend{
     color: white;
 }
 
-.formGroup input::placeholder,
+.form-group input::placeholder,
 textarea::placeholder {
     color: black;
     font-family: "Inter", sans-serif;
 }
 
-.formGroup input::file-selector-button {
+.form-group input::file-selector-button {
     padding: 5px;
     font-family: "Inter", sans-serif;
     border-radius: 5px;
@@ -46,11 +46,11 @@ textarea::placeholder {
     box-shadow: none;
 }
 
-.customFileUpload {
+.custom-file-upload {
     display: flex;
 }
 
-.customFileUpload p {
+.custom-file-upload p {
     margin-top: 0;
     margin-left: 15px;
     padding: 0;
@@ -59,7 +59,7 @@ textarea::placeholder {
     font-size: 14px;
 }
 
-#submitButton {
+#submit-button {
     background-color: #6ae053;
     font-family: "Inter", san-serif;
     font-size: 18px;
@@ -69,11 +69,6 @@ textarea::placeholder {
     margin: auto;
 }
 
-#submitButton:hover {
+#submit-button:hover {
     background-color: #206513;
-}
-
-#btn {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
 }
