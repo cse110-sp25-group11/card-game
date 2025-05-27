@@ -13,10 +13,10 @@ class EventCard extends HTMLElement {
    * Called when the .data property is set on this element.
    *
    * For example:
-   * let eventCard = document.createElement('event-card'); // Calls constructor()
-   * eventCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
+   * let homeEventCard = document.createElement('home-event-card'); // Calls constructor()
+   * homeEventCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
    *
-   * @param {Object} data - The data to pass into the <recipe-card> must be of the
+   * @param {Object} data - The data to pass into the <home-event-card> must be of the
    *                        following format:
    *                        {
    *                          name: "string",
@@ -53,4 +53,4 @@ class EventCard extends HTMLElement {
   }
 }
 
-customElements.define("event-card", EventCard);
+customElements.define("home-event-card", EventCard);
