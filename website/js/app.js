@@ -240,11 +240,11 @@ function mapEventData(event) {
   // Handle both data structures: form submission (eventName, orgName) and debug populate (name, org)
   const name = event.eventName || event.name || "Untitled Event";
   const org = event.orgName || event.org || "Unknown Organization";
-  const imgLink = event.photoFileName 
-    ? `uploads/${event.photoFileName}` 
+  const imgLink = event.photoFileName
+    ? `uploads/${event.photoFileName}`
     : event.imgLink || "https://via.placeholder.com/300x200?text=No+Image";
   const imgAltText = event.altText || event.imgAltText || `${name} photo`;
-  
+
   return {
     name: name,
     org: org,
