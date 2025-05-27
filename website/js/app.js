@@ -210,23 +210,11 @@ function populateCarousel(carousel, events) {
  * @returns {HTMLElement} - Event card article element
  */
 function createEventCardElement(event) {
-  const article = document.createElement("article");
-  article.className = "event-card";
-
-  // Map the stored event data to the format expected by the HTML structure
+  const eventCard = document.createElement("event-card");
+  // Map the stored event data to the format expected by the component
   const eventData = mapEventData(event);
-
-  article.innerHTML = `
-    <div class="photo-container">
-      <img src="${eventData.imgLink}" alt="${eventData.imgAltText}" />
-    </div>
-    <div class="event-info">
-      <h3>${eventData.name}</h3>
-      <h3>${eventData.org}</h3>
-    </div>
-  `;
-
-  return article;
+  eventCard.data = eventData;
+  return eventCard;
 }
 
 /**
