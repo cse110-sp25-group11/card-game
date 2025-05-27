@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>storage.js - Documentation</title>
+    <title>homeEventCard.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">storage.js</h1>
+    <h1 class="page-title">homeEventCard.js</h1>
     
 
     
@@ -39,51 +39,62 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Clears all key/value pairs from the browser's localStorage.
- *
- * @function deleteLocalStorage
- * @returns {void}
- */
-function deleteLocalStorage() {
-  localStorage.clear();
-}
-
-/**
- * Add item to localStorage if it doesn't already exist.
- * If the item already exists or key already pertains to antoher value, it will not be added.
- *
- * @function addToStorage
- * @param string key - The key to store in localStorage.
- * @param string value - The value to store in localStorage.
- * @returns {boolean} - Returns true if the item was added, false if it already exists.
- */
-function addToStorage(key, value) {
-  if (localStorage.getItem(key) === null) {
-    localStorage.setItem(key, value);
-    return true;
-  }
-  return false;
-}
-
-/**
- * Fetches data from local storage and verifies that it is a valid JSON
- * @param {string} data - The key to retrieve from localStorage
- * @returns {Array} - Returns parsed JSON data or empty array if parsing fails
- */
-function fetchData(data) {
-  if (!data) {
-    console.warn(`[!] Failed to parse "${data}"`);
-    return [];
+            <pre class="prettyprint source linenums"><code>class EventCard extends HTMLElement {
+  constructor() {
+    super();
+    let shadowElem = this.attachShadow({ mode: "open" });
+    const article = document.createElement("article");
+    const style = document.createElement("style");
+    style.innerHTML = ``;
+    shadowElem.append(article);
+    shadowElem.append(style);
   }
 
-  const rawdata = localStorage.getItem(data);
-  if (!rawdata) {
-    console.warn(`[!] Failed to parse "${data}"`);
-    return [];
+  /**
+   * Called when the .data property is set on this element.
+   *
+   * For example:
+   * let homeEventCard = document.createElement('home-event-card'); // Calls constructor()
+   * homeEventCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
+   *
+   * @param {Object} data - The data to pass into the &lt;home-event-card> must be of the
+   *                        following format:
+   *                        {
+   *                          name: "string",
+   *                          description: "string",
+   *                          date: "string",
+   *                          org: "string",
+   *                          imgLink: "string",
+   *                          imgAltText: "string",
+   *                          location: "string",
+   *                          food: "boolean",
+   *                          startTime: "string",
+   *                          endTime: "string",
+   *                        }
+   */
+
+  set data(data) {
+    if (!data) return;
+    const article = this.shadowRoot.querySelector("article");
+    article.innerHTML = `
+        &lt;img src = ${data.imgLink} alt=${data.imgAlt}>
+        &lt;div class="nameAndOrg">
+            &lt;span class="eventName">${data.name}&lt;/span>
+            &lt;span class="org">${data.org} &lt;/span>
+        &lt;/div>
+        &lt;p> Free food provided? ${data.food ? "Yes" : "No"} &lt;/p>
+        &lt;p>
+            &lt;time datetime=${data.date}>${data.date}&lt;/time>: 
+            &lt;time datetime=${data.startTime}>${data.startTime}&lt;/time> to
+            &lt;time datetime=${data.endTime}>${data.endTime}&lt;/time>
+        &lt;/p>
+        &lt;p>${data.location}&lt;/p>
+        &lt;p class="eventDescription"> ${data.description}&lt;/p>
+    `;
   }
-  return JSON.parse(rawdata);
 }
+
+customElements.define("home-event-card", EventCard);
 </code></pre>
         </article>
     </section>
