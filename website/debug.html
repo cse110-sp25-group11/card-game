@@ -84,31 +84,44 @@
 
     <main>
       <div class="debug-container">
-        <h2 style="color: white; font-family: 'Merriweather Sans', sans-serif;">Debug Utilities</h2>
-        
+        <h2
+          style="
+            color: white;
+            font-family: &quot;Merriweather Sans&quot;, sans-serif;
+          "
+        >
+          Debug Utilities
+        </h2>
+
         <div class="debug-info">
-          <p>This page provides debugging utilities for the Campus Swipe application.</p>
-          <p>Use the buttons below to populate localStorage with sample events for testing.</p>
+          <p>
+            This page provides debugging utilities for the Campus Swipe
+            application.
+          </p>
+          <p>
+            Use the buttons below to populate localStorage with sample events
+            for testing.
+          </p>
         </div>
 
         <button class="debug-button" onclick="populateEvents()">
           <i class="fa-solid fa-database"></i> Populate Sample Events
         </button>
-        
+
         <button class="debug-button" onclick="clearEvents()">
           <i class="fa-solid fa-trash"></i> Clear All Events
         </button>
-        
+
         <button class="debug-button" onclick="showEventCounts()">
           <i class="fa-solid fa-info-circle"></i> Show Event Counts
         </button>
 
         <div id="statusMessage"></div>
-        <div id="eventCounts" style="color: white; margin-top: 20px;"></div>
+        <div id="eventCounts" style="color: white; margin-top: 20px"></div>
       </div>
     </main>
 
     <script src="js/storage.js"></script>
     <script src="js/debug-populate.js"></script>
   </body>
-</html> 
+</html>
