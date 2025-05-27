@@ -101,24 +101,24 @@ if (navButtons.length >= 5) {
  * Categorizes events into: Happening Now, Upcoming Events, and Popular Events
  */
 function loadEventsForBrowse() {
-  if (!document.querySelector('.event-carousel')) return;
+  if (!document.querySelector(".event-carousel")) return;
 
-  const events = fetchData('events');
-  
+  const events = fetchData("events");
+
   if (events.length === 0) {
-    console.log('No events found in localStorage');
+    console.log("No events found in localStorage");
     return;
   }
 
-  const carousels = document.querySelectorAll('.event-carousel .event-cards');
-  
+  const carousels = document.querySelectorAll(".event-carousel .event-cards");
+
   if (carousels.length < 3) {
-    console.error('Expected 3 carousels but found', carousels.length);
+    console.error("Expected 3 carousels but found", carousels.length);
     return;
   }
 
-  carousels.forEach(carousel => {
-    carousel.innerHTML = '';
+  carousels.forEach((carousel) => {
+    carousel.innerHTML = "";
   });
 
   const currentlyHappening = getCurrentlyHappeningEvents(events);
@@ -137,9 +137,9 @@ function loadEventsForBrowse() {
  */
 function getCurrentlyHappeningEvents(events) {
   const today = new Date();
-  const todayString = `${(today.getMonth() + 1).toString().padStart(2, '0')}/${today.getDate().toString().padStart(2, '0')}/${today.getFullYear()}`;
-  
-  return events.filter(event => {
+  const todayString = `${(today.getMonth() + 1).toString().padStart(2, "0")}/${today.getDate().toString().padStart(2, "0")}/${today.getFullYear()}`;
+
+  return events.filter((event) => {
     return event.date === todayString;
   });
 }
@@ -151,9 +151,9 @@ function getCurrentlyHappeningEvents(events) {
  */
 function getUpcomingEvents(events) {
   const today = new Date();
-  
+
   return events
-    .filter(event => {
+    .filter((event) => {
       const eventDate = new Date(event.date);
       return eventDate > today;
     })
@@ -167,9 +167,9 @@ function getUpcomingEvents(events) {
  */
 function getPastEvents(events) {
   const today = new Date();
-  
+
   return events
-    .filter(event => {
+    .filter((event) => {
       const eventDate = new Date(event.date);
       return eventDate < today;
     })
@@ -184,14 +184,14 @@ function getPastEvents(events) {
 function populateCarousel(carousel, events) {
   if (events.length === 0) {
     // Show a message when no events are available
-    const noEventsMessage = document.createElement('div');
-    noEventsMessage.className = 'no-events-message';
-    noEventsMessage.innerHTML = '<p>No events available</p>';
+    const noEventsMessage = document.createElement("div");
+    noEventsMessage.className = "no-events-message";
+    noEventsMessage.innerHTML = "<p>No events available</p>";
     carousel.appendChild(noEventsMessage);
     return;
   }
 
-  events.forEach(event => {
+  events.forEach((event) => {
     const eventCard = createEventCardElement(event);
     carousel.appendChild(eventCard);
   });
@@ -203,12 +203,12 @@ function populateCarousel(carousel, events) {
  * @returns {HTMLElement} - Event card article element
  */
 function createEventCardElement(event) {
-  const article = document.createElement('article');
-  article.className = 'event-card';
-  
+  const article = document.createElement("article");
+  article.className = "event-card";
+
   // Map the stored event data to the format expected by the HTML structure
   const eventData = mapEventData(event);
-  
+
   article.innerHTML = `
     <div class="photo-container">
       <img src="${eventData.imgLink}" alt="${eventData.imgAltText}" />
@@ -218,7 +218,7 @@ function createEventCardElement(event) {
       <h3>${eventData.org}</h3>
     </div>
   `;
-  
+
   return article;
 }
 
@@ -229,17 +229,19 @@ function createEventCardElement(event) {
  */
 function mapEventData(event) {
   return {
-    name: event.eventName || 'Untitled Event',
-    org: event.orgName || 'Unknown Organization',
-    date: event.date || '',
-    imgLink: event.photoFileName ? `uploads/${event.photoFileName}` : 'https://via.placeholder.com/300x200?text=No+Image',
-    imgAltText: event.altText || `${event.eventName || 'Event'} photo`,
-    location: event.location || 'Location TBD',
-    food: event.food === 'yes',
-    startTime: event.startTime || '00:00',
-    endTime: event.endTime || '23:59',
-    description: event.description || 'No description available'
+    name: event.eventName || "Untitled Event",
+    org: event.orgName || "Unknown Organization",
+    date: event.date || "",
+    imgLink: event.photoFileName
+      ? `uploads/${event.photoFileName}`
+      : "https://via.placeholder.com/300x200?text=No+Image",
+    imgAltText: event.altText || `${event.eventName || "Event"} photo`,
+    location: event.location || "Location TBD",
+    food: event.food === "yes",
+    startTime: event.startTime || "00:00",
+    endTime: event.endTime || "23:59",
+    description: event.description || "No description available",
   };
 }
 
-document.addEventListener('DOMContentLoaded', loadEventsForBrowse);
+document.addEventListener("DOMContentLoaded", loadEventsForBrowse);
