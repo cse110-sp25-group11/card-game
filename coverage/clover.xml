@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1748311973197" clover="3.2.0">
-  <project timestamp="1748311973198" name="All files">
+<coverage generated="1748312110735" clover="3.2.0">
+  <project timestamp="1748312110735" name="All files">
     <metrics statements="39" coveredstatements="8" conditionals="24" coveredconditionals="8" methods="10" coveredmethods="2" elements="73" coveredelements="18" complexity="0" loc="39" ncloc="39" packages="1" files="2" classes="2"/>
     <file name="app.js" path="C:\Users\timet\Desktop\card-game\website\js\app.js">
       <metrics statements="38" coveredstatements="7" conditionals="24" coveredconditionals="8" methods="9" coveredmethods="1"/>
@@ -23,11 +23,11 @@
       <line num="45" count="0" type="stmt"/>
       <line num="46" count="0" type="stmt"/>
       <line num="49" count="0" type="stmt"/>
-      <line num="58" count="4" type="cond" truecount="4" falsecount="0"/>
-      <line num="60" count="2" type="stmt"/>
-      <line num="73" count="2" type="stmt"/>
-      <line num="74" count="19" type="cond" truecount="4" falsecount="0"/>
-      <line num="75" count="1" type="stmt"/>
+      <line num="58" count="5" type="cond" truecount="4" falsecount="0"/>
+      <line num="60" count="3" type="stmt"/>
+      <line num="73" count="3" type="stmt"/>
+      <line num="74" count="14" type="cond" truecount="4" falsecount="0"/>
+      <line num="75" count="2" type="stmt"/>
       <line num="78" count="1" type="stmt"/>
       <line num="81" count="1" type="stmt"/>
       <line num="82" count="0" type="stmt"/>

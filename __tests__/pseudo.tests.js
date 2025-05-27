@@ -36,10 +36,46 @@ test('returns true for a valid event', () => {
     expect(checkValidEvent(validEvent)).toBe(true);
 });
 
-test('returns false for missing start time', () => {
-    validEvent["startTime"] = [];
+test('returns false for missing description', () => {
+    validEvent["description"] = [];
     expect(checkValidEvent(validEvent)).toBe(false);
 });
+
+test('returns false for missing org', () => {
+    validEvent["org"] = [];
+    expect(checkValidEvent(validEvent)).toBe(false);
+});
+
+test('returns false for imgLink', () => {
+    validEvent["imgLink"] = [];
+    expect(checkValidEvent(validEvent)).toBe(false);
+});
+
+test('returns false for imgAltText', () => {
+    validEvent["imgAltText"] = [];
+    expect(checkValidEvent(validEvent)).toBe(false);
+});
+
+test('returns false for location', () => {
+    validEvent["location"] = [];
+    expect(checkValidEvent(validEvent)).toBe(false);
+});
+
+test('returns false for food', () => {
+    validEvent["food"] = [];
+    expect(checkValidEvent(validEvent)).toBe(false);
+});
+
+test('returns false for food', () => {
+    validEvent["food"] = [];
+    expect(checkValidEvent(validEvent)).toBe(false);
+});
+
+test('returns false for missing date', () => {
+    validEvent["date"] = [];
+    expect(checkValidEvent(validEvent)).toBe(false);
+});
+
 
 test('returns false for null event', () => {
   expect(checkValidEvent(null)).toBe(false);
