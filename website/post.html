@@ -48,22 +48,22 @@
       <h2 id="post-header">Post An Event</h2>
       <form>
         <div class="form-group">
-          <label for="event-name">Event Name</label>
+          <label for="eventName">Event Name</label>
           <input
             type="text"
-            id="event-name"
-            name="event-name"
+            id="eventName"
+            name="eventName"
             placeholder="String Input"
             required
           />
         </div>
 
         <div class="form-group">
-          <label for="org-name">Club/Org Name</label>
+          <label for="orgName">Club/Org Name</label>
           <input
             type="text"
-            id="org-name"
-            name="org-name"
+            id="orgName"
+            name="orgName"
             placeholder="String Input"
             required
           />
@@ -114,15 +114,15 @@
           <div class="food-group">
             <input
               type="radio"
-              id="food-yes"
+              id="foodYes"
               name="food"
               value="yes"
               required
             />
-            <label for="food-yes">Yes</label>
+            <label for="foodYes">Yes</label>
 
-            <input type="radio" id="food-no" name="food" value="no" required />
-            <label for="food-no">No</label>
+            <input type="radio" id="foodNo" name="food" value="no" required />
+            <label for="foodNo">No</label>
           </div>
         </div>
 
@@ -140,22 +140,22 @@
               required
               hidden
             />
-            <p id="file-name-display"></p>
+            <p id="fileNameDisplay"></p>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="alt-text">Alt Text</label>
+          <label for="altText">Alt Text</label>
           <input
             type="text"
-            id="alt-text"
-            name="alt-text"
+            id="altText"
+            name="altText"
             placeholder="String Input"
             required
           />
         </div>
 
-        <button type="submit" id="submit-button">Submit</button>
+        <button type="submit" id="submitButton">Submit</button>
       </form>
     </main>
   </body>
@@ -166,7 +166,7 @@
   <script>
     document.getElementById("photo").addEventListener("change", function () {
       const fileName = this.files[0]?.name || "No file chosen";
-      document.getElementById("file-name-display").textContent =
+      document.getElementById("fileNameDisplay").textContent =
         `File Selected: ${fileName}`;
     });
   </script>
