@@ -216,6 +216,7 @@ function createEventCardElement(event) {
   // Map the stored event data to the format expected by the HTML structure
   const eventData = mapEventData(event);
 
+  // TODO: Make browse cards dynamically update when event data changes per Mia's request
   article.innerHTML = `
     <div class="photo-container">
       <img src="${eventData.imgLink}" alt="${eventData.imgAltText}" />
