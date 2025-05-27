@@ -36,3 +36,16 @@ test('returns true for a valid event', () => {
     expect(checkValidEvent(validEvent)).toBe(true);
 });
 
+test('returns false for missing start time', () => {
+    validEvent["startTime"] = [];
+    expect(checkValidEvent(validEvent)).toBe(false);
+});
+
+test('returns false for null event', () => {
+  expect(checkValidEvent(null)).toBe(false);
+});
+
+test('returns false for non-object event', () => {
+  expect(checkValidEvent("not an object")).toBe(false);
+});
+

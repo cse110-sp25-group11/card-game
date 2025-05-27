@@ -55,6 +55,7 @@ function updateLocalStorage(key, newData) {
  * @returns {boolean} whether it is valid or not
  */
 function checkValidEvent(event) {
+  if (typeof event !== "object" || event === null) return false;
   // List of required keys with their expected types
   const requiredFields = {
     name: "string",
@@ -77,21 +78,24 @@ function checkValidEvent(event) {
   return true;
 }
 
-const navButtons = document.querySelectorAll("nav button");
-if (navButtons.length >= 5) {
-  navButtons[0].onclick = () => {
-    window.location.href = "index.html";
-  };
-  navButtons[1].onclick = () => {
-    window.location.href = "post.html";
-  };
-  navButtons[2].onclick = () => {
-    window.location.href = "browse.html";
-  };
-  navButtons[3].onclick = () => {
-    window.location.href = "liked.html";
-  };
-  navButtons[4].onclick = () => {
-    window.location.href = "index.html";
-  };
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const navButtons = document.querySelectorAll("nav button");
+  if (navButtons.length >= 5) {
+    navButtons[0].onclick = () => {
+      window.location.href = "index.html";
+    };
+    navButtons[1].onclick = () => {
+      window.location.href = "post.html";
+    };
+    navButtons[2].onclick = () => {
+      window.location.href = "browse.html";
+    };
+    navButtons[3].onclick = () => {
+      window.location.href = "liked.html";
+    };
+    navButtons[4].onclick = () => {
+      window.location.href = "index.html";
+    };
+  }
+});
+export { checkValidEvent };
