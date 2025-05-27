@@ -1,4 +1,11 @@
 /**
+ * @fileoverview Main application logic for Campus Swipe
+ * @requires storage.js - fetchData function
+ */
+
+/* global fetchData */
+
+/**
  * Example function to show an alert when the button is clicked.
  * @returns {void}
  */
