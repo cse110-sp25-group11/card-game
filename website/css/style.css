@@ -7,19 +7,19 @@
   margin-top: 200px;
 }
 body {
-  background-color: #03629c;
+  background-color: #182b49;
 }
+
 /*Nav Bar*/
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 40px;
-  background-color: #ffcd00;
-  position: fixed;
+  background-color: #c69214f2;
+  position: sticky;
   top: 0;
   left: 0;
-  right: 0;
 }
 
 .navbar h1 {
@@ -29,7 +29,7 @@ body {
 
 .navbar h1 a {
   text-decoration: none;
-  font-family: "Merriweather Sans", sans-serif;
+  font-family: "Inika", serif;
   color: white;
   font-size: 40px;
   letter-spacing: 1.5px;
