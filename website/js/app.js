@@ -210,29 +210,48 @@ function populateCarousel(carousel, events) {
  * @returns {HTMLElement} - Event card article element
  */
 function createEventCardElement(event) {
-  const eventCard = document.createElement("event-card");
-  // Map the stored event data to the format expected by the component
+  const article = document.createElement("article");
+  article.className = "event-card";
+
+  // Map the stored event data to the format expected by the HTML structure
   const eventData = mapEventData(event);
-  eventCard.data = eventData;
-  return eventCard;
+
+  article.innerHTML = `
+    <div class="photo-container">
+      <img src="${eventData.imgLink}" alt="${eventData.imgAltText}" />
+    </div>
+    <div class="event-info">
+      <h3>${eventData.name}</h3>
+      <h3>${eventData.org}</h3>
+    </div>
+  `;
+
+  return article;
 }
 
 /**
  * Maps stored event data to the format expected by the display components
+ * Handles both form submission format and debug populate format
  * @param {Object} event - Event object from localStorage
  * @returns {Object} - Mapped event data
  */
 function mapEventData(event) {
+  // Handle both data structures: form submission (eventName, orgName) and debug populate (name, org)
+  const name = event.eventName || event.name || "Untitled Event";
+  const org = event.orgName || event.org || "Unknown Organization";
+  const imgLink = event.photoFileName 
+    ? `uploads/${event.photoFileName}` 
+    : event.imgLink || "https://via.placeholder.com/300x200?text=No+Image";
+  const imgAltText = event.altText || event.imgAltText || `${name} photo`;
+  
   return {
-    name: event.eventName || "Untitled Event",
-    org: event.orgName || "Unknown Organization",
+    name: name,
+    org: org,
     date: event.date || "",
-    imgLink: event.photoFileName
-      ? `uploads/${event.photoFileName}`
-      : "https://via.placeholder.com/300x200?text=No+Image",
-    imgAltText: event.altText || `${event.eventName || "Event"} photo`,
+    imgLink: imgLink,
+    imgAltText: imgAltText,
     location: event.location || "Location TBD",
-    food: event.food === "yes",
+    food: event.food === "yes" || event.food === true,
     startTime: event.startTime || "00:00",
     endTime: event.endTime || "23:59",
     description: event.description || "No description available",
