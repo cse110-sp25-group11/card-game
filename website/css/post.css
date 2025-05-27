@@ -1,11 +1,11 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 
 main {
-    font-family: "Inter", sans-serif;
-    padding-left: 2em;
-    padding-top: 1em;
+  font-family: "Inter", sans-serif;
+  padding-left: 2em;
+  padding-top: 1em;
 }
 
 /**
@@ -33,8 +33,8 @@ main {
 
 .form-group input::placeholder,
 textarea::placeholder {
-    color: black;
-    font-family: "Inter", sans-serif;
+  color: black;
+  font-family: "Inter", sans-serif;
 }
 
 .form-group input::file-selector-button {
