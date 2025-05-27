@@ -4,25 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Campus Swipe - Post Event</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Link to Icons-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!--Links to fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-      <h1>Campus Swipe</h1>
-      <nav>
-        <button>Search</button>
-        <button>Add Event</button>
-        <button>All Events</button>
-        <button>Liked Events</button>
-        <button>Reset</button>
+      <nav class="navbar">
+        <h1><a href="index.html">CAMPUS SWIPE</a></h1>
+        <div class="navbar-items">
+          <a href="browse.html">
+            <button><i class="fa-solid fa-magnifying-glass"></i>Browse</button>
+          </a>
+          <a href="post.html">
+            <button><i class="fa-solid fa-square-plus"></i>Add Event</button>
+          </a>
+          <a href="liked.html">
+            <button><i class="fa-solid fa-heart"></i>Liked Events</button>
+          </a>
+        </div>
       </nav>
     </header>
 
     <main>
-      <h2>Post An Event</h2>
-
+      <h2 id="post-header">Post An Event</h2>
       <form>
         <div class="form-group">
-          <label for="eventName">Event Name</label>
+          <label for="eventName">Event Name:</label>
           <input
             type="text"
             id="eventName"
@@ -33,7 +51,7 @@
         </div>
 
         <div class="form-group">
-          <label for="orgName">Club/Org Name</label>
+          <label for="orgName">Club/Org Name:</label>
           <input
             type="text"
             id="orgName"
@@ -44,7 +62,7 @@
         </div>
 
         <div class="form-group">
-          <label for="date">Date</label>
+          <label for="date">Date:</label>
           <input
             type="text"
             id="date"
@@ -55,7 +73,7 @@
         </div>
 
         <div class="form-group">
-          <label for="duration">Duration</label>
+          <label for="duration">Duration:</label>
           <input
             type="text"
             id="duration"
@@ -108,8 +126,12 @@
           />
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" id="submit-button">Submit</button>
       </form>
     </main>
   </body>
+  <script src="js/EventCard.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/custom_form.js"></script>
 </html>
