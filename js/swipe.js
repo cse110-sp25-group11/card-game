@@ -8,75 +8,75 @@ let lastSwipe = null;
 
 // return the currently displayed card
 function getCurrentCard() {
-  return cards[currentCardIndex];
+    return cards[currentCardIndex];
 }
 
 // handle swiping left or right
 function swipe(direction) {
-  const card = getCurrentCard();
-  if (!card) return;
+    const card = getCurrentCard();
+    if (!card) return;
 
-  // add animation class depending on the swipe direction
-  const animationClass =
-    direction === "left" ? "slide-out-left" : "slide-out-right";
-  card.classList.add(animationClass);
+    // add animation class depending on the swipe direction
+    const animationClass =
+        direction === "left" ? "slide-out-left" : "slide-out-right";
+    card.classList.add(animationClass);
 
-  // save the last swipe info for undo functionality
-  lastSwipe = { card, direction };
+    // save the last swipe info for undo functionality
+    lastSwipe = { card, direction };
 
-  // move to the next card
-  currentCardIndex++;
-  showUndo();
-  checkIfNoCardsLeft();
+    // move to the next card
+    currentCardIndex++;
+    showUndo();
+    checkIfNoCardsLeft();
 }
 
 function swipeLeft() {
-  swipe("left");
+    swipe("left");
 }
 
 function swipeRight() {
-  swipe("right");
+    swipe("right");
 }
 
 // undoing the last swipe action
 function undoSwipe() {
-  if (!lastSwipe) return;
+    if (!lastSwipe) return;
 
-  const { card } = lastSwipe;
-  // remove the swiping animation
-  card.classList.remove("slide-out-left", "slide-out-right");
+    const { card } = lastSwipe;
+    // remove the swiping animation
+    card.classList.remove("slide-out-left", "slide-out-right");
 
-  currentCardIndex--;
-  // goes back to the last card
-  lastSwipe = null;
-  // hides the undo button and shows the check mark and cross buttons
-  undoBtn.style.display = "none";
-  updateButtons(true);
+    currentCardIndex--;
+    // goes back to the last card
+    lastSwipe = null;
+    // hides the undo button and shows the check mark and cross buttons
+    undoBtn.style.display = "none";
+    updateButtons(true);
 }
 
 //ends up showing the undo button
 function showUndo() {
-  undoBtn.style.display = "block";
+    undoBtn.style.display = "block";
 }
 
 //checks if there are no cards left to swipe
 function checkIfNoCardsLeft() {
-  if (currentCardIndex >= cards.length) {
-    updateButtons(false);
-  }
+    if (currentCardIndex >= cards.length) {
+        updateButtons(false);
+    }
 }
 
 // updates the state of the accept and reject buttons based on 'enable'
 function updateButtons(enable) {
-  acceptBtn.disabled = !enable;
-  rejectBtn.disabled = !enable;
-  if (!enable) {
-    acceptBtn.style.opacity = 0.5;
-    rejectBtn.style.opacity = 0.5;
-  } else {
-    acceptBtn.style.opacity = 1;
-    rejectBtn.style.opacity = 1;
-  }
+    acceptBtn.disabled = !enable;
+    rejectBtn.disabled = !enable;
+    if (!enable) {
+        acceptBtn.style.opacity = 0.5;
+        rejectBtn.style.opacity = 0.5;
+    } else {
+        acceptBtn.style.opacity = 1;
+        rejectBtn.style.opacity = 1;
+    }
 }
 
 // Initial check in case there's no card at all
