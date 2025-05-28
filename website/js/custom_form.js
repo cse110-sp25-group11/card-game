@@ -12,11 +12,11 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-    const photoInput = document.getElementById("photo");
-    const photoFile = photoInput.files[0];
+        const photoInput = document.getElementById("photo");
+        const photoFile = photoInput.files[0];
 
     const eventData = {
       eventName: form.elements["eventName"].value,
@@ -32,11 +32,11 @@ window.addEventListener("DOMContentLoaded", () => {
       timestamp: new Date().toISOString(),
     };
 
-    let events = JSON.parse(localStorage.getItem("events") || "[]");
+        let events = JSON.parse(localStorage.getItem("events") || "[]");
 
-    events.push(eventData);
+        events.push(eventData);
 
-    localStorage.setItem("events", JSON.stringify(events));
+        localStorage.setItem("events", JSON.stringify(events));
 
     alert("Event Successfully Posted!");
     form.reset();

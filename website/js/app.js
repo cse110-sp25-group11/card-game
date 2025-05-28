@@ -10,7 +10,7 @@
  * @returns {void}
  */
 function handleClick() {
-  alert("Button clicked!");
+    alert("Button clicked!");
 }
 
 /**
@@ -21,39 +21,39 @@ function handleClick() {
  * @returns {void}
  */
 function updateLocalStorage(key, newData) {
-  // returns of a key or data was not passed in
-  if (!key) return;
-  if (!newData || typeof newData !== "object") return;
+    // returns of a key or data was not passed in
+    if (!key) return;
+    if (!newData || typeof newData !== "object") return;
 
-  // check whether all values inside newData are valid
-  if (!checkValidEvent(newData)) return;
+    // check whether all values inside newData are valid
+    if (!checkValidEvent(newData)) return;
 
-  // grab the current data for the key
-  // the data will be an array of stringified JSON formmatted Object
-  let currentData = JSON.parse(localStorage.getItem(key));
+    // grab the current data for the key
+    // the data will be an array of stringified JSON formmatted Object
+    let currentData = JSON.parse(localStorage.getItem(key));
 
-  // if it existing data not found, upload the newData right away
-  if (!currentData) {
-    localStorage.setItem(key, JSON.stringify([newData]));
-    console.log("No data found. Uploading current data as first values.");
-    return;
-  }
-  let eventFound = false;
-  for (let event of currentData) {
-    // if event is found, change details to newData
-    if (event.name == newData.name) {
-      eventFound = true;
-      event = newData;
-      console.log("Event details successfully changed");
+    // if it existing data not found, upload the newData right away
+    if (!currentData) {
+        localStorage.setItem(key, JSON.stringify([newData]));
+        console.log("No data found. Uploading current data as first values.");
+        return;
     }
-  }
-  // if event not found, add it to our data
-  if (!eventFound) {
-    currentData.push(newData);
-    console.log("Event not found. Successfully added event.");
-  }
-  // update our localStorage with modified event
-  localStorage.setItem(key, JSON.stringify(currentData));
+    let eventFound = false;
+    for (let event of currentData) {
+        // if event is found, change details to newData
+        if (event.name == newData.name) {
+            eventFound = true;
+            event = newData;
+            console.log("Event details successfully changed");
+        }
+    }
+    // if event not found, add it to our data
+    if (!eventFound) {
+        currentData.push(newData);
+        console.log("Event not found. Successfully added event.");
+    }
+    // update our localStorage with modified event
+    localStorage.setItem(key, JSON.stringify(currentData));
 }
 
 /**
@@ -62,45 +62,45 @@ function updateLocalStorage(key, newData) {
  * @returns {boolean} whether it is valid or not
  */
 function checkValidEvent(event) {
-  // List of required keys with their expected types
-  const requiredFields = {
-    name: "string",
-    description: "string",
-    date: "string",
-    org: "string",
-    imgLink: "string",
-    imgAltText: "string",
-    location: "string",
-    food: "boolean",
-    startTime: "string",
-    endTime: "string",
-  };
-  // Check each field
-  for (let key in requiredFields) {
-    if (!(key in event) || typeof event[key] !== requiredFields[key]) {
-      return false;
+    // List of required keys with their expected types
+    const requiredFields = {
+        name: "string",
+        description: "string",
+        date: "string",
+        org: "string",
+        imgLink: "string",
+        imgAltText: "string",
+        location: "string",
+        food: "boolean",
+        startTime: "string",
+        endTime: "string",
+    };
+    // Check each field
+    for (let key in requiredFields) {
+        if (!(key in event) || typeof event[key] !== requiredFields[key]) {
+            return false;
+        }
     }
-  }
-  return true;
+    return true;
 }
 
 const navButtons = document.querySelectorAll("nav button");
 if (navButtons.length >= 5) {
-  navButtons[0].onclick = () => {
-    window.location.href = "index.html";
-  };
-  navButtons[1].onclick = () => {
-    window.location.href = "post.html";
-  };
-  navButtons[2].onclick = () => {
-    window.location.href = "browse.html";
-  };
-  navButtons[3].onclick = () => {
-    window.location.href = "liked.html";
-  };
-  navButtons[4].onclick = () => {
-    window.location.href = "index.html";
-  };
+    navButtons[0].onclick = () => {
+        window.location.href = "index.html";
+    };
+    navButtons[1].onclick = () => {
+        window.location.href = "post.html";
+    };
+    navButtons[2].onclick = () => {
+        window.location.href = "browse.html";
+    };
+    navButtons[3].onclick = () => {
+        window.location.href = "liked.html";
+    };
+    navButtons[4].onclick = () => {
+        window.location.href = "index.html";
+    };
 }
 
 /**
