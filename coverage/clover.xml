@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1748323602359" clover="3.2.0">
-  <project timestamp="1748323602360" name="All files">
+<coverage generated="1748472819109" clover="3.2.0">
+  <project timestamp="1748472819109" name="All files">
     <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2" elements="17" coveredelements="15" complexity="0" loc="11" ncloc="11" packages="1" files="1" classes="1"/>
     <file name="EventCard.js" path="C:\Users\aryan\Desktop\UCSD\Spring 2025\CSE 110\card-game\website\js\EventCard.js">
       <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>

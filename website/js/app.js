@@ -54,7 +54,7 @@ function updateLocalStorage(key, newData) {
  * @param {Object} event the event we want to check
  * @returns {boolean} whether it is valid or not
  */
-function checkValidEvent(event) {
+export function checkValidEvent(event) {
   if (typeof event !== "object" || event === null) return false;
   // List of required keys with their expected types
   const requiredFields = {
