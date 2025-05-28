@@ -1,95 +1,95 @@
 body {
-  font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 .event-page-bg {
-  background: #29629e;
-  min-height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
+    background: #29629e;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
 .event-card-layout {
-  background: #dedede;
-  width: 900px;
-  height: 600px;
-  position: relative;
-  display: flex;
-  flex-direction: row;
+    background: #dedede;
+    width: 900px;
+    height: 600px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
 }
 
 .event-title {
-  position: absolute;
-  left: 170px;
-  top: 45px;
-  background: #b3abb0;
-  color: white;
-  font-size: 2rem;
-  padding: 0.2em 1em;
-  border-radius: 2px;
-  z-index: 2;
+    position: absolute;
+    left: 170px;
+    top: 45px;
+    background: #b3abb0;
+    color: white;
+    font-size: 2rem;
+    padding: 0.2em 1em;
+    border-radius: 2px;
+    z-index: 2;
 }
 
 .event-flyer {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 55%;
-  height: 100%;
-  background: #9d7e7e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 55%;
+    height: 100%;
+    background: #9d7e7e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
 }
 
 .event-flyer span {
-  color: white;
-  font-size: 2rem;
+    color: white;
+    font-size: 2rem;
 }
 
 .event-dislike {
-  position: absolute;
-  left: 80px;
-  bottom: 20px;
-  width: 110px;
-  height: 60px;
-  background: #d32f2f;
-  border: none;
-  border-radius: 2px;
-  font-size: 1.5rem;
-  color: black;
-  cursor: pointer;
-  z-index: 3;
+    position: absolute;
+    left: 80px;
+    bottom: 20px;
+    width: 110px;
+    height: 60px;
+    background: #d32f2f;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    color: black;
+    cursor: pointer;
+    z-index: 3;
 }
 
 .event-like {
-  position: absolute;
-  left: 210px;
-  bottom: 20px;
-  width: 110px;
-  height: 60px;
-  background: #90ee90;
-  border: none;
-  border-radius: 2px;
-  font-size: 1.5rem;
-  color: black;
-  cursor: pointer;
-  z-index: 3;
+    position: absolute;
+    left: 210px;
+    bottom: 20px;
+    width: 110px;
+    height: 60px;
+    background: #90ee90;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    color: black;
+    cursor: pointer;
+    z-index: 3;
 }
 
 .event-undo {
-  position: absolute;
-  right: 15px;
-  top: 20px;
-  width: 60px;
-  height: 50px;
-  background: #d32f2f;
-  border: none;
-  border-radius: 2px;
-  font-size: 2.5rem;
-  color: black;
-  cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    width: 60px;
+    height: 50px;
+    background: #d32f2f;
+    border: none;
+    border-radius: 2px;
+    font-size: 2.5rem;
+    color: black;
+    cursor: pointer;
 }

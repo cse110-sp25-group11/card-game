@@ -5,7 +5,7 @@
  * @returns {void}
  */
 function deleteLocalStorage() {
-  localStorage.clear();
+    localStorage.clear();
 }
 
 /**
@@ -18,11 +18,11 @@ function deleteLocalStorage() {
  * @returns {boolean} - Returns true if the item was added, false if it already exists.
  */
 function addToStorage(key, value) {
-  if (localStorage.getItem(key) === null) {
-    localStorage.setItem(key, value);
-    return true;
-  }
-  return false;
+    if (localStorage.getItem(key) === null) {
+        localStorage.setItem(key, value);
+        return true;
+    }
+    return false;
 }
 
 /**
@@ -31,15 +31,15 @@ function addToStorage(key, value) {
  * @returns {Array} - Returns parsed JSON data or empty array if parsing fails
  */
 function fetchData(data) {
-  if (!data) {
-    console.warn(`[!] Failed to parse "${data}"`);
-    return [];
-  }
+    if (!data) {
+        console.warn(`[!] Failed to parse "${data}"`);
+        return [];
+    }
 
-  const rawdata = localStorage.getItem(data);
-  if (!rawdata) {
-    console.warn(`[!] Failed to parse "${data}"`);
-    return [];
-  }
-  return JSON.parse(rawdata);
+    const rawdata = localStorage.getItem(data);
+    if (!rawdata) {
+        console.warn(`[!] Failed to parse "${data}"`);
+        return [];
+    }
+    return JSON.parse(rawdata);
 }
