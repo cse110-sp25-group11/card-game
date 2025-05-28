@@ -1,36 +1,36 @@
 class EventCard extends HTMLElement {
-  constructor() {
-    super();
-    let shadowElem = this.attachShadow({ mode: "open" });
-    const article = document.createElement("article");
-    const style = document.createElement("style");
-    style.innerHTML = ``;
-    shadowElem.append(article);
-    shadowElem.append(style);
-  }
+    constructor() {
+        super();
+        let shadowElem = this.attachShadow({ mode: "open" });
+        const article = document.createElement("article");
+        const style = document.createElement("style");
+        style.innerHTML = ``;
+        shadowElem.append(article);
+        shadowElem.append(style);
+    }
 
-  /**
-   * Called when the .data property is set on this element.
-   *
-   * For example:
-   * let eventCard = document.createElement('event-card'); // Calls constructor()
-   * eventCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
-   *
-   * @param {Object} data - The data to pass into the <recipe-card> must be of the
-   *                        following format:
-   *                        {
-   *                          name: "string",
-   *                          description: "string",
-   *                          date: "string",
-   *                          org: "string",
-   *                          imgLink: "string",
-   *                          imgAltText: "string",
-   *                          location: "string",
-   *                          food: "boolean",
-   *                          startTime: "string",
-   *                          endTime: "string",
-   *                        }
-   */
+    /**
+     * Called when the .data property is set on this element.
+     *
+     * For example:
+     * let eventCard = document.createElement('event-card'); // Calls constructor()
+     * eventCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
+     *
+     * @param {Object} data - The data to pass into the <recipe-card> must be of the
+     *                        following format:
+     *                        {
+     *                          name: "string",
+     *                          description: "string",
+     *                          date: "string",
+     *                          org: "string",
+     *                          imgLink: "string",
+     *                          imgAltText: "string",
+     *                          location: "string",
+     *                          food: "boolean",
+     *                          startTime: "string",
+     *                          endTime: "string",
+     *                        }
+     */
 
   set data(data) {
     if (!data) return;
@@ -50,7 +50,7 @@ class EventCard extends HTMLElement {
         <p>${data.location}</p>
         <p class="eventDescription">${data.description}</p>
     `;
-  }
+    }
 }
 
 customElements.define("event-card", EventCard);
