@@ -32,10 +32,10 @@ class EventCard extends HTMLElement {
      *                        }
      */
 
-  set data(data) {
-    if (!data) return;
-    const article = this.shadowRoot.querySelector("article");
-    article.innerHTML = `
+    set data(data) {
+        if (!data) return;
+        const article = this.shadowRoot.querySelector("article");
+        article.innerHTML = `
         <img src = "${data.imgLink}" alt="${data.imgAlt}">
         <div class="nameAndOrg">
             <span class="eventName">${data.name}</span>

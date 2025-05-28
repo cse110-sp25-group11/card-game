@@ -73,10 +73,28 @@ export function checkValidEvent(event) {
   for (let key in requiredFields) {
     if (!(key in event) || typeof event[key] !== requiredFields[key]) {
       return false;
+    // List of required keys with their expected types
+    const requiredFields = {
+        name: "string",
+        description: "string",
+        date: "string",
+        org: "string",
+        imgLink: "string",
+        imgAltText: "string",
+        location: "string",
+        food: "boolean",
+        startTime: "string",
+        endTime: "string",
+    };
+    // Check each field
+    for (let key in requiredFields) {
+        if (!(key in event) || typeof event[key] !== requiredFields[key]) {
+            return false;
+        }
     }
-  }
-  return true;
+    return true;
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const navButtons = document.querySelectorAll("nav button");
