@@ -36,19 +36,19 @@ class EventCard extends HTMLElement {
         if (!data) return;
         const article = this.shadowRoot.querySelector("article");
         article.innerHTML = `
-        <img src = ${data.imgLink} alt=${data.imgAlt}>
+        <img src = "${data.imgLink}" alt="${data.imgAlt}">
         <div class="nameAndOrg">
             <span class="eventName">${data.name}</span>
-            <span class="org">${data.org} </span>
+            <span class="org">${data.org}</span>
         </div>
         <p> Free food provided? ${data.food ? "Yes" : "No"} </p>
         <p>
-            <time datetime=${data.date}>${data.date}</time>: 
-            <time datetime=${data.startTime}>${data.startTime}</time> to
-            <time datetime=${data.endTime}>${data.endTime}</time>
+            <time datetime="${data.date}">${data.date}</time>: 
+            <time datetime="${data.startTime}">${data.startTime}</time> to
+            <time datetime="${data.endTime}">${data.endTime}</time>
         </p>
         <p>${data.location}</p>
-        <p class="eventDescription"> ${data.description}</p>
+        <p class="eventDescription">${data.description}</p>
     `;
     }
 }
