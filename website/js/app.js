@@ -108,33 +108,33 @@ if (navButtons.length >= 5) {
  * Categorizes events into: Happening Now, Upcoming Events, and Popular Events
  */
 function loadEventsForBrowse() {
-  if (!document.querySelector(".event-carousel")) return;
+    if (!document.querySelector(".event-carousel")) return;
 
-  const events = fetchData("events");
+    const events = fetchData("events");
 
-  if (events.length === 0) {
-    console.log("No events found in localStorage");
-    return;
-  }
+    if (events.length === 0) {
+        console.log("No events found in localStorage");
+        return;
+    }
 
-  const carousels = document.querySelectorAll(".event-carousel .event-cards");
+    const carousels = document.querySelectorAll(".event-carousel .event-cards");
 
-  if (carousels.length < 3) {
-    console.error("Expected 3 carousels but found", carousels.length);
-    return;
-  }
+    if (carousels.length < 3) {
+        console.error("Expected 3 carousels but found", carousels.length);
+        return;
+    }
 
-  carousels.forEach((carousel) => {
-    carousel.innerHTML = "";
-  });
+    carousels.forEach((carousel) => {
+        carousel.innerHTML = "";
+    });
 
-  const currentlyHappening = getCurrentlyHappeningEvents(events);
-  const upcomingEvents = getUpcomingEvents(events);
-  const pastEvents = getPastEvents(events);
+    const currentlyHappening = getCurrentlyHappeningEvents(events);
+    const upcomingEvents = getUpcomingEvents(events);
+    const pastEvents = getPastEvents(events);
 
-  populateCarousel(carousels[0], currentlyHappening);
-  populateCarousel(carousels[1], upcomingEvents);
-  populateCarousel(carousels[2], pastEvents);
+    populateCarousel(carousels[0], currentlyHappening);
+    populateCarousel(carousels[1], upcomingEvents);
+    populateCarousel(carousels[2], pastEvents);
 }
 
 /**
@@ -143,12 +143,12 @@ function loadEventsForBrowse() {
  * @returns {Array} - Events happening today
  */
 function getCurrentlyHappeningEvents(events) {
-  const today = new Date();
-  const todayString = `${(today.getMonth() + 1).toString().padStart(2, "0")}/${today.getDate().toString().padStart(2, "0")}/${today.getFullYear()}`;
+    const today = new Date();
+    const todayString = `${(today.getMonth() + 1).toString().padStart(2, "0")}/${today.getDate().toString().padStart(2, "0")}/${today.getFullYear()}`;
 
-  return events.filter((event) => {
-    return event.date === todayString;
-  });
+    return events.filter((event) => {
+        return event.date === todayString;
+    });
 }
 
 /**
@@ -157,14 +157,14 @@ function getCurrentlyHappeningEvents(events) {
  * @returns {Array} - Future events sorted by date
  */
 function getUpcomingEvents(events) {
-  const today = new Date();
+    const today = new Date();
 
-  return events
-    .filter((event) => {
-      const eventDate = new Date(event.date);
-      return eventDate > today;
-    })
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
+    return events
+        .filter((event) => {
+            const eventDate = new Date(event.date);
+            return eventDate > today;
+        })
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
 }
 
 /**
@@ -173,14 +173,14 @@ function getUpcomingEvents(events) {
  * @returns {Array} - Past events sorted by date
  */
 function getPastEvents(events) {
-  const today = new Date();
+    const today = new Date();
 
-  return events
-    .filter((event) => {
-      const eventDate = new Date(event.date);
-      return eventDate < today;
-    })
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+    return events
+        .filter((event) => {
+            const eventDate = new Date(event.date);
+            return eventDate < today;
+        })
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
 /**
@@ -189,19 +189,19 @@ function getPastEvents(events) {
  * @param {Array} events - Array of event objects to display
  */
 function populateCarousel(carousel, events) {
-  if (events.length === 0) {
-    // Show a message when no events are available
-    const noEventsMessage = document.createElement("div");
-    noEventsMessage.className = "no-events-message";
-    noEventsMessage.innerHTML = "<p>No events available</p>";
-    carousel.appendChild(noEventsMessage);
-    return;
-  }
+    if (events.length === 0) {
+        // Show a message when no events are available
+        const noEventsMessage = document.createElement("div");
+        noEventsMessage.className = "no-events-message";
+        noEventsMessage.innerHTML = "<p>No events available</p>";
+        carousel.appendChild(noEventsMessage);
+        return;
+    }
 
-  events.forEach((event) => {
-    const eventCard = createEventCardElement(event);
-    carousel.appendChild(eventCard);
-  });
+    events.forEach((event) => {
+        const eventCard = createEventCardElement(event);
+        carousel.appendChild(eventCard);
+    });
 }
 
 /**
@@ -210,14 +210,14 @@ function populateCarousel(carousel, events) {
  * @returns {HTMLElement} - Event card article element
  */
 function createEventCardElement(event) {
-  const article = document.createElement("article");
-  article.className = "event-card";
+    const article = document.createElement("article");
+    article.className = "event-card";
 
-  // Map the stored event data to the format expected by the HTML structure
-  const eventData = mapEventData(event);
+    // Map the stored event data to the format expected by the HTML structure
+    const eventData = mapEventData(event);
 
-  // TODO: Make browse cards dynamically update when event data changes per Mia's request
-  article.innerHTML = `
+    // TODO: Make browse cards dynamically update when event data changes per Mia's request
+    article.innerHTML = `
     <div class="photo-container">
       <img src="${eventData.imgLink}" alt="${eventData.imgAltText}" />
     </div>
@@ -227,7 +227,7 @@ function createEventCardElement(event) {
     </div>
   `;
 
-  return article;
+    return article;
 }
 
 /**
@@ -237,26 +237,26 @@ function createEventCardElement(event) {
  * @returns {Object} - Mapped event data
  */
 function mapEventData(event) {
-  // Handle both data structures: form submission (eventName, orgName) and debug populate (name, org)
-  const name = event.eventName || event.name || "Untitled Event";
-  const org = event.orgName || event.org || "Unknown Organization";
-  const imgLink = event.photoFileName
-    ? `uploads/${event.photoFileName}`
-    : event.imgLink || "https://via.placeholder.com/300x200?text=No+Image";
-  const imgAltText = event.altText || event.imgAltText || `${name} photo`;
+    // Handle both data structures: form submission (eventName, orgName) and debug populate (name, org)
+    const name = event.eventName || event.name || "Untitled Event";
+    const org = event.orgName || event.org || "Unknown Organization";
+    const imgLink = event.photoFileName
+        ? `uploads/${event.photoFileName}`
+        : event.imgLink || "https://via.placeholder.com/300x200?text=No+Image";
+    const imgAltText = event.altText || event.imgAltText || `${name} photo`;
 
-  return {
-    name: name,
-    org: org,
-    date: event.date || "",
-    imgLink: imgLink,
-    imgAltText: imgAltText,
-    location: event.location || "Location TBD",
-    food: event.food === "yes" || event.food === true,
-    startTime: event.startTime || "00:00",
-    endTime: event.endTime || "23:59",
-    description: event.description || "No description available",
-  };
+    return {
+        name: name,
+        org: org,
+        date: event.date || "",
+        imgLink: imgLink,
+        imgAltText: imgAltText,
+        location: event.location || "Location TBD",
+        food: event.food === "yes" || event.food === true,
+        startTime: event.startTime || "00:00",
+        endTime: event.endTime || "23:59",
+        description: event.description || "No description available",
+    };
 }
 
 document.addEventListener("DOMContentLoaded", loadEventsForBrowse);

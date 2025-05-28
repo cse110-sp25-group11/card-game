@@ -1,127 +1,136 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Campus Swipe - Debug</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- Link to Icons-->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <!--Links to fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      .debug-container {
-        max-width: 800px;
-        margin: 100px auto;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        text-align: center;
-      }
-      .debug-button {
-        background-color: #03629c;
-        color: white;
-        border: 2px solid white;
-        border-radius: 10px;
-        padding: 15px 30px;
-        font-size: 18px;
-        font-family: "Merriweather Sans", sans-serif;
-        cursor: pointer;
-        margin: 10px;
-        transition: background-color 0.3s ease;
-      }
-      .debug-button:hover {
-        background-color: #024a74;
-      }
-      .debug-info {
-        color: white;
-        font-family: "Raleway", sans-serif;
-        margin: 20px 0;
-      }
-      .status-message {
-        margin-top: 20px;
-        padding: 10px;
-        border-radius: 5px;
-        font-weight: bold;
-      }
-      .success {
-        background-color: rgba(76, 175, 80, 0.2);
-        color: #4caf50;
-        border: 1px solid #4caf50;
-      }
-      .error {
-        background-color: rgba(244, 67, 54, 0.2);
-        color: #f44336;
-        border: 1px solid #f44336;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <h1><a href="index.html">CAMPUS SWIPE</a></h1>
-        <div class="navbar-items">
-          <a href="browse.html">
-            <button><i class="fa-solid fa-magnifying-glass"></i>Browse</button>
-          </a>
-          <a href="post.html">
-            <button><i class="fa-solid fa-square-plus"></i>Add Event</button>
-          </a>
-          <a href="liked.html">
-            <button><i class="fa-solid fa-heart"></i>Liked Events</button>
-          </a>
-        </div>
-      </nav>
-    </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Campus Swipe - Debug</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <!-- Link to Icons-->
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <!--Links to fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            .debug-container {
+                max-width: 800px;
+                margin: 100px auto;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                text-align: center;
+            }
+            .debug-button {
+                background-color: #03629c;
+                color: white;
+                border: 2px solid white;
+                border-radius: 10px;
+                padding: 15px 30px;
+                font-size: 18px;
+                font-family: "Merriweather Sans", sans-serif;
+                cursor: pointer;
+                margin: 10px;
+                transition: background-color 0.3s ease;
+            }
+            .debug-button:hover {
+                background-color: #024a74;
+            }
+            .debug-info {
+                color: white;
+                font-family: "Raleway", sans-serif;
+                margin: 20px 0;
+            }
+            .status-message {
+                margin-top: 20px;
+                padding: 10px;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+            .success {
+                background-color: rgba(76, 175, 80, 0.2);
+                color: #4caf50;
+                border: 1px solid #4caf50;
+            }
+            .error {
+                background-color: rgba(244, 67, 54, 0.2);
+                color: #f44336;
+                border: 1px solid #f44336;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <h1><a href="index.html">CAMPUS SWIPE</a></h1>
+                <div class="navbar-items">
+                    <a href="browse.html">
+                        <button>
+                            <i class="fa-solid fa-magnifying-glass"></i>Browse
+                        </button>
+                    </a>
+                    <a href="post.html">
+                        <button>
+                            <i class="fa-solid fa-square-plus"></i>Add Event
+                        </button>
+                    </a>
+                    <a href="liked.html">
+                        <button>
+                            <i class="fa-solid fa-heart"></i>Liked Events
+                        </button>
+                    </a>
+                </div>
+            </nav>
+        </header>
 
-    <main>
-      <div class="debug-container">
-        <h2
-          style="
-            color: white;
-            font-family: &quot;Merriweather Sans&quot;, sans-serif;
-          "
-        >
-          Debug Utilities
-        </h2>
+        <main>
+            <div class="debug-container">
+                <h2
+                    style="
+                        color: white;
+                        font-family: &quot;Merriweather Sans&quot;, sans-serif;
+                    "
+                >
+                    Debug Utilities
+                </h2>
 
-        <div class="debug-info">
-          <p>
-            This page provides debugging utilities for the Campus Swipe
-            application.
-          </p>
-          <p>
-            Use the buttons below to populate localStorage with sample events
-            for testing.
-          </p>
-        </div>
+                <div class="debug-info">
+                    <p>
+                        This page provides debugging utilities for the Campus
+                        Swipe application.
+                    </p>
+                    <p>
+                        Use the buttons below to populate localStorage with
+                        sample events for testing.
+                    </p>
+                </div>
 
-        <button class="debug-button" onclick="populateEvents()">
-          <i class="fa-solid fa-database"></i> Populate Sample Events
-        </button>
+                <button class="debug-button" onclick="populateEvents()">
+                    <i class="fa-solid fa-database"></i> Populate Sample Events
+                </button>
 
-        <button class="debug-button" onclick="clearEvents()">
-          <i class="fa-solid fa-trash"></i> Clear All Events
-        </button>
+                <button class="debug-button" onclick="clearEvents()">
+                    <i class="fa-solid fa-trash"></i> Clear All Events
+                </button>
 
-        <button class="debug-button" onclick="showEventCounts()">
-          <i class="fa-solid fa-info-circle"></i> Show Event Counts
-        </button>
+                <button class="debug-button" onclick="showEventCounts()">
+                    <i class="fa-solid fa-info-circle"></i> Show Event Counts
+                </button>
 
-        <div id="statusMessage"></div>
-        <div id="eventCounts" style="color: white; margin-top: 20px"></div>
-      </div>
-    </main>
+                <div id="statusMessage"></div>
+                <div
+                    id="eventCounts"
+                    style="color: white; margin-top: 20px"
+                ></div>
+            </div>
+        </main>
 
-    <script src="js/storage.js"></script>
-    <script src="js/debug-populate.js"></script>
-  </body>
+        <script src="js/storage.js"></script>
+        <script src="js/debug-populate.js"></script>
+    </body>
 </html>
