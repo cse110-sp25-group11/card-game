@@ -1,13 +1,19 @@
 /*Layout and Containers*/
+main {
+  padding: 0px 20px 20px 20px;
+}
 .card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 100px;
 }
 body {
-    background-color: #182b49;
+  background-color: #182b49;
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /*Nav Bar*/
@@ -28,12 +34,12 @@ body {
 }
 
 .navbar h1 a {
-    text-decoration: none;
-    font-family: "Inika", serif;
-    color: white;
-    font-size: 40px;
-    letter-spacing: 1.5px;
-    font-weight: bold;
+  text-decoration: none;
+  font-family: "Merriweather Sans", sans-serif;
+  color: white;
+  font-size: 40px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
 }
 
 .navbar-items {
@@ -43,14 +49,14 @@ body {
 }
 
 .navbar-items a button {
-    padding: 8px 20px;
-    font-size: 20px;
-    font-family: "Merriweather Sans", sans-serif;
-    cursor: pointer;
-    background-color: #03629c;
-    color: white;
-    border-radius: 10px;
-    border-color: white;
+  padding: 8px 20px;
+  font-size: 20px;
+  font-family: "Merriweather Sans", sans-serif;
+  cursor: pointer;
+  background-color: #182b49;
+  color: white;
+  border-radius: 10px;
+  border-color: white;
 }
 .navbar-items a button i {
     margin-right: 8px;
@@ -61,13 +67,13 @@ main {
 }
 /*Event Card*/
 .event-card {
-    background-color: white;
-    outline: 2px solid #000000;
-    outline-offset: 4px;
-    border-radius: 8px;
-    padding: 16px;
-    width: 500px;
-    box-sizing: border-box;
+  background-color: white;
+  outline: 2px solid #c69214f2;
+  outline-offset: 4px;
+  border-radius: 8px;
+  padding: 16px;
+  width: 500px;
+  box-sizing: border-box;
 }
 /*Buttons*/
 .swipe-buttons {

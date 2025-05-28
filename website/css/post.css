@@ -11,20 +11,27 @@ main {
 /**
  * Styling for Post Event page
  */
+
+ form{
+  border: 2px solid white;
+  margin-right: 51.5%;
+  margin-left: 20px;
+  border-radius: 10px;
+ }
 #post-header {
-    color: white;
-    background-color: #9b8f8f;
-    padding: 7px;
-    width: 200px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 400;
+  margin-left: 20px;
+  margin-top: 30px;
+  font-size: 25px;
+  color: white;
+  font-family: "Merriweather Sans", sans-serif;
 }
 
 .form-group {
-    display: grid;
-    grid-template-columns: 250px 350px;
-    margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: 250px 350px;
+  margin-bottom: 25px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 .form-group label,
@@ -61,15 +68,17 @@ textarea::placeholder {
 }
 
 #submit-button {
-    background-color: #6ae053;
-    font-family: "Inter", san-serif;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
-    margin: auto;
+  background-color: #157145;
+  font-family: "Inter", san-serif;
+  font-size: 18px;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 8px;
+  margin-left: 38.5%;
+  color: white;
+  margin-bottom: 20px;
 }
 
 #submit-button:hover {
-    background-color: #206513;
+  background-color: #036016;
 }
