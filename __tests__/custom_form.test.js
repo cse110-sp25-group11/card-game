@@ -1,7 +1,6 @@
-
 beforeEach(async () => {
-  localStorage.clear();
-  document.body.innerHTML = `
+    localStorage.clear();
+    document.body.innerHTML = `
     <form>
       <input id="eventName" name="eventName" value="test event" />
       <input id="orgName" name="orgName" value="test org" />
@@ -20,11 +19,11 @@ beforeEach(async () => {
     </form>
   `;
 
-  await import('../website/js/custom_form.js');
-  document.dispatchEvent(new Event("DOMContentLoaded", { bubbles: true }));
+    await import("../website/js/custom_form.js");
+    document.dispatchEvent(new Event("DOMContentLoaded", { bubbles: true }));
 });
 
-test("Event data is stored in the local storage when the submit button is clicked", ()=>{
+test("Event data is stored in the local storage when the submit button is clicked", () => {
     const form = document.querySelector("form");
 
     // clicking the submit button
@@ -39,4 +38,4 @@ test("Event data is stored in the local storage when the submit button is clicke
     expect(events[0].eventName).toBe("test event");
     expect(events[0].orgName).toBe("test org");
     expect(events[0].food).toBe("yes");
-})
+});

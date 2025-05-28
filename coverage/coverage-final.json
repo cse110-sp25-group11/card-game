@@ -1,2 +1,135 @@
-{"C:\\Users\\aryan\\Desktop\\UCSD\\Spring 2025\\CSE 110\\card-game\\website\\js\\EventCard.js": {"path":"C:\\Users\\aryan\\Desktop\\UCSD\\Spring 2025\\CSE 110\\card-game\\website\\js\\EventCard.js","statementMap":{"0":{"start":{"line":3,"column":4},"end":{"line":3,"column":12}},"1":{"start":{"line":4,"column":21},"end":{"line":4,"column":56}},"2":{"start":{"line":5,"column":20},"end":{"line":5,"column":53}},"3":{"start":{"line":6,"column":18},"end":{"line":6,"column":49}},"4":{"start":{"line":7,"column":4},"end":{"line":7,"column":25}},"5":{"start":{"line":8,"column":4},"end":{"line":8,"column":31}},"6":{"start":{"line":9,"column":4},"end":{"line":9,"column":29}},"7":{"start":{"line":36,"column":4},"end":{"line":36,"column":22}},"8":{"start":{"line":36,"column":15},"end":{"line":36,"column":22}},"9":{"start":{"line":37,"column":20},"end":{"line":37,"column":60}},"10":{"start":{"line":38,"column":4},"end":{"line":52,"column":6}},"11":{"start":{"line":56,"column":0},"end":{"line":56,"column":47}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":2,"column":2},"end":{"line":2,"column":3}},"loc":{"start":{"line":2,"column":16},"end":{"line":10,"column":3}},"line":2},"1":{"name":"(anonymous_1)","decl":{"start":{"line":35,"column":2},"end":{"line":35,"column":3}},"loc":{"start":{"line":35,"column":17},"end":{"line":53,"column":3}},"line":35}},"branchMap":{"0":{"loc":{"start":{"line":36,"column":4},"end":{"line":36,"column":22}},"type":"if","locations":[{"start":{"line":36,"column":4},"end":{"line":36,"column":22}},{"start":{},"end":{}}],"line":36},"1":{"loc":{"start":{"line":44,"column":34},"end":{"line":44,"column":58}},"type":"cond-expr","locations":[{"start":{"line":44,"column":46},"end":{"line":44,"column":51}},{"start":{"line":44,"column":54},"end":{"line":44,"column":58}}],"line":44}},"s":{"0":1,"1":1,"2":1,"3":1,"4":1,"5":1,"6":1,"7":1,"8":0,"9":1,"10":1,"11":1},"f":{"0":1,"1":1},"b":{"0":[0,1],"1":[1,0]},"inputSourceMap":null,"_coverageSchema":"1a1c01bbd47fc00a2c39e90264f33305004495a9","hash":"c76e135d732db867a18b458cbab6654222fd05c8"}
+{
+    "C:\\Users\\aryan\\Desktop\\UCSD\\Spring 2025\\CSE 110\\card-game\\website\\js\\EventCard.js": {
+        "path": "C:\\Users\\aryan\\Desktop\\UCSD\\Spring 2025\\CSE 110\\card-game\\website\\js\\EventCard.js",
+        "statementMap": {
+            "0": {
+                "start": { "line": 3, "column": 4 },
+                "end": { "line": 3, "column": 12 }
+            },
+            "1": {
+                "start": { "line": 4, "column": 21 },
+                "end": { "line": 4, "column": 56 }
+            },
+            "2": {
+                "start": { "line": 5, "column": 20 },
+                "end": { "line": 5, "column": 53 }
+            },
+            "3": {
+                "start": { "line": 6, "column": 18 },
+                "end": { "line": 6, "column": 49 }
+            },
+            "4": {
+                "start": { "line": 7, "column": 4 },
+                "end": { "line": 7, "column": 25 }
+            },
+            "5": {
+                "start": { "line": 8, "column": 4 },
+                "end": { "line": 8, "column": 31 }
+            },
+            "6": {
+                "start": { "line": 9, "column": 4 },
+                "end": { "line": 9, "column": 29 }
+            },
+            "7": {
+                "start": { "line": 36, "column": 4 },
+                "end": { "line": 36, "column": 22 }
+            },
+            "8": {
+                "start": { "line": 36, "column": 15 },
+                "end": { "line": 36, "column": 22 }
+            },
+            "9": {
+                "start": { "line": 37, "column": 20 },
+                "end": { "line": 37, "column": 60 }
+            },
+            "10": {
+                "start": { "line": 38, "column": 4 },
+                "end": { "line": 52, "column": 6 }
+            },
+            "11": {
+                "start": { "line": 56, "column": 0 },
+                "end": { "line": 56, "column": 47 }
+            }
+        },
+        "fnMap": {
+            "0": {
+                "name": "(anonymous_0)",
+                "decl": {
+                    "start": { "line": 2, "column": 2 },
+                    "end": { "line": 2, "column": 3 }
+                },
+                "loc": {
+                    "start": { "line": 2, "column": 16 },
+                    "end": { "line": 10, "column": 3 }
+                },
+                "line": 2
+            },
+            "1": {
+                "name": "(anonymous_1)",
+                "decl": {
+                    "start": { "line": 35, "column": 2 },
+                    "end": { "line": 35, "column": 3 }
+                },
+                "loc": {
+                    "start": { "line": 35, "column": 17 },
+                    "end": { "line": 53, "column": 3 }
+                },
+                "line": 35
+            }
+        },
+        "branchMap": {
+            "0": {
+                "loc": {
+                    "start": { "line": 36, "column": 4 },
+                    "end": { "line": 36, "column": 22 }
+                },
+                "type": "if",
+                "locations": [
+                    {
+                        "start": { "line": 36, "column": 4 },
+                        "end": { "line": 36, "column": 22 }
+                    },
+                    { "start": {}, "end": {} }
+                ],
+                "line": 36
+            },
+            "1": {
+                "loc": {
+                    "start": { "line": 44, "column": 34 },
+                    "end": { "line": 44, "column": 58 }
+                },
+                "type": "cond-expr",
+                "locations": [
+                    {
+                        "start": { "line": 44, "column": 46 },
+                        "end": { "line": 44, "column": 51 }
+                    },
+                    {
+                        "start": { "line": 44, "column": 54 },
+                        "end": { "line": 44, "column": 58 }
+                    }
+                ],
+                "line": 44
+            }
+        },
+        "s": {
+            "0": 1,
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "6": 1,
+            "7": 1,
+            "8": 0,
+            "9": 1,
+            "10": 1,
+            "11": 1
+        },
+        "f": { "0": 1, "1": 1 },
+        "b": { "0": [0, 1], "1": [1, 0] },
+        "inputSourceMap": null,
+        "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+        "hash": "c76e135d732db867a18b458cbab6654222fd05c8"
+    }
 }

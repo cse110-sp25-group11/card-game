@@ -14,57 +14,56 @@ const validEvent = {
     food: false,
     startTime: "14:00",
     endTime: "16:00",
-}
+};
 
-test('returns true for a valid event', () => {
+test("returns true for a valid event", () => {
     expect(checkValidEvent(validEvent)).toBe(true);
 });
 
-test('returns false for missing description', () => {
+test("returns false for missing description", () => {
     validEvent["description"] = [];
     expect(checkValidEvent(validEvent)).toBe(false);
 });
 
-test('returns false for missing org', () => {
+test("returns false for missing org", () => {
     validEvent["org"] = [];
     expect(checkValidEvent(validEvent)).toBe(false);
 });
 
-test('returns false for imgLink', () => {
+test("returns false for imgLink", () => {
     validEvent["imgLink"] = [];
     expect(checkValidEvent(validEvent)).toBe(false);
 });
 
-test('returns false for imgAltText', () => {
+test("returns false for imgAltText", () => {
     validEvent["imgAltText"] = [];
     expect(checkValidEvent(validEvent)).toBe(false);
 });
 
-test('returns false for location', () => {
+test("returns false for location", () => {
     validEvent["location"] = [];
     expect(checkValidEvent(validEvent)).toBe(false);
 });
 
-test('returns false for food', () => {
+test("returns false for food", () => {
     validEvent["food"] = [];
     expect(checkValidEvent(validEvent)).toBe(false);
 });
 
-test('returns false for food', () => {
+test("returns false for food", () => {
     validEvent["food"] = [];
     expect(checkValidEvent(validEvent)).toBe(false);
 });
 
-test('returns false for missing date', () => {
+test("returns false for missing date", () => {
     validEvent["date"] = [];
     expect(checkValidEvent(validEvent)).toBe(false);
 });
 
-
-test('returns false for null event', () => {
-  expect(checkValidEvent(null)).toBe(false);
+test("returns false for null event", () => {
+    expect(checkValidEvent(null)).toBe(false);
 });
 
-test('returns false for non-object event', () => {
-  expect(checkValidEvent("not an object")).toBe(false);
+test("returns false for non-object event", () => {
+    expect(checkValidEvent("not an object")).toBe(false);
 });
