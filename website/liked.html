@@ -1,128 +1,120 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Campus Swipe - Liked Events</title>
-        <link rel="stylesheet" href="css/style.css" />
-        <!-- Link to Icons-->
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-            rel="stylesheet"
-        />
-        <!--Links to fonts-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body>
-        <header>
-            <nav class="navbar">
-                <h1><a href="index.html">CAMPUS SWIPE</a></h1>
-                <div class="navbar-items">
-                    <a href="browse.html">
-                        <button>
-                            <i class="fa-solid fa-magnifying-glass"></i>Browse
-                        </button>
-                    </a>
-                    <a href="post.html">
-                        <button>
-                            <i class="fa-solid fa-square-plus"></i>Add Event
-                        </button>
-                    </a>
-                    <a href="liked.html">
-                        <button>
-                            <i class="fa-solid fa-heart"></i>Liked Events
-                        </button>
-                    </a>
-                </div>
-            </nav>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Swipe - Liked Events</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/liked.css" />
+    <!-- Link to Icons-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!--Links to fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <h1><a href="index.html">CAMPUS SWIPE</a></h1>
+        <div class="navbar-items">
+          <a href="browse.html">
+            <button><i class="fa-solid fa-magnifying-glass"></i>Browse</button>
+          </a>
+          <a href="post.html">
+            <button><i class="fa-solid fa-square-plus"></i>Add Event</button>
+          </a>
+          <a href="liked.html">
+            <button><i class="fa-solid fa-heart"></i>Liked Events</button>
+          </a>
+        </div>
+      </nav>
+    </header>
 
-        <main>
-            <h2>Liked Events</h2>
+    <main>
+      <h2>Liked Events</h2>
 
-            <section class="liked-events-grid">
-                <article class="event-card">
-                    <div class="photo-container">
-                        <img src="#" alt="Event Photo" />
-                    </div>
-                    <div class="event-info">
-                        <h3>Event Title</h3>
-                        <p class="org-name">Organization Name</p>
-                        <p class="event-date">
-                            Date:
-                            <time datetime="2024-03-21">March 21, 2024</time>
-                        </p>
-                        <p class="event-duration">Duration: 2 hours</p>
-                        <p class="event-location">Location: Event Venue</p>
-                        <p class="event-description">
-                            Event description goes here with more details about
-                            what the event is about.
-                        </p>
-                        <p class="food-info">Food: Yes</p>
-                        <button class="unlike-button">Unlike</button>
-                    </div>
-                </article>
+      <section class="liked-events-grid">
+        <article class="event-card">
+          <div class="photo-container">
+            <img src="#" alt="Event Photo" />
+          </div>
+          <div class="event-info">
+            <h3>Event Title</h3>
+            <p class="org-name">Organization Name</p>
+            <p class="event-date">
+              Date: <time datetime="2024-03-21">March 21, 2024</time>
+            </p>
+            <p class="event-duration">Duration: 2 hours</p>
+            <p class="event-location">Location: Event Venue</p>
+            <p class="event-description">
+              Event description goes here with more details about what the event
+              is about.
+            </p>
+            <p class="food-info">Food: Yes</p>
+            <button class="unlike-button">Unlike</button>
+          </div>
+        </article>
 
-                <article class="event-card">
-                    <div class="photo-container">
-                        <img src="#" alt="Event Photo" />
-                    </div>
-                    <div class="event-info">
-                        <h3>Event Title</h3>
-                        <p class="org-name">Organization Name</p>
-                        <p class="event-date">
-                            Date:
-                            <time datetime="2024-03-22">March 22, 2024</time>
-                        </p>
-                        <p class="event-duration">Duration: 3 hours</p>
-                        <p class="event-location">Location: Event Venue</p>
-                        <p class="event-description">
-                            Event description goes here with more details about
-                            what the event is about.
-                        </p>
-                        <p class="food-info">Food: No</p>
-                        <button class="unlike-button">Unlike</button>
-                    </div>
-                </article>
+        <article class="event-card">
+          <div class="photo-container">
+            <img src="#" alt="Event Photo" />
+          </div>
+          <div class="event-info">
+            <h3>Event Title</h3>
+            <p class="org-name">Organization Name</p>
+            <p class="event-date">
+              Date: <time datetime="2024-03-22">March 22, 2024</time>
+            </p>
+            <p class="event-duration">Duration: 3 hours</p>
+            <p class="event-location">Location: Event Venue</p>
+            <p class="event-description">
+              Event description goes here with more details about what the event
+              is about.
+            </p>
+            <p class="food-info">Food: No</p>
+            <button class="unlike-button">Unlike</button>
+          </div>
+        </article>
 
-                <article class="event-card">
-                    <div class="photo-container">
-                        <img src="#" alt="Event Photo" />
-                    </div>
-                    <div class="event-info">
-                        <h3>Event Title</h3>
-                        <p class="org-name">Organization Name</p>
-                        <p class="event-date">
-                            Date:
-                            <time datetime="2024-03-23">March 23, 2024</time>
-                        </p>
-                        <p class="event-duration">Duration: 1 hour</p>
-                        <p class="event-location">Location: Event Venue</p>
-                        <p class="event-description">
-                            Event description goes here with more details about
-                            what the event is about.
-                        </p>
-                        <p class="food-info">Food: Yes</p>
-                        <button class="unlike-button">Unlike</button>
-                    </div>
-                </article>
-            </section>
+        <article class="event-card">
+          <div class="photo-container">
+            <img src="#" alt="Event Photo" />
+          </div>
+          <div class="event-info">
+            <h3>Event Title</h3>
+            <p class="org-name">Organization Name</p>
+            <p class="event-date">
+              Date: <time datetime="2024-03-23">March 23, 2024</time>
+            </p>
+            <p class="event-duration">Duration: 1 hour</p>
+            <p class="event-location">Location: Event Venue</p>
+            <p class="event-description">
+              Event description goes here with more details about what the event
+              is about.
+            </p>
+            <p class="food-info">Food: Yes</p>
+            <button class="unlike-button">Unlike</button>
+          </div>
+        </article>
+      </section>
 
-            <div class="no-events-message" hidden>
-                <p>
-                    You haven't liked any events yet. Browse events to find some
-                    you're interested in!
-                </p>
-                <button>Browse Events</button>
-            </div>
-        </main>
-    </body>
-    <script src="js/EventCard.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/storage.js"></script>
+      <div class="no-events-message" hidden>
+        <p>
+          You haven't liked any events yet. Browse events to find some you're
+          interested in!
+        </p>
+        <button>Browse Events</button>
+      </div>
+    </main>
+  </body>
+  <script src="js/EventCard.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/storage.js"></script>
 </html>
