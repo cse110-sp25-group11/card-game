@@ -6,15 +6,15 @@ body {
 }
 
 main {
-  padding: 0px 20px 20px 20px;
+    padding: 0px 20px 20px 20px;
 }
 /*Section Heading*/
 h2 {
-  margin-left: 20px;
-  margin-top: 30px;
-  font-size: 25px;
-  color: white;
-  font-family: "Merriweather Sans", sans-serif;
+    margin-left: 20px;
+    margin-top: 30px;
+    font-size: 25px;
+    color: white;
+    font-family: "Merriweather Sans", sans-serif;
 }
 
 /* Carousel container */
@@ -30,15 +30,15 @@ h2 {
 /* Buttons */
 .event-carousel .prev,
 .event-carousel .next {
-  background-color: #182b49;
-  color: #ffffff;
-  border: 2px solid #ffffff;
-  border-radius: 10px;
-  padding: 8px 20px;
-  font-size: 20px;
-  font-family: "Merriweather Sans", sans-serif;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    background-color: #182b49;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-size: 20px;
+    font-family: "Merriweather Sans", sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 .event-carousel .prev:hover,
 .event-carousel .next:hover {
@@ -57,14 +57,14 @@ h2 {
 
 /* Individual card */
 .event-card {
-  flex: 0 0 30%;
-  scroll-snap-align: start;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background: white;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-  min-width: 250px;
+    flex: 0 0 30%;
+    scroll-snap-align: start;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    min-width: 250px;
 }
 .photo-container {
     width: 100%;
