@@ -1,94 +1,159 @@
-/*Global Styles*/
-body {
+/* Global Styles */
+body
+{
+    /* Text */
     font-family: "Raleway", sans-serif;
+    
+    /* Spacing */
     margin: 0;
     padding: 0;
 }
-
-main {
+main
+{
+    /* Spacing */
     padding: 80px 20px 20px 20px;
 }
-/*Section Heading*/
-h2 {
+
+
+
+/* Section Heading */
+h2
+{
+    /* Color */
+    color: white;
+
+    /* Spacing */
     margin-left: 20px;
     margin-top: 60px;
+
+    /* Text */
     font-size: 25px;
-    color: white;
     font-family: "Merriweather Sans", sans-serif;
 }
-
-.spaced-heading {
+.spaced-heading
+{
+    /* Spacing */
     margin-top: 30px;
 }
 
+
+
 /* Carousel container */
-.event-carousel {
+.event-carousel
+{
+    /* Spacing */
+    margin: 20px 0;
+    padding: 0 20px;
+    
     display: flex;
     align-items: center;
     gap: 50px;
     overflow: hidden;
-    margin: 20px 0;
-    padding: 0 20px;
 }
 
 /* Buttons */
 .event-carousel .prev,
-.event-carousel .next {
+.event-carousel .next
+{
+    /* Color */ 
     background-color: #03629c;
     color: white;
+
+    /* Border */
     border: 2px solid white;
     border-radius: 10px;
+
+    /* Spacing */
     padding: 8px 20px;
+
+    /* Text */
     font-size: 20px;
     font-family: "Merriweather Sans", sans-serif;
+
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 .event-carousel .prev:hover,
-.event-carousel .next:hover {
+.event-carousel .next:hover
+{
+    /* Color */ 
     background-color: #024a74;
 }
+
+
+
 /* Event cards container */
-.event-cards {
+.event-cards
+{
+    /* Spacing */
+    padding: 10px 0;
+
     display: flex;
     gap: 50px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     flex: 1;
-    padding: 10px 0;
 }
 
-/* Individual card */
-.event-card {
-    flex: 0 0 30%;
-    scroll-snap-align: start;
+/* Event cards */
+.event-card
+{
+    /* Color */ 
+    background: white;
+
+    /* Border */
     border: 1px solid #ddd;
     border-radius: 10px;
-    background: white;
-    padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* Spacing */
+    padding: 10px;
+
+    flex: 0 0 30%;
+    scroll-snap-align: start;
     min-width: 250px;
 }
-.photo-container {
+
+
+
+/* Photo container */
+.photo-container
+{
+    /* Color */ 
+    background-color: #eee;
+
+    /* Border */
+    border-radius: 6px;
+
     width: 100%;
     height: 150px;
-    background-color: #eee;
-    border-radius: 6px;
     overflow: hidden;
 }
-.photo-container img {
+.photo-container img
+{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.event-info {
+
+
+
+/* Event information */
+.event-info
+{
+    /* Spacing */
     margin-top: 10px;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.event-info h3 {
+.event-info h3
+{
+    /* Spacing */
     margin: 0;
+    
+    /* Text */
     font-size: 1rem;
 }
