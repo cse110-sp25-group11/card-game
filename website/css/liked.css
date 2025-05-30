@@ -1,27 +1,44 @@
+/* Global Styles */
 body {
+    /* Font */
     font-family: "Raleway", sans-serif;
+
+    /* Spacing */
     margin: 0;
     padding: 0;
 }
 main {
+    /* Spacing */
     padding: 0px 20px 20px 20px;
 }
-/* Styling the Liked Events subtitle */
 h2 {
+    /* Spacing */
     margin-left: 20px;
     margin-top: 30px;
-    font-size: 25px;
+
+    /* Color */
     color: white;
+
+    /* Font */
+    font-size: 25px;
     font-family: "Merriweather Sans", sans-serif;
 }
-/* Spacing out the liked cards */
+
+
+
+/* Styling the Liked Events subtitle */
 .liked-events-grid {
+    /* Spacing */
+    padding: 0 20px 40px 20px;
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
     justify-items: center;
-    padding: 0 20px 40px 20px;
 }
+
+
+
 /* Adding responsive design for the liked events cards */
 @media (max-width: 768px) {
     .liked-events-grid {
