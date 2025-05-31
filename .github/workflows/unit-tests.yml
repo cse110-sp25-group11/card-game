@@ -1,0 +1,32 @@
+name: Unit tests & coverage
+
+on: [push, pull_request]
+
+jobs:
+  tests:
+    name: tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests with coverage
+        run: npm test   # assumes the "test" script runs Jest with --coverage
+
+      - name: Install Codacy coverage reporter
+        run: npm install --no-save codacy-coverage
+
+      - name: Send coverage to Codacy
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        run: |
+          npx codacy-coverage < coverage/lcov.info
