@@ -73,6 +73,5 @@ document.addEventListener("DOMContentLoaded", () => {
     const rejectBtn = document.getElementById("rejectBtn");
     acceptBtn.addEventListener("click", () => nextCard(events));
     rejectBtn.addEventListener("click", () => nextCard(events));
-
 });
     

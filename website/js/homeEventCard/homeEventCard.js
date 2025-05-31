@@ -1,10 +1,14 @@
+import { template } from './homeEventCardTemplate.js';
+import { styles } from './homeEventCardStyles.js';
+
+
 class EventCard extends HTMLElement {
     constructor() {
         super();
         let shadowElem = this.attachShadow({ mode: "open" });
         const article = document.createElement("article");
         const style = document.createElement("style");
-        style.innerHTML = ``;
+        style.innerHTML = `${styles}`;
         shadowElem.append(article);
         shadowElem.append(style);
     }
@@ -35,21 +39,7 @@ class EventCard extends HTMLElement {
     set data(data) {
         if (!data) return;
         const article = this.shadowRoot.querySelector("article");
-        article.innerHTML = `
-        <img src = "${data.imgLink}" alt="${data.imgAlt}">
-        <div class="nameAndOrg">
-            <span class="eventName">${data.name}</span>
-            <span class="org">${data.org}</span>
-        </div>
-        <p> Free food provided? ${data.food ? "Yes" : "No"} </p>
-        <p>
-            <time datetime="${data.date}">${data.date}</time>: 
-            <time datetime="${data.startTime}">${data.startTime}</time> to
-            <time datetime="${data.endTime}">${data.endTime}</time>
-        </p>
-        <p>${data.location}</p>
-        <p class="eventDescription">${data.description}</p>
-    `;
+        article.innerHTML = `${template(data)}`;
     }
 }
 

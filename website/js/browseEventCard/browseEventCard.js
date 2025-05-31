@@ -1,3 +1,7 @@
+import { template } from './browseEventCardTemplate.js';
+import { styles } from './browseEventCardStyles.js';
+
+
 class BrowseEventCard extends HTMLElement {
   constructor() {
     super();
@@ -5,45 +9,7 @@ class BrowseEventCard extends HTMLElement {
     const article = document.createElement("article");
     article.className = "browse-event-card";
     const style = document.createElement("style");
-    style.innerHTML = `
-        .browse-event-card 
-        {
-            flex: 0 0 30%;
-            scroll-snap-align: start;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background: white;
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            min-width: 250px;
-        }
-        .photo-container 
-        {
-            width: 100%;
-            height: 150px;
-            background-color: #eee;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        .photo-container img 
-        {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .event-info 
-        {
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .event-info h3 
-        {
-            margin: 0;
-            font-size: 1rem;
-        }
-    `;
+    style.innerHTML = `${styles}`;
     shadowElem.append(article);
     shadowElem.append(style);
   }
@@ -74,16 +40,7 @@ class BrowseEventCard extends HTMLElement {
   set data(data) {
     if (!data) return;
     const article = this.shadowRoot.querySelector("article");
-    article.innerHTML = `
-        <div class="photo-container">
-            <img src="${data.imgLink}" alt="${data.altText}"/>
-        </div>
-        <div class="event-info">
-            <h3>${data.name}</h3>
-            <h3>${data.org}</h3>
-            <h3>${data.food}</h3>
-        </div>
-    `;
+    article.innerHTML = `${template(data)}`;
   }
 }
 
