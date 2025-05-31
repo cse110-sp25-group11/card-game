@@ -53,11 +53,10 @@ function nextCard(events) {
     }
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
     const cardContainer = document.querySelector(".card-container");
     if (!cardContainer) return;
-    
+
     // Get events from localStorage
     const events = getEvents();
 
@@ -74,4 +73,3 @@ document.addEventListener("DOMContentLoaded", () => {
     acceptBtn.addEventListener("click", () => nextCard(events));
     rejectBtn.addEventListener("click", () => nextCard(events));
 });
-    

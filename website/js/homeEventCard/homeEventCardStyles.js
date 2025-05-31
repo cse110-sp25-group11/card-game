@@ -10,4 +10,4 @@ export const styles = `
         width: 500px;
         box-sizing: border-box;
     }
-`; 
+`;

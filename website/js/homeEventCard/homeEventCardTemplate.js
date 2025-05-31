@@ -12,4 +12,4 @@ export const template = (data) => `
     </p>
     <p>${data.location}</p>
     <p class="eventDescription">${data.description}</p>
-`; 
+`;
