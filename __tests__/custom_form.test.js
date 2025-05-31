@@ -5,9 +5,11 @@ beforeEach(async () => {
       <input id="eventName" name="eventName" value="test event" />
       <input id="orgName" name="orgName" value="test org" />
       <input id="date" name="date" value="04/01/2025" />
-      <input id="duration" name="duration" value="2 hours" />
+      <input id="startTime" name="startTime" value="10:00" />
+      <input id="endTime" name="endTime" value="12:00" />
       <input id="location" name="location" value="ballroom" />
       <textarea id="description" name="description">description</textarea>
+      <input id="altText" name="altText" value="test event photo" />
 
       <input type="radio" id="foodYes" name="food" value="yes" checked />
       <input type="radio" id="foodNo" name="food" value="no" />

@@ -30,20 +30,73 @@ h2 {
 /* Buttons */
 .event-carousel .prev,
 .event-carousel .next {
-    background-color: #182b49;
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    border-radius: 10px;
-    padding: 8px 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
     font-size: 20px;
-    font-family: "Merriweather Sans", sans-serif;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #03629c, #024a74);
+    color: white;
+    position: relative;
+    overflow: hidden;
 }
+
 .event-carousel .prev:hover,
 .event-carousel .next:hover {
-    background-color: #024a74;
+    background: linear-gradient(135deg, #024a74, #013a5a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(3, 98, 156, 0.4);
 }
+
+.event-carousel .prev:active,
+.event-carousel .next:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(3, 98, 156, 0.3);
+}
+
+.event-carousel .prev:disabled,
+.event-carousel .next:disabled {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-carousel .prev:disabled:hover,
+.event-carousel .next:disabled:hover {
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Add ripple effect for carousel buttons */
+.event-carousel .prev::before,
+.event-carousel .next::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.6s,
+        height 0.6s;
+}
+
+.event-carousel .prev:active::before,
+.event-carousel .next:active::before {
+    width: 200px;
+    height: 200px;
+}
+
 /* Event cards container */
 .event-cards {
     display: flex;
@@ -53,6 +106,31 @@ h2 {
     scroll-behavior: smooth;
     flex: 1;
     padding: 10px 0;
+    cursor: grab;
+    scrollbar-width: thin;
+    scrollbar-color: #03629c #f1f1f1;
+}
+
+.event-cards::-webkit-scrollbar {
+    height: 8px;
+}
+
+.event-cards::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.event-cards::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #03629c, #024a74);
+    border-radius: 4px;
+}
+
+.event-cards::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #024a74, #013a5a);
+}
+
+.event-cards:active {
+    cursor: grabbing;
 }
 
 /* Individual card */
