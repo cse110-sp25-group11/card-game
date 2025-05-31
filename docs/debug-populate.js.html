@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>debug-populate.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addToStorage">addToStorage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addTouchSupport">addTouchSupport</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#checkValidEvent">checkValidEvent</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#clearEvents">clearEvents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createEventCardElement">createEventCardElement</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#deleteLocalStorage">deleteLocalStorage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#fetchData">fetchData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#generateSampleEvents">generateSampleEvents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getCurrentlyHappeningEvents">getCurrentlyHappeningEvents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getPastEvents">getPastEvents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getUpcomingEvents">getUpcomingEvents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#handleClick">handleClick</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#handleKeyboardNavigation">handleKeyboardNavigation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#initializeCarousels">initializeCarousels</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#loadEventsForBrowse">loadEventsForBrowse</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#mapEventData">mapEventData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#populateCarousel">populateCarousel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#populateEvents">populateEvents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#setupCarouselNavigation">setupCarouselNavigation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showEventCounts">showEventCounts</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showStatusMessage">showStatusMessage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateButtonStates">updateButtonStates</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateLocalStorage">updateLocalStorage</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">debug-populate.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Debug utility for populating localStorage with sample events
+ * This file should only be loaded on the debug page
+ */
+
+/**
+ * Generates sample events for different categories with proper dates
+ * @returns {Object} Object containing arrays of events for each category
+ */
+function generateSampleEvents() {
+    const now = new Date();
+    const today = new Date(now);
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const nextWeek = new Date(now);
+    nextWeek.setDate(nextWeek.getDate() + 7);
+    const nextMonth = new Date(now);
+    nextMonth.setMonth(nextMonth.getMonth() + 1);
+
+    // Helper function to format date as MM/DD/YYYY
+    function formatDate(date) {
+        return `${(date.getMonth() + 1).toString().padStart(2, "0")}/${date.getDate().toString().padStart(2, "0")}/${date.getFullYear()}`;
+    }
+
+    // Helper function to format time as HH:MM
+    function formatTime(hour, minute = 0) {
+        return `${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}`;
+    }
+
+    const organizations = [
+        "Computer Science Club",
+        "Student Government",
+        "Drama Society",
+        "Environmental Club",
+        "Photography Club",
+        "Debate Team",
+        "Music Society",
+        "Art Club",
+        "Sports Club",
+        "Book Club",
+    ];
+
+    const locations = [
+        "Student Union Building",
+        "Library Auditorium",
+        "Campus Quad",
+        "Science Building Room 101",
+        "Gymnasium",
+        "Cafeteria",
+        "Art Studio",
+        "Music Hall",
+        "Conference Room A",
+        "Outdoor Pavilion",
+    ];
+
+    const eventTypes = [
+        "Workshop",
+        "Seminar",
+        "Social Event",
+        "Competition",
+        "Meeting",
+        "Performance",
+        "Exhibition",
+        "Fundraiser",
+        "Study Session",
+        "Networking Event",
+    ];
+
+    // Events happening now (today)
+    const happeningNow = [];
+    for (let i = 1; i &lt;= 5; i++) {
+        const startHour = Math.floor(Math.random() * 6) + 10; // 10 AM to 3 PM
+        const endHour = startHour + Math.floor(Math.random() * 3) + 1; // 1-4 hours later
+
+        happeningNow.push({
+            name: `${eventTypes[Math.floor(Math.random() * eventTypes.length)]} ${i}`,
+            description: `Join us for an exciting ${eventTypes[Math.floor(Math.random() * eventTypes.length)].toLowerCase()} that will enhance your college experience. This event features interactive activities, networking opportunities, and valuable learning experiences.`,
+            date: formatDate(today),
+            org: organizations[
+                Math.floor(Math.random() * organizations.length)
+            ],
+            imgLink: `https://placehold.co/400x300/0066cc/ffffff?text=Event+${i}`,
+            imgAltText: `Event ${i} promotional image`,
+            location: locations[Math.floor(Math.random() * locations.length)],
+            food: Math.random() > 0.5,
+            startTime: formatTime(startHour),
+            endTime: formatTime(endHour),
+            category: "happening-now",
+        });
+    }
+
+    // Upcoming events (tomorrow to next month)
+    const upcomingEvents = [];
+    for (let i = 1; i &lt;= 5; i++) {
+        const eventDate = new Date(tomorrow);
+        eventDate.setDate(eventDate.getDate() + Math.floor(Math.random() * 30)); // Random date in next 30 days
+        const startHour = Math.floor(Math.random() * 12) + 9; // 9 AM to 8 PM
+        const endHour = startHour + Math.floor(Math.random() * 4) + 1; // 1-5 hours later
+
+        upcomingEvents.push({
+            name: `Upcoming ${eventTypes[Math.floor(Math.random() * eventTypes.length)]} ${i}`,
+            description: `Don't miss this upcoming ${eventTypes[Math.floor(Math.random() * eventTypes.length)].toLowerCase()}! We have planned an amazing experience with guest speakers, hands-on activities, and opportunities to connect with fellow students.`,
+            date: formatDate(eventDate),
+            org: organizations[
+                Math.floor(Math.random() * organizations.length)
+            ],
+            imgLink: `https://placehold.co/400x300/009900/ffffff?text=Upcoming+${i}`,
+            imgAltText: `Upcoming Event ${i} promotional image`,
+            location: locations[Math.floor(Math.random() * locations.length)],
+            food: Math.random() > 0.5,
+            startTime: formatTime(startHour),
+            endTime: formatTime(Math.min(endHour, 23)),
+            category: "upcoming",
+        });
+    }
+
+    // Popular events (mix of dates, marked as popular)
+    const popularEvents = [];
+    for (let i = 1; i &lt;= 5; i++) {
+        const eventDate = new Date(today);
+        eventDate.setDate(eventDate.getDate() + Math.floor(Math.random() * 14)); // Random date in next 2 weeks
+        const startHour = Math.floor(Math.random() * 10) + 10; // 10 AM to 7 PM
+        const endHour = startHour + Math.floor(Math.random() * 3) + 2; // 2-5 hours later
+
+        popularEvents.push({
+            name: `Popular ${eventTypes[Math.floor(Math.random() * eventTypes.length)]} ${i}`,
+            description: `This is one of our most popular events! Join hundreds of students for this amazing ${eventTypes[Math.floor(Math.random() * eventTypes.length)].toLowerCase()}. Features include live entertainment, prizes, and unforgettable memories.`,
+            date: formatDate(eventDate),
+            org: organizations[
+                Math.floor(Math.random() * organizations.length)
+            ],
+            imgLink: `https://placehold.co/400x300/cc6600/ffffff?text=Popular+${i}`,
+            imgAltText: `Popular Event ${i} promotional image`,
+            location: locations[Math.floor(Math.random() * locations.length)],
+            food: Math.random() > 0.3, // Higher chance of food for popular events
+            startTime: formatTime(startHour),
+            endTime: formatTime(Math.min(endHour, 23)),
+            category: "popular",
+        });
+    }
+
+    return {
+        happeningNow,
+        upcomingEvents,
+        popularEvents,
+    };
+}
+
+/**
+ * Populates localStorage with sample events for all categories
+ */
+function populateEvents() {
+    try {
+        const events = generateSampleEvents();
+
+        localStorage.setItem(
+            "happening-now-events",
+            JSON.stringify(events.happeningNow),
+        );
+        localStorage.setItem(
+            "upcoming-events",
+            JSON.stringify(events.upcomingEvents),
+        );
+        localStorage.setItem(
+            "popular-events",
+            JSON.stringify(events.popularEvents),
+        );
+
+        const allEvents = [
+            ...events.happeningNow,
+            ...events.upcomingEvents,
+            ...events.popularEvents,
+        ];
+        localStorage.setItem("all-events", JSON.stringify(allEvents));
+
+        localStorage.setItem("events", JSON.stringify(allEvents));
+
+        showStatusMessage(
+            "Successfully populated localStorage with 15 sample events (5 per category)!",
+            "success",
+        );
+        showEventCounts();
+
+        console.log("Debug: Events populated successfully");
+        console.log("Happening Now:", events.happeningNow);
+        console.log("Upcoming Events:", events.upcomingEvents);
+        console.log("Popular Events:", events.popularEvents);
+    } catch (error) {
+        showStatusMessage(`Error populating events: ${error.message}`, "error");
+        console.error("Error populating events:", error);
+    }
+}
+
+/**
+ * Clears all events from localStorage
+ */
+function clearEvents() {
+    try {
+        localStorage.removeItem("happening-now-events");
+        localStorage.removeItem("upcoming-events");
+        localStorage.removeItem("popular-events");
+        localStorage.removeItem("all-events");
+        localStorage.removeItem("events");
+        localStorage.removeItem("liked-events");
+        localStorage.removeItem("disliked-events");
+
+        showStatusMessage("All events cleared from localStorage!", "success");
+        showEventCounts();
+
+        console.log("Debug: All events cleared from localStorage");
+    } catch (error) {
+        showStatusMessage(`Error clearing events: ${error.message}`, "error");
+        console.error("Error clearing events:", error);
+    }
+}
+
+/**
+ * Shows current event counts in localStorage
+ */
+function showEventCounts() {
+    try {
+        const happeningNow = JSON.parse(
+            localStorage.getItem("happening-now-events") || "[]",
+        );
+        const upcoming = JSON.parse(
+            localStorage.getItem("upcoming-events") || "[]",
+        );
+        const popular = JSON.parse(
+            localStorage.getItem("popular-events") || "[]",
+        );
+        const all = JSON.parse(localStorage.getItem("events") || "[]");
+        const liked = JSON.parse(localStorage.getItem("liked-events") || "[]");
+        const disliked = JSON.parse(
+            localStorage.getItem("disliked-events") || "[]",
+        );
+
+        const countsHtml = `
+      &lt;h3>Current Event Counts:&lt;/h3>
+      &lt;ul style="text-align: left; display: inline-block;">
+        &lt;li>Happening Now: ${happeningNow.length} events&lt;/li>
+        &lt;li>Upcoming Events: ${upcoming.length} events&lt;/li>
+        &lt;li>Popular Events: ${popular.length} events&lt;/li>
+        &lt;li>All Events: ${all.length} events&lt;/li>
+        &lt;li>Liked Events: ${liked.length} events&lt;/li>
+        &lt;li>Disliked Events: ${disliked.length} events&lt;/li>
+      &lt;/ul>
+    `;
+
+        document.getElementById("eventCounts").innerHTML = countsHtml;
+    } catch (error) {
+        document.getElementById("eventCounts").innerHTML =
+            `&lt;p style="color: #f44336;">Error reading event counts: ${error.message}&lt;/p>`;
+        console.error("Error showing event counts:", error);
+    }
+}
+
+/**
+ * Shows status message to user
+ * @param {string} message - The message to display
+ * @param {string} type - The type of message ('success' or 'error')
+ */
+function showStatusMessage(message, type) {
+    const statusDiv = document.getElementById("statusMessage");
+    statusDiv.innerHTML = `&lt;div class="status-message ${type}">${message}&lt;/div>`;
+
+    setTimeout(() => {
+        statusDiv.innerHTML = "";
+    }, 5000);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    showEventCounts();
+    console.log("Debug utilities loaded. Access via /debug");
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.4</a> on Sat May 31 2025 23:01:28 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
