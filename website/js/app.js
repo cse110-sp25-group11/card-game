@@ -215,6 +215,7 @@ function createEventCardElement(event) {
     const article = document.createElement("article");
     article.className = "event-card";
 
+    
     // Map the stored event data to the format expected by the HTML structure
     const eventData = mapEventData(event);
 
