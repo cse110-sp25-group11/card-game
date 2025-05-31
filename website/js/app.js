@@ -62,7 +62,8 @@ function updateLocalStorage(key, newData) {
  * @returns {boolean} whether it is valid or not
  */
 function checkValidEvent(event) {
-    // List of required keys with their expected types
+    if (typeof event !== "object" || event === null) return false;
+
     const requiredFields = {
         name: "string",
         description: "string",
@@ -75,12 +76,13 @@ function checkValidEvent(event) {
         startTime: "string",
         endTime: "string",
     };
-    // Check each field
+
     for (let key in requiredFields) {
         if (!(key in event) || typeof event[key] !== requiredFields[key]) {
             return false;
         }
     }
+
     return true;
 }
 

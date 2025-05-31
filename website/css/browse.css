@@ -6,19 +6,15 @@ body {
 }
 
 main {
-    padding: 80px 20px 20px 20px;
+    padding: 0px 20px 20px 20px;
 }
 /*Section Heading*/
 h2 {
     margin-left: 20px;
-    margin-top: 60px;
+    margin-top: 30px;
     font-size: 25px;
     color: white;
     font-family: "Merriweather Sans", sans-serif;
-}
-
-.spaced-heading {
-    margin-top: 30px;
 }
 
 /* Carousel container */
@@ -145,7 +141,7 @@ h2 {
     border-radius: 10px;
     background: white;
     padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
     min-width: 250px;
 }
 .photo-container {
