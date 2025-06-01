@@ -1,5 +1,10 @@
 /*Layout and Containers*/
 main {
+    padding: 0px 20px 20px 20px;
+}
+
+/* Specific styles for the swipe page (index.html) */
+.swipe-page main {
     padding: 20px;
     min-height: calc(100vh - 140px); /* Account for navbar height */
     display: flex;
@@ -75,28 +80,35 @@ body {
     margin-right: 8px;
 }
 
-/*Event Card*/
+/*Event Card - General styles for all pages*/
 .event-card {
     background-color: white;
     outline: 2px solid #c69214f2;
     outline-offset: 4px;
+    border-radius: 8px;
+    padding: 16px;
+    width: 500px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+/* Specific event card styles for swipe page only */
+.card-container .event-card {
     border-radius: 12px;
     padding: 20px;
     width: 100%;
     max-width: 500px;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    position: relative;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease;
 }
 
-.event-card:hover {
+.card-container .event-card:hover {
     transform: translateY(-2px);
 }
 
-/* Event card content styling */
-.event-image {
+/* Event card content styling - only for swipe page */
+.card-container .event-image {
     width: 100%;
     height: 250px;
     border-radius: 8px;
@@ -104,21 +116,21 @@ body {
     margin-bottom: 16px;
 }
 
-.event-image img {
+.card-container .event-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.event-details {
+.card-container .event-details {
     padding: 0;
 }
 
-.event-header {
+.card-container .event-header {
     margin-bottom: 12px;
 }
 
-.event-header h2 {
+.card-container .event-header h2 {
     margin: 0 0 4px 0;
     font-size: 1.5rem;
     font-weight: 600;
@@ -126,28 +138,28 @@ body {
     font-family: "Merriweather Sans", sans-serif;
 }
 
-.event-header span {
+.card-container .event-header span {
     color: #03629c;
     font-weight: 500;
     font-size: 1.1rem;
 }
 
-.event-date,
-.event-location,
-.event-food {
+.card-container .event-date,
+.card-container .event-location,
+.card-container .event-food {
     margin: 8px 0;
     color: #5a6c7d;
     font-weight: 500;
 }
 
-.event-description {
+.card-container .event-description {
     margin: 12px 0;
     color: #2c3e50;
     line-height: 1.6;
 }
 
-.event-location i,
-.event-food i {
+.card-container .event-location i,
+.card-container .event-food i {
     margin-right: 6px;
     color: #03629c;
 }
@@ -311,23 +323,10 @@ body {
 
 /* Responsive Design for Swipe Interface */
 @media (max-width: 768px) {
-    main {
+    /* Only apply to pages with card-container (swipe page) */
+    .swipe-page main {
         padding: 15px;
         min-height: calc(100vh - 120px);
-    }
-    
-    .navbar {
-        padding: 15px 20px;
-        height: 60px;
-    }
-    
-    .navbar h1 a {
-        font-size: 28px;
-    }
-    
-    .navbar-items a button {
-        padding: 6px 15px;
-        font-size: 16px;
     }
     
     .card-container {
@@ -336,17 +335,17 @@ body {
         padding: 10px 0;
     }
     
-    .event-card {
+    .card-container .event-card {
         max-width: 100%;
         padding: 15px;
         border-radius: 10px;
     }
     
-    .event-image {
+    .card-container .event-image {
         height: 200px;
     }
     
-    .event-header h2 {
+    .card-container .event-header h2 {
         font-size: 1.3rem;
     }
     
@@ -363,27 +362,10 @@ body {
 }
 
 @media (max-width: 480px) {
-    main {
+    /* Only apply to pages with card-container (swipe page) */
+    .swipe-page main {
         padding: 10px;
         min-height: calc(100vh - 100px);
-    }
-    
-    .navbar {
-        padding: 10px 15px;
-        height: 50px;
-    }
-    
-    .navbar h1 a {
-        font-size: 24px;
-    }
-    
-    .navbar-items {
-        gap: 10px;
-    }
-    
-    .navbar-items a button {
-        padding: 5px 10px;
-        font-size: 14px;
     }
     
     .card-container {
@@ -391,22 +373,22 @@ body {
         padding: 5px 0;
     }
     
-    .event-card {
+    .card-container .event-card {
         padding: 12px;
         outline-width: 1px;
         outline-offset: 2px;
     }
     
-    .event-image {
+    .card-container .event-image {
         height: 180px;
         margin-bottom: 12px;
     }
     
-    .event-header h2 {
+    .card-container .event-header h2 {
         font-size: 1.2rem;
     }
     
-    .event-header span {
+    .card-container .event-header span {
         font-size: 1rem;
     }
     
@@ -428,9 +410,9 @@ body {
     }
 }
 
-/* Landscape orientation adjustments */
+/* Landscape orientation adjustments - only for swipe page */
 @media (max-height: 600px) and (orientation: landscape) {
-    main {
+    .swipe-page main {
         min-height: calc(100vh - 80px);
         padding: 10px;
     }
@@ -440,11 +422,11 @@ body {
         padding: 5px 0;
     }
     
-    .event-card {
+    .card-container .event-card {
         max-width: 450px;
     }
     
-    .event-image {
+    .card-container .event-image {
         height: 150px;
     }
     
