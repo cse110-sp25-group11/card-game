@@ -1,5 +1,5 @@
 const cards = document.querySelectorAll(".event-card");
-const numCards = JSON.parse((localStorage.getItem("all-events")) || "[]").length;
+const numCards = JSON.parse(localStorage.getItem("all-events") || "[]").length;
 
 let currentCardIndex = 0;
 let lastSwipe = null;
@@ -59,7 +59,9 @@ function showUndo() {
 
 //checks if there are no cards left to swipe
 function checkIfNoCardsLeft() {
-    console.log(`Current card index: ${currentCardIndex}, Total cards: ${numCards}`);
+    console.log(
+        `Current card index: ${currentCardIndex}, Total cards: ${numCards}`,
+    );
     if (currentCardIndex >= numCards) {
         console.log("No more cards left to swipe.");
         updateButtons(false);

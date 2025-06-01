@@ -7,7 +7,10 @@ class EventCard extends HTMLElement {
         let shadowElem = this.attachShadow({ mode: "open" });
         const faLink = document.createElement("link");
         faLink.setAttribute("rel", "stylesheet");
-        faLink.setAttribute("href", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+        faLink.setAttribute(
+            "href",
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        );
         faLink.setAttribute("crossorigin", "anonymous");
         const article = document.createElement("article");
         article.className = "home-event-card";
