@@ -12,8 +12,163 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const requiredFields = [
+        'eventName', 'orgName', 'date', 'startTime', 'endTime', 
+        'location', 'description'
+    ];
+
+    requiredFields.forEach(fieldName => {
+        const field = form.elements[fieldName];
+        if (field) {
+            field.addEventListener('blur', () => validateField(field));
+            field.addEventListener('input', () => clearFieldError(field));
+        }
+    });
+
+    foodRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            clearFieldError(form.querySelector('.food-group'), 'radio');
+        });
+    });
+
+    function validateField(field) {
+        const value = field.value.trim();
+        const fieldContainer = field.closest('.form-group');
+        
+        if (field.hasAttribute('required') && !value) {
+            showFieldError(field, `${getFieldLabel(field)} is required`);
+            return false;
+        }
+        
+        if (field.type === 'date' && value) {
+            const selectedDate = new Date(value);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            if (selectedDate < today) {
+                showFieldError(field, 'Event date cannot be in the past');
+                return false;
+            }
+        }
+        
+        if (field.name === 'endTime') {
+            const startTime = form.elements['startTime'].value;
+            if (startTime && value && value <= startTime) {
+                showFieldError(field, 'End time must be after start time');
+                return false;
+            }
+        }
+        
+        clearFieldError(field);
+        return true;
+    }
+
+    function validateRadioGroup() {
+        const foodRadioGroup = form.querySelector('.food-group');
+        const isChecked = foodRadios.some(radio => radio.checked);
+        
+        if (!isChecked) {
+            showFieldError(foodRadioGroup, 'Please select whether food will be provided', 'radio');
+            return false;
+        }
+        
+        clearFieldError(foodRadioGroup, 'radio');
+        return true;
+    }
+
+    function showFieldError(field, message, type = 'input') {
+        const fieldContainer = field.closest('.form-group');
+        clearFieldError(field, type);
+        
+        if (type === 'input') {
+            field.classList.add('error');
+        }
+        
+        fieldContainer.classList.add('has-error');
+        
+        const errorElement = document.createElement('span');
+        errorElement.className = type === 'radio' ? 'radio-group-error' : 'error-message';
+        errorElement.textContent = message;
+        
+        if (type === 'radio') {
+            fieldContainer.appendChild(errorElement);
+        } else {
+            field.insertAdjacentElement('afterend', errorElement);
+        }
+    }
+
+    function clearFieldError(field, type = 'input') {
+        const fieldContainer = field.closest('.form-group');
+        
+        if (type === 'input') {
+            field.classList.remove('error', 'success');
+        }
+        
+        fieldContainer.classList.remove('has-error');
+        
+        const errorSelector = type === 'radio' ? '.radio-group-error' : '.error-message';
+        const existingError = fieldContainer.querySelector(errorSelector);
+        if (existingError) {
+            existingError.remove();
+        }
+    }
+
+    function getFieldLabel(field) {
+        const fieldContainer = field.closest('.form-group');
+        const label = fieldContainer.querySelector('label');
+        if (label) {
+            const labelClone = label.cloneNode(true);
+            const asteriskSpan = labelClone.querySelector('.required-asterisk');
+            if (asteriskSpan) {
+                asteriskSpan.remove();
+            }
+            return labelClone.textContent.trim();
+        }
+        return field.name;
+    }
+
+    function showSuccessMessage() {
+        const existing = document.querySelector('.success-message');
+        if (existing) {
+            existing.remove();
+        }
+        
+        const successElement = document.createElement('div');
+        successElement.className = 'success-message';
+        successElement.textContent = 'Event Successfully Posted!';
+        
+        form.insertAdjacentElement('beforebegin', successElement);
+        
+        setTimeout(() => {
+            if (successElement.parentNode) {
+                successElement.remove();
+            }
+        }, 5000);
+    }
+
     form.addEventListener("submit", (e) => {
         e.preventDefault();
+
+        let isValid = true;
+        
+        requiredFields.forEach(fieldName => {
+            const field = form.elements[fieldName];
+            if (field && !validateField(field)) {
+                isValid = false;
+            }
+        });
+
+        if (!validateRadioGroup()) {
+            isValid = false;
+        }
+
+        if (!isValid) {
+            const firstError = form.querySelector('.error, .has-error');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
+        }
 
         const photoInput = document.getElementById("photo");
         const photoFile = photoInput.files[0];
@@ -38,11 +193,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
         localStorage.setItem("events", JSON.stringify(events));
 
-        alert("Event Successfully Posted!");
+        showSuccessMessage();
         form.reset();
         foodRadios.forEach((r) => (r.checked = false));
         if (foodDetails) {
             foodDetails.style.display = "none";
         }
+        
+        // Clear any validation states
+        form.querySelectorAll('.error, .success').forEach(el => {
+            el.classList.remove('error', 'success');
+        });
+        form.querySelectorAll('.error-message, .radio-group-error').forEach(el => {
+            el.remove();
+        });
     });
 });

@@ -6,14 +6,6 @@
 /* global fetchData */
 
 /**
- * Example function to show an alert when the button is clicked.
- * @returns {void}
- */
-function handleClick() {
-    alert("Button clicked!");
-}
-
-/**
  * updates the specific data in localStorage given the key.
  * If it doesn't exist, it will create it
  * @param {string} key the key of the data

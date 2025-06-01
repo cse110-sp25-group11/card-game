@@ -54,7 +54,7 @@
             <h2 id="post-header">Post An Event</h2>
             <form>
                 <div class="form-group">
-                    <label for="eventName">Event Name</label>
+                    <label for="eventName">Event Name <span class="required-asterisk">*</span></label>
                     <input
                         type="text"
                         id="eventName"
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="orgName">Club/Org Name</label>
+                    <label for="orgName">Club/Org Name <span class="required-asterisk">*</span></label>
                     <input
                         type="text"
                         id="orgName"
@@ -76,18 +76,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="date">Date</label>
+                    <label for="date">Date <span class="required-asterisk">*</span></label>
                     <input
-                        type="text"
+                        type="date"
                         id="date"
                         name="date"
-                        placeholder="MM/DD/YYYY"
                         required
                     />
                 </div>
 
                 <div class="form-group">
-                    <label>Start and End Time</label>
+                    <label>Start and End Time <span class="required-asterisk">*</span></label>
                     <div class="start-end-times">
                         <input
                             type="time"
@@ -105,7 +104,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="location">Location</label>
+                    <label for="location">Location <span class="required-asterisk">*</span></label>
                     <input
                         type="text"
                         id="location"
@@ -116,7 +115,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Description</label>
+                    <label for="description">Description <span class="required-asterisk">*</span></label>
                     <textarea
                         id="description"
                         name="description"
@@ -126,7 +125,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Food</label>
+                    <label>Food <span class="required-asterisk">*</span></label>
                     <div class="food-group">
                         <input
                             type="radio"
@@ -159,7 +158,6 @@
                             id="photo"
                             name="photo"
                             accept="image/*"
-                            required
                             hidden
                         />
                         <p id="fileNameDisplay"></p>
@@ -173,7 +171,6 @@
                         id="altText"
                         name="altText"
                         placeholder="String Input"
-                        required
                     />
                 </div>
 
