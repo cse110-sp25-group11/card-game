@@ -1,6 +1,4 @@
 export const styles = `
-    /** TODO: INSERT CSS FOR HOME EVENT CARD HERE **/
-
     .home-event-card {
         background-color: white;
         outline: 2px solid #c69214f2;

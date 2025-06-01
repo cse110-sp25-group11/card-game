@@ -1,7 +1,5 @@
 const cards = document.querySelectorAll(".event-card");
-const rejectBtn = document.getElementById("rejectBtn");
-const acceptBtn = document.getElementById("acceptBtn");
-const undoBtn = document.getElementById("undoBtn");
+const numCards = JSON.parse((localStorage.getItem("all-events")) || "[]").length;
 
 let currentCardIndex = 0;
 let lastSwipe = null;
@@ -13,7 +11,7 @@ function getCurrentCard() {
 
 // handle swiping left or right
 function swipe(direction) {
-    const card = getCurrentCard();
+    const card = document.querySelector("home-event-card");
     if (!card) return;
 
     // add animation class depending on the swipe direction
@@ -61,7 +59,9 @@ function showUndo() {
 
 //checks if there are no cards left to swipe
 function checkIfNoCardsLeft() {
-    if (currentCardIndex >= cards.length) {
+    console.log(`Current card index: ${currentCardIndex}, Total cards: ${numCards}`);
+    if (currentCardIndex >= numCards) {
+        console.log("No more cards left to swipe.");
         updateButtons(false);
     }
 }
@@ -82,6 +82,6 @@ function updateButtons(enable) {
 // Initial check in case there's no card at all
 checkIfNoCardsLeft();
 
-rejectBtn.addEventListener("click", swipeLeft);
-acceptBtn.addEventListener("click", swipeRight);
-undoBtn.addEventListener("click", undoSwipe);
+// rejectBtn.addEventListener("click", swipeLeft);
+// acceptBtn.addEventListener("click", swipeRight);
+// undoBtn.addEventListener("click", undoSwipe);

@@ -7,6 +7,13 @@
  */
 let currentIndex = 0;
 
+
+/**
+ * HTML elements for accept and reject buttons.
+ */
+const acceptBtn = document.getElementById("acceptBtn");
+const rejectBtn = document.getElementById("rejectBtn");
+
 /**
  * Retrieves events from localStorage
  * @returns JSON array of events
@@ -68,8 +75,17 @@ document.addEventListener("DOMContentLoaded", () => {
         appendEventCard(events[currentIndex]);
     }
 
-    const acceptBtn = document.getElementById("acceptBtn");
-    const rejectBtn = document.getElementById("rejectBtn");
-    acceptBtn.addEventListener("click", () => nextCard(events));
-    rejectBtn.addEventListener("click", () => nextCard(events));
+    acceptBtn.addEventListener("click", () => {
+        swipeRight();
+        setTimeout(() => {
+            nextCard(events); 
+        }, 500); 
+    });
+    rejectBtn.addEventListener("click", () => {
+        swipeLeft();
+        setTimeout(() => {
+            nextCard(events); 
+        }, 500); 
+    });
 });
+
