@@ -42,7 +42,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    height: 70px; 
+    height: 70px;
     box-sizing: border-box;
 }
 
@@ -55,7 +55,7 @@ body {
     text-decoration: none;
     font-family: "Merriweather Sans", sans-serif;
     color: white;
-    font-size: 36px; 
+    font-size: 36px;
     letter-spacing: 1.5px;
     font-weight: bold;
 }
@@ -168,7 +168,7 @@ body {
 .swipe-buttons {
     display: flex;
     justify-content: center;
-    gap: 80px; 
+    gap: 80px;
     width: 100%;
     margin-top: 10px;
 }
@@ -328,32 +328,32 @@ body {
         padding: 15px;
         min-height: calc(100vh - 120px);
     }
-    
+
     .card-container {
         max-width: 100%;
         gap: 15px;
         padding: 10px 0;
     }
-    
+
     .card-container .event-card {
         max-width: 100%;
         padding: 15px;
         border-radius: 10px;
     }
-    
+
     .card-container .event-image {
         height: 200px;
     }
-    
+
     .card-container .event-header h2 {
         font-size: 1.3rem;
     }
-    
+
     .swipe-buttons {
         gap: 60px;
         margin-top: 15px;
     }
-    
+
     .swipe-buttons button {
         width: 60px;
         height: 60px;
@@ -367,42 +367,42 @@ body {
         padding: 10px;
         min-height: calc(100vh - 100px);
     }
-    
+
     .card-container {
         gap: 12px;
         padding: 5px 0;
     }
-    
+
     .card-container .event-card {
         padding: 12px;
         outline-width: 1px;
         outline-offset: 2px;
     }
-    
+
     .card-container .event-image {
         height: 180px;
         margin-bottom: 12px;
     }
-    
+
     .card-container .event-header h2 {
         font-size: 1.2rem;
     }
-    
+
     .card-container .event-header span {
         font-size: 1rem;
     }
-    
+
     .swipe-buttons {
         gap: 50px;
         margin-top: 12px;
     }
-    
+
     .swipe-buttons button {
         width: 55px;
         height: 55px;
         font-size: 22px;
     }
-    
+
     #undoBtn {
         margin: 10px auto 0 auto;
         padding: 10px 16px;
@@ -416,20 +416,20 @@ body {
         min-height: calc(100vh - 80px);
         padding: 10px;
     }
-    
+
     .card-container {
         gap: 10px;
         padding: 5px 0;
     }
-    
+
     .card-container .event-card {
         max-width: 450px;
     }
-    
+
     .card-container .event-image {
         height: 150px;
     }
-    
+
     .swipe-buttons {
         margin-top: 8px;
     }

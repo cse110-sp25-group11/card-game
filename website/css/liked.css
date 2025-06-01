@@ -37,9 +37,9 @@ h2 {
     width: auto !important;
     position: relative !important;
     transform: none !important;
-    opacity: 1 !important; 
+    opacity: 1 !important;
     padding: 0 !important;
-    outline: none !important; 
+    outline: none !important;
     outline-offset: 0 !important;
 }
 
@@ -55,7 +55,7 @@ h2 {
     overflow: hidden !important;
     position: relative !important;
     background-color: #eee !important;
-    border-radius: 0 !important; 
+    border-radius: 0 !important;
 }
 
 .liked-events-grid .photo-container img {
@@ -73,7 +73,7 @@ h2 {
 .liked-events-grid .event-info {
     padding: 20px !important;
     margin-top: 0 !important;
-    display: block !important; 
+    display: block !important;
     justify-content: unset !important;
     align-items: unset !important;
 }
@@ -187,11 +187,11 @@ h2 {
         gap: 20px !important;
         padding: 15px !important;
     }
-    
+
     .liked-events-grid .photo-container {
         height: 180px !important;
     }
-    
+
     .liked-events-grid .event-info {
         padding: 15px !important;
     }
@@ -202,7 +202,7 @@ h2 {
         gap: 15px !important;
         padding: 10px !important;
     }
-    
+
     .liked-events-grid .event-info h3 {
         font-size: 1.1rem !important;
     }

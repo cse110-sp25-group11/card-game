@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // return the currently displayed card
 function getCurrentCard() {
-    return document.querySelector(".event-card:not(.no-events):not(.no-more-events)");
+    return document.querySelector(
+        ".event-card:not(.no-events):not(.no-more-events)",
+    );
 }
 
 // handle swiping left or right
@@ -19,7 +21,7 @@ function swipe(direction) {
 
     // Get event data before swiping
     const eventData = getEventDataFromCard(card);
-    
+
     // Save user preference
     if (direction === "right" && eventData) {
         saveEventAsLiked(eventData);
@@ -37,7 +39,7 @@ function swipe(direction) {
 
     // Show next event after animation completes
     setTimeout(() => {
-        if (typeof showNextEvent === 'function') {
+        if (typeof showNextEvent === "function") {
             showNextEvent();
         }
         checkIfNoCardsLeft();
@@ -59,14 +61,14 @@ function undoSwipe() {
     if (!lastSwipe) return;
 
     const { card, direction, eventData } = lastSwipe;
-    
+
     // Remove the preference from localStorage
     if (direction === "right" && eventData) {
         removeEventFromLiked(eventData);
     } else if (direction === "left" && eventData) {
         removeEventFromDisliked(eventData);
     }
-    
+
     // remove the swiping animation
     card.classList.remove("slide-out-left", "slide-out-right");
 
@@ -82,9 +84,12 @@ function undoSwipe() {
     }
 
     // Insert the undone card back
-    const cardContainer = document.querySelector('.card-container');
+    const cardContainer = document.querySelector(".card-container");
     if (cardContainer) {
-        cardContainer.insertBefore(card, cardContainer.querySelector('.swipe-buttons'));
+        cardContainer.insertBefore(
+            card,
+            cardContainer.querySelector(".swipe-buttons"),
+        );
     }
 
     lastSwipe = null;
@@ -99,14 +104,14 @@ function undoSwipe() {
  */
 function removeEventFromLiked(event) {
     if (!event) return;
-    
+
     let likedEvents = JSON.parse(localStorage.getItem("likedEvents") || "[]");
     const eventId = event.id || event.name;
-    
-    likedEvents = likedEvents.filter(liked => 
-        (liked.id || liked.name) !== eventId
+
+    likedEvents = likedEvents.filter(
+        (liked) => (liked.id || liked.name) !== eventId,
     );
-    
+
     localStorage.setItem("likedEvents", JSON.stringify(likedEvents));
     console.log("Event removed from liked:", event.name || event.eventName);
 }
@@ -117,14 +122,16 @@ function removeEventFromLiked(event) {
  */
 function removeEventFromDisliked(event) {
     if (!event) return;
-    
-    let dislikedEvents = JSON.parse(localStorage.getItem("dislikedEvents") || "[]");
-    const eventId = event.id || event.name;
-    
-    dislikedEvents = dislikedEvents.filter(disliked => 
-        (disliked.id || disliked.name) !== eventId
+
+    let dislikedEvents = JSON.parse(
+        localStorage.getItem("dislikedEvents") || "[]",
     );
-    
+    const eventId = event.id || event.name;
+
+    dislikedEvents = dislikedEvents.filter(
+        (disliked) => (disliked.id || disliked.name) !== eventId,
+    );
+
     localStorage.setItem("dislikedEvents", JSON.stringify(dislikedEvents));
     console.log("Event removed from disliked:", event.name || event.eventName);
 }
@@ -151,7 +158,7 @@ function checkIfNoCardsLeft() {
 function updateButtons(enable) {
     const acceptBtn = document.getElementById("acceptBtn");
     const rejectBtn = document.getElementById("rejectBtn");
-    
+
     if (acceptBtn && rejectBtn) {
         acceptBtn.disabled = !enable;
         rejectBtn.disabled = !enable;

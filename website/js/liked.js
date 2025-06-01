@@ -10,35 +10,35 @@
  * Loads and displays liked events from localStorage
  */
 function loadLikedEvents() {
-    const likedEventsGrid = document.querySelector('.liked-events-grid');
-    const noEventsMessage = document.querySelector('.no-events-message');
-    
+    const likedEventsGrid = document.querySelector(".liked-events-grid");
+    const noEventsMessage = document.querySelector(".no-events-message");
+
     if (!likedEventsGrid) return;
-    
+
     const likedEvents = fetchData("likedEvents");
-    
+
     if (likedEvents.length === 0) {
-        likedEventsGrid.style.display = 'none';
+        likedEventsGrid.style.display = "none";
         if (noEventsMessage) {
             noEventsMessage.hidden = false;
         }
         return;
     }
-    
-    likedEventsGrid.style.display = 'grid';
+
+    likedEventsGrid.style.display = "grid";
     if (noEventsMessage) {
         noEventsMessage.hidden = true;
     }
-    
-    likedEventsGrid.innerHTML = '';
-    
+
+    likedEventsGrid.innerHTML = "";
+
     const sortedEvents = likedEvents.sort((a, b) => {
         const dateA = new Date(a.likedAt || 0);
         const dateB = new Date(b.likedAt || 0);
         return dateB - dateA;
     });
-    
-    sortedEvents.forEach(event => {
+
+    sortedEvents.forEach((event) => {
         const eventCard = createLikedEventCard(event);
         likedEventsGrid.appendChild(eventCard);
     });
@@ -50,16 +50,19 @@ function loadLikedEvents() {
  * @returns {HTMLElement} - Event card element
  */
 function createLikedEventCard(event) {
-    const article = document.createElement('article');
-    article.className = 'event-card';
+    const article = document.createElement("article");
+    article.className = "event-card";
     article.dataset.eventId = event.id || event.name;
-    
+
     const eventData = mapEventData(event);
-    
-    const duration = calculateEventDuration(eventData.startTime, eventData.endTime);
-    
+
+    const duration = calculateEventDuration(
+        eventData.startTime,
+        eventData.endTime,
+    );
+
     const displayDate = formatDateForDisplay(eventData.date);
-    
+
     article.innerHTML = `
         <div class="photo-container">
             <img src="${eventData.imgLink}" alt="${eventData.imgAltText}" />
@@ -76,13 +79,13 @@ function createLikedEventCard(event) {
             <p class="event-duration">Duration: ${duration}</p>
             <p class="event-location">Location: ${eventData.location}</p>
             <p class="event-description">${eventData.description}</p>
-            <p class="food-info">Food: ${eventData.food ? 'Yes' : 'No'}</p>
+            <p class="food-info">Food: ${eventData.food ? "Yes" : "No"}</p>
             <button class="unlike-button" onclick="unlikeEvent('${(event.id || event.name).replace(/'/g, "\\'")}')">
                 <i class="fa-solid fa-heart-crack"></i> Unlike
             </button>
         </div>
     `;
-    
+
     return article;
 }
 
@@ -93,29 +96,29 @@ function createLikedEventCard(event) {
  * @returns {string} - Duration description
  */
 function calculateEventDuration(startTime, endTime) {
-    if (!startTime || !endTime) return 'Duration unknown';
-    
-    const [startHour, startMin] = startTime.split(':').map(Number);
-    const [endHour, endMin] = endTime.split(':').map(Number);
-    
+    if (!startTime || !endTime) return "Duration unknown";
+
+    const [startHour, startMin] = startTime.split(":").map(Number);
+    const [endHour, endMin] = endTime.split(":").map(Number);
+
     const startMinutes = startHour * 60 + startMin;
     const endMinutes = endHour * 60 + endMin;
-    
+
     let durationMinutes = endMinutes - startMinutes;
-    
+
     if (durationMinutes < 0) {
         durationMinutes += 24 * 60;
     }
-    
+
     const hours = Math.floor(durationMinutes / 60);
     const minutes = durationMinutes % 60;
-    
+
     if (hours === 0) {
-        return `${minutes} minute${minutes !== 1 ? 's' : ''}`;
+        return `${minutes} minute${minutes !== 1 ? "s" : ""}`;
     } else if (minutes === 0) {
-        return `${hours} hour${hours !== 1 ? 's' : ''}`;
+        return `${hours} hour${hours !== 1 ? "s" : ""}`;
     } else {
-        return `${hours} hour${hours !== 1 ? 's' : ''} ${minutes} minute${minutes !== 1 ? 's' : ''}`;
+        return `${hours} hour${hours !== 1 ? "s" : ""} ${minutes} minute${minutes !== 1 ? "s" : ""}`;
     }
 }
 
@@ -125,17 +128,17 @@ function calculateEventDuration(startTime, endTime) {
  * @returns {string} - Formatted date for display
  */
 function formatDateForDisplay(dateString) {
-    if (!dateString) return 'Date unknown';
-    
+    if (!dateString) return "Date unknown";
+
     try {
-        const [month, day, year] = dateString.split('/');
+        const [month, day, year] = dateString.split("/");
         const date = new Date(year, month - 1, day);
-        
-        return date.toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+
+        return date.toLocaleDateString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
         });
     } catch (error) {
         return dateString;
@@ -148,17 +151,17 @@ function formatDateForDisplay(dateString) {
  */
 function unlikeEvent(eventId) {
     if (!eventId) return;
-    
+
     let likedEvents = fetchData("likedEvents");
-    
-    likedEvents = likedEvents.filter(event => 
-        (event.id || event.name) !== eventId
+
+    likedEvents = likedEvents.filter(
+        (event) => (event.id || event.name) !== eventId,
     );
-    
+
     localStorage.setItem("likedEvents", JSON.stringify(likedEvents));
-    
+
     loadLikedEvents();
-    
+
     console.log("Event unliked:", eventId);
 }
 
@@ -166,10 +169,10 @@ function unlikeEvent(eventId) {
  * Sets up the browse events button functionality
  */
 function setupBrowseButton() {
-    const browseButton = document.querySelector('.no-events-message button');
+    const browseButton = document.querySelector(".no-events-message button");
     if (browseButton) {
-        browseButton.addEventListener('click', () => {
-            window.location.href = 'browse.html';
+        browseButton.addEventListener("click", () => {
+            window.location.href = "browse.html";
         });
     }
 }
@@ -179,4 +182,4 @@ document.addEventListener("DOMContentLoaded", () => {
     setupBrowseButton();
 });
 
-window.unlikeEvent = unlikeEvent; 
+window.unlikeEvent = unlikeEvent;

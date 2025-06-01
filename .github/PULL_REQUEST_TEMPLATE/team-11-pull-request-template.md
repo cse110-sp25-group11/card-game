@@ -1,14 +1,15 @@
 # [TITLE]
+
 Closes #[Related Issue Number]
 Team Member Names:
 
 # Summary
 
-Describe the changes you made in terms of functionality. 
+Describe the changes you made in terms of functionality.
 
 ## Code Changes
 
-Describe the changes you made in each specific file. 
+Describe the changes you made in each specific file.
 
 # Type of Change
 
@@ -25,4 +26,4 @@ Describe the changes you made in each specific file.
 
 # Screenshots
 
-Insert some screenshots of completed work, if applicable. 
+Insert some screenshots of completed work, if applicable.
