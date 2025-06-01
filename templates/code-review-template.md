@@ -15,4 +15,4 @@ For each of the following, check the box if satisfied. Otherwise add an addition
 - [ ] No "div-itis" or redundancies with the rest of the codebase.
 
 ## Would you merge this PR?
-*Insert answer + explanation*
+*Insert answer + explanation* 

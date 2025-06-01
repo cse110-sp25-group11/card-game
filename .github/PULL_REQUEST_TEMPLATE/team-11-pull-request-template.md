@@ -1,5 +1,5 @@
 # [TITLE]
-#[Related Issue Number]
+Closes #[Related Issue Number]
 Team Member Names:
 
 # Summary
