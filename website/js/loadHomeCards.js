@@ -1,3 +1,5 @@
+/* global swipeRight, swipeLeft */
+
 /**
  * @fileoveriew Load home cards dynamically instead of hardcoding them in HTML.
  */
@@ -6,10 +8,6 @@
  * Global variable to keep track of the current index of the event card being displayed.
  */
 let currentIndex = 0;
-
-/**
- * Lets the linter and static analysis tools know that these functions are defined elsewhere.
-/* global swipeRight, swipeLeft */
 
 /**
  * HTML elements for accept and reject buttons.
