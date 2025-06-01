@@ -6,6 +6,7 @@ class EventCard extends HTMLElement {
         super();
         let shadowElem = this.attachShadow({ mode: "open" });
         const article = document.createElement("article");
+        article.className = "home-event-card";
         const style = document.createElement("style");
         style.innerHTML = `${styles}`;
         shadowElem.append(article);
