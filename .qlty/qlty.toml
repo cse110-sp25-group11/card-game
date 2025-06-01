@@ -80,6 +80,7 @@ name = "prettier"
 
 [[plugin]]
 name = "radarlint-js"
+include_patterns = ["**/*.js", "**/*.jsx"]
 
 [[plugin]]
 name = "ripgrep"

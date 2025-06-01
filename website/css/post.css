@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+}
+main {
+    font-family: "Inter", sans-serif;
+    padding: 0px 0px 20px 20px;
+}
+
+/**
+ * Styling for Post Event page
+ */
+
+form {
+    border: 2px solid white;
+    margin-right: 51.5%;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+#post-header {
+    margin-top: 30px;
+    margin-left: 20px;
+    font-size: 25px;
+    color: white;
+    font-family: "Merriweather Sans", sans-serif;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 250px 350px;
+    margin-bottom: 25px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.form-group label,
+legend {
+    color: white;
+}
+
+.form-group input::placeholder,
+textarea::placeholder {
+    color: black;
+    font-family: "Inter", sans-serif;
+}
+
+.form-group input::file-selector-button {
+    padding: 5px;
+    font-family: "Inter", sans-serif;
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+}
+
+.custom-file-upload {
+    display: flex;
+}
+
+.custom-file-upload p {
+    margin-top: 0;
+    margin-left: 15px;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    color: white;
+    font-size: 14px;
+}
+
+#submit-button {
+    background-color: #157145;
+    font-family: "Inter", san-serif;
+    font-size: 18px;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 8px;
+    margin-left: 38.5%;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#submit-button:hover {
+    background-color: #036016;
+}
