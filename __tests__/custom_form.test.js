@@ -1,3 +1,5 @@
+window.alert = jest.fn();
+
 beforeEach(async () => {
     localStorage.clear();
     document.body.innerHTML = `
