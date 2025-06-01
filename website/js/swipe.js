@@ -59,9 +59,7 @@ function showUndo() {
 
 //checks if there are no cards left to swipe
 function checkIfNoCardsLeft() {
-    console.log(`Current card index: ${currentCardIndex}, Total cards: ${numCards}`);
     if (currentCardIndex >= numCards) {
-        console.log("No more cards left to swipe.");
         updateButtons(false);
     }
 }
@@ -81,7 +79,3 @@ function updateButtons(enable) {
 
 // Initial check in case there's no card at all
 checkIfNoCardsLeft();
-
-// rejectBtn.addEventListener("click", swipeLeft);
-// acceptBtn.addEventListener("click", swipeRight);
-// undoBtn.addEventListener("click", undoSwipe);
