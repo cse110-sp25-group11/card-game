@@ -55,7 +55,10 @@
             <form>
                 <div class="form-grid">
                     <div class="form-group">
-                        <label for="eventName">Event Name <span class="required-asterisk">*</span></label>
+                        <label for="eventName"
+                            >Event Name
+                            <span class="required-asterisk">*</span></label
+                        >
                         <input
                             type="text"
                             id="eventName"
@@ -66,7 +69,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="orgName">Club/Org Name <span class="required-asterisk">*</span></label>
+                        <label for="orgName"
+                            >Club/Org Name
+                            <span class="required-asterisk">*</span></label
+                        >
                         <input
                             type="text"
                             id="orgName"
@@ -77,17 +83,18 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="date">Date <span class="required-asterisk">*</span></label>
-                        <input
-                            type="date"
-                            id="date"
-                            name="date"
-                            required
-                        />
+                        <label for="date"
+                            >Date
+                            <span class="required-asterisk">*</span></label
+                        >
+                        <input type="date" id="date" name="date" required />
                     </div>
 
                     <div class="form-group">
-                        <label>Start and End Time <span class="required-asterisk">*</span></label>
+                        <label
+                            >Start and End Time
+                            <span class="required-asterisk">*</span></label
+                        >
                         <div class="start-end-times">
                             <input
                                 type="time"
@@ -105,7 +112,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="location">Location <span class="required-asterisk">*</span></label>
+                        <label for="location"
+                            >Location
+                            <span class="required-asterisk">*</span></label
+                        >
                         <input
                             type="text"
                             id="location"
@@ -116,7 +126,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Food <span class="required-asterisk">*</span></label>
+                        <label
+                            >Food
+                            <span class="required-asterisk">*</span></label
+                        >
                         <div class="food-group">
                             <input
                                 type="radio"
@@ -140,7 +153,10 @@
                 </div>
 
                 <div class="form-group full-width">
-                    <label for="description">Description <span class="required-asterisk">*</span></label>
+                    <label for="description"
+                        >Description
+                        <span class="required-asterisk">*</span></label
+                    >
                     <textarea
                         id="description"
                         name="description"
@@ -160,7 +176,10 @@
                                 accept="image/*"
                             />
                             <div class="upload-icon">
-                                <img src="assets/uploadButton.svg" alt="Upload" />
+                                <img
+                                    src="assets/uploadButton.svg"
+                                    alt="Upload"
+                                />
                             </div>
                             <p id="fileNameDisplay">No file chosen</p>
                         </div>
@@ -194,9 +213,11 @@
                     const fileName = file.name;
                     const fileSize = (file.size / 1024).toFixed(1);
                     const displayText = `File Selected: ${fileName} (${fileSize} KB)`;
-                    document.getElementById("fileNameDisplay").textContent = displayText;
+                    document.getElementById("fileNameDisplay").textContent =
+                        displayText;
                 } else {
-                    document.getElementById("fileNameDisplay").textContent = "No file chosen";
+                    document.getElementById("fileNameDisplay").textContent =
+                        "No file chosen";
                 }
             });
     </script>

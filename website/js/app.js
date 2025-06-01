@@ -234,10 +234,10 @@ function mapEventData(event) {
     // Handle both data structures: form submission (eventName, orgName) and debug populate (name, org)
     const name = event.eventName || event.name || "Untitled Event";
     const org = event.orgName || event.org || "Unknown Organization";
-    
+
     // Create fallback image URL using placehold.co with event name
-    const fallbackImageUrl = `https://placehold.co/300x200?text=${encodeURIComponent(name.replace(/\s+/g, '+'))}`;
-    
+    const fallbackImageUrl = `https://placehold.co/300x200?text=${encodeURIComponent(name.replace(/\s+/g, "+"))}`;
+
     const imgLink = event.photoFileName
         ? `uploads/${event.photoFileName}`
         : event.imgLink || fallbackImageUrl;

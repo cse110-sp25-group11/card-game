@@ -13,89 +13,100 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     const requiredFields = [
-        'eventName', 'orgName', 'date', 'startTime', 'endTime', 
-        'location', 'description'
+        "eventName",
+        "orgName",
+        "date",
+        "startTime",
+        "endTime",
+        "location",
+        "description",
     ];
 
-    requiredFields.forEach(fieldName => {
+    requiredFields.forEach((fieldName) => {
         const field = form.elements[fieldName];
         if (field) {
-            field.addEventListener('blur', () => validateField(field));
-            field.addEventListener('input', () => clearFieldError(field));
+            field.addEventListener("blur", () => validateField(field));
+            field.addEventListener("input", () => clearFieldError(field));
         }
     });
 
-    foodRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-            clearFieldError(form.querySelector('.food-group'), 'radio');
+    foodRadios.forEach((radio) => {
+        radio.addEventListener("change", () => {
+            clearFieldError(form.querySelector(".food-group"), "radio");
         });
     });
 
     function validateField(field) {
         const value = field.value.trim();
-        const fieldContainer = field.closest('.form-group');
-        
-        if (field.hasAttribute('required') && !value) {
+        const fieldContainer = field.closest(".form-group");
+
+        if (field.hasAttribute("required") && !value) {
             showFieldError(field, `${getFieldLabel(field)} is required`);
             return false;
         }
-        
-        if (field.name === 'endTime') {
-            const startTime = form.elements['startTime'].value;
+
+        if (field.name === "endTime") {
+            const startTime = form.elements["startTime"].value;
             if (startTime && value && value <= startTime) {
-                showFieldError(field, 'End time must be after start time');
+                showFieldError(field, "End time must be after start time");
                 return false;
             }
         }
-        
+
         clearFieldError(field);
         return true;
     }
 
     function validateRadioGroup() {
-        const foodRadioGroup = form.querySelector('.food-group');
-        const isChecked = foodRadios.some(radio => radio.checked);
-        
+        const foodRadioGroup = form.querySelector(".food-group");
+        const isChecked = foodRadios.some((radio) => radio.checked);
+
         if (!isChecked) {
-            showFieldError(foodRadioGroup, 'Please select whether food will be provided', 'radio');
+            showFieldError(
+                foodRadioGroup,
+                "Please select whether food will be provided",
+                "radio",
+            );
             return false;
         }
-        
-        clearFieldError(foodRadioGroup, 'radio');
+
+        clearFieldError(foodRadioGroup, "radio");
         return true;
     }
 
-    function showFieldError(field, message, type = 'input') {
-        const fieldContainer = field.closest('.form-group');
+    function showFieldError(field, message, type = "input") {
+        const fieldContainer = field.closest(".form-group");
         clearFieldError(field, type);
-        
-        if (type === 'input') {
-            field.classList.add('error');
+
+        if (type === "input") {
+            field.classList.add("error");
         }
-        
-        fieldContainer.classList.add('has-error');
-        
-        const errorElement = document.createElement('span');
-        errorElement.className = type === 'radio' ? 'radio-group-error' : 'error-message';
+
+        fieldContainer.classList.add("has-error");
+
+        const errorElement = document.createElement("span");
+        errorElement.className =
+            type === "radio" ? "radio-group-error" : "error-message";
         errorElement.textContent = message;
-        
-        if (type === 'radio') {
+
+        if (type === "radio") {
             fieldContainer.appendChild(errorElement);
         } else {
-            field.insertAdjacentElement('afterend', errorElement);
+            field.insertAdjacentElement("afterend", errorElement);
         }
     }
 
-    function clearFieldError(field, type = 'input') {
-        const fieldContainer = field.closest('.form-group');
-        
-        if (type === 'input') {
-            field.classList.remove('error', 'success');
+    function clearFieldError(field, type = "input") {
+        const fieldContainer = field.closest(".form-group");
+
+        if (type === "input") {
+            field.classList.remove("error", "success");
         }
-        
-        fieldContainer.classList.remove('has-error');
-        
-        const errorSelector = type === 'radio' ? '.radio-group-error' : '.error-message';
+
+        fieldContainer.classList.remove("has-error");
+
+        const errorSelector =
+            type === "radio" ? ".radio-group-error" : ".error-message";
         const existingError = fieldContainer.querySelector(errorSelector);
         if (existingError) {
             existingError.remove();
@@ -103,11 +114,11 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     function getFieldLabel(field) {
-        const fieldContainer = field.closest('.form-group');
-        const label = fieldContainer.querySelector('label');
+        const fieldContainer = field.closest(".form-group");
+        const label = fieldContainer.querySelector("label");
         if (label) {
             const labelClone = label.cloneNode(true);
-            const asteriskSpan = labelClone.querySelector('.required-asterisk');
+            const asteriskSpan = labelClone.querySelector(".required-asterisk");
             if (asteriskSpan) {
                 asteriskSpan.remove();
             }
@@ -117,18 +128,18 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     function showSuccessMessage() {
-        const existing = document.querySelector('.success-message');
+        const existing = document.querySelector(".success-message");
         if (existing) {
             existing.remove();
         }
-        
-        const successElement = document.createElement('div');
-        successElement.className = 'success-message';
-        successElement.textContent = 'Event Successfully Posted!';
-        
-        const submitButton = document.getElementById('submitButton');
-        submitButton.insertAdjacentElement('afterend', successElement);
-        
+
+        const successElement = document.createElement("div");
+        successElement.className = "success-message";
+        successElement.textContent = "Event Successfully Posted!";
+
+        const submitButton = document.getElementById("submitButton");
+        submitButton.insertAdjacentElement("afterend", successElement);
+
         setTimeout(() => {
             if (successElement.parentNode) {
                 successElement.remove();
@@ -138,19 +149,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function handleFileUpload(file) {
         if (!file) return null;
-        
+
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 resolve({
                     name: file.name,
                     type: file.type,
                     size: file.size,
                     data: e.target.result,
-                    lastModified: file.lastModified
+                    lastModified: file.lastModified,
                 });
             };
-            reader.onerror = function(e) {
+            reader.onerror = function (e) {
                 reject(e);
             };
             reader.readAsDataURL(file);
@@ -161,8 +172,8 @@ window.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         let isValid = true;
-        
-        requiredFields.forEach(fieldName => {
+
+        requiredFields.forEach((fieldName) => {
             const field = form.elements[fieldName];
             if (field && !validateField(field)) {
                 isValid = false;
@@ -174,23 +185,26 @@ window.addEventListener("DOMContentLoaded", () => {
         }
 
         if (!isValid) {
-            const firstError = form.querySelector('.error, .has-error');
+            const firstError = form.querySelector(".error, .has-error");
             if (firstError) {
-                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                firstError.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                });
             }
             return;
         }
 
         const photoInput = document.getElementById("photo");
         const photoFile = photoInput.files[0];
-        
+
         let photoData = null;
         if (photoFile) {
             try {
                 photoData = await handleFileUpload(photoFile);
             } catch (error) {
-                console.error('Error uploading file:', error);
-                alert('Error uploading file. Please try again.');
+                console.error("Error uploading file:", error);
+                alert("Error uploading file. Please try again.");
                 return;
             }
         }
@@ -221,14 +235,17 @@ window.addEventListener("DOMContentLoaded", () => {
         if (foodDetails) {
             foodDetails.style.display = "none";
         }
-        
-        document.getElementById("fileNameDisplay").textContent = "No file chosen";
-        
-        form.querySelectorAll('.error, .success').forEach(el => {
-            el.classList.remove('error', 'success');
+
+        document.getElementById("fileNameDisplay").textContent =
+            "No file chosen";
+
+        form.querySelectorAll(".error, .success").forEach((el) => {
+            el.classList.remove("error", "success");
         });
-        form.querySelectorAll('.error-message, .radio-group-error').forEach(el => {
-            el.remove();
-        });
+        form.querySelectorAll(".error-message, .radio-group-error").forEach(
+            (el) => {
+                el.remove();
+            },
+        );
     });
 });
