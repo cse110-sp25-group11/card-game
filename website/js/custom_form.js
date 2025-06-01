@@ -40,17 +40,6 @@ window.addEventListener("DOMContentLoaded", () => {
             return false;
         }
         
-        if (field.type === 'date' && value) {
-            const selectedDate = new Date(value);
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            
-            if (selectedDate < today) {
-                showFieldError(field, 'Event date cannot be in the past');
-                return false;
-            }
-        }
-        
         if (field.name === 'endTime') {
             const startTime = form.elements['startTime'].value;
             if (startTime && value && value <= startTime) {
@@ -137,7 +126,8 @@ window.addEventListener("DOMContentLoaded", () => {
         successElement.className = 'success-message';
         successElement.textContent = 'Event Successfully Posted!';
         
-        form.insertAdjacentElement('beforebegin', successElement);
+        const submitButton = document.getElementById('submitButton');
+        submitButton.insertAdjacentElement('afterend', successElement);
         
         setTimeout(() => {
             if (successElement.parentNode) {
@@ -146,7 +136,28 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 5000);
     }
 
-    form.addEventListener("submit", (e) => {
+    function handleFileUpload(file) {
+        if (!file) return null;
+        
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                resolve({
+                    name: file.name,
+                    type: file.type,
+                    size: file.size,
+                    data: e.target.result,
+                    lastModified: file.lastModified
+                });
+            };
+            reader.onerror = function(e) {
+                reject(e);
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         let isValid = true;
@@ -172,6 +183,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
         const photoInput = document.getElementById("photo");
         const photoFile = photoInput.files[0];
+        
+        let photoData = null;
+        if (photoFile) {
+            try {
+                photoData = await handleFileUpload(photoFile);
+            } catch (error) {
+                console.error('Error uploading file:', error);
+                alert('Error uploading file. Please try again.');
+                return;
+            }
+        }
 
         const eventData = {
             eventName: form.elements["eventName"].value,
@@ -182,7 +204,7 @@ window.addEventListener("DOMContentLoaded", () => {
             location: form.elements["location"].value,
             description: form.elements["description"].value,
             food: form.querySelector('input[name="food"]:checked').value,
-            photoFileName: photoFile ? photoFile.name : null,
+            photo: photoData,
             altText: form.elements["altText"].value,
             timestamp: new Date().toISOString(),
         };
@@ -200,7 +222,8 @@ window.addEventListener("DOMContentLoaded", () => {
             foodDetails.style.display = "none";
         }
         
-        // Clear any validation states
+        document.getElementById("fileNameDisplay").textContent = "No file chosen";
+        
         form.querySelectorAll('.error, .success').forEach(el => {
             el.classList.remove('error', 'success');
         });
