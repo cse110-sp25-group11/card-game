@@ -7,7 +7,6 @@
  */
 let currentIndex = 0;
 
-
 /**
  * HTML elements for accept and reject buttons.
  */
@@ -78,14 +77,13 @@ document.addEventListener("DOMContentLoaded", () => {
     acceptBtn.addEventListener("click", () => {
         swipeRight();
         setTimeout(() => {
-            nextCard(events); 
-        }, 500); 
+            nextCard(events);
+        }, 500);
     });
     rejectBtn.addEventListener("click", () => {
         swipeLeft();
         setTimeout(() => {
-            nextCard(events); 
-        }, 500); 
+            nextCard(events);
+        }, 500);
     });
 });
-

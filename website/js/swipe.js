@@ -1,5 +1,5 @@
 const cards = document.querySelectorAll(".event-card");
-const numCards = JSON.parse((localStorage.getItem("all-events")) || "[]").length;
+const numCards = JSON.parse(localStorage.getItem("all-events") || "[]").length;
 
 let currentCardIndex = 0;
 let lastSwipe = null;
