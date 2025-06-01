@@ -1,5 +1,5 @@
 test("Event card renders the correct data into the shadow dom", async () => {
-    await import("../website/js/EventCard.js");
+    await import("../website/js/homeEventCard/homeEventCard.js");
 
     const eventCard = document.createElement("event-card");
 

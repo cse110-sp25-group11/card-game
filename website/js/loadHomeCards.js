@@ -8,6 +8,10 @@
 let currentIndex = 0;
 
 /**
+ * Lets the linter and static analysis tools know that these functions are defined elsewhere.
+/* global swipeRight, swipeLeft */
+
+/**
  * HTML elements for accept and reject buttons.
  */
 const acceptBtn = document.getElementById("acceptBtn");
