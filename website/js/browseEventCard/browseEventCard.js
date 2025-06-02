@@ -1,10 +1,14 @@
-class EventCard extends HTMLElement {
+import { template } from "./browseEventCardTemplate.js";
+import { styles } from "./browseEventCardStyles.js";
+
+class BrowseEventCard extends HTMLElement {
     constructor() {
         super();
         let shadowElem = this.attachShadow({ mode: "open" });
         const article = document.createElement("article");
+        article.className = "browse-event-card";
         const style = document.createElement("style");
-        style.innerHTML = ``;
+        style.innerHTML = `${styles}`;
         shadowElem.append(article);
         shadowElem.append(style);
     }
@@ -13,10 +17,10 @@ class EventCard extends HTMLElement {
      * Called when the .data property is set on this element.
      *
      * For example:
-     * let eventCard = document.createElement('event-card'); // Calls constructor()
-     * eventCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
+     * let browseEventCard = document.createElement('browse-event-card'); // Calls constructor()
+     * browseEventCard.data = { foo: 'bar' } // Calls set data({ foo: 'bar' })
      *
-     * @param {Object} data - The data to pass into the <recipe-card> must be of the
+     * @param {Object} data - The data to pass into the <browse-event-card> must be of the
      *                        following format:
      *                        {
      *                          name: "string",
@@ -35,22 +39,8 @@ class EventCard extends HTMLElement {
     set data(data) {
         if (!data) return;
         const article = this.shadowRoot.querySelector("article");
-        article.innerHTML = `
-        <img src = "${data.imgLink}" alt="${data.imgAlt}">
-        <div class="nameAndOrg">
-            <span class="eventName">${data.name}</span>
-            <span class="org">${data.org}</span>
-        </div>
-        <p> Free food provided? ${data.food ? "Yes" : "No"} </p>
-        <p>
-            <time datetime="${data.date}">${data.date}</time>: 
-            <time datetime="${data.startTime}">${data.startTime}</time> to
-            <time datetime="${data.endTime}">${data.endTime}</time>
-        </p>
-        <p>${data.location}</p>
-        <p class="eventDescription">${data.description}</p>
-    `;
+        article.innerHTML = `${template(data)}`;
     }
 }
 
-customElements.define("event-card", EventCard);
+customElements.define("browse-event-card", BrowseEventCard);
