@@ -38,7 +38,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function validateField(field) {
         const value = field.value.trim();
-        const fieldContainer = field.closest(".form-group");
 
         if (field.hasAttribute("required") && !value) {
             showFieldError(field, `${getFieldLabel(field)} is required`);
