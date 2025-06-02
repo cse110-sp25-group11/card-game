@@ -1,7 +1,7 @@
 test("Event card renders the correct data into the shadow dom", async () => {
     await import("../website/js/homeEventCard/homeEventCard.js");
 
-    const eventCard = document.createElement("event-card");
+    const eventCard = document.createElement("home-event-card");
 
     const testCard = {
         name: "test card",
@@ -9,7 +9,7 @@ test("Event card renders the correct data into the shadow dom", async () => {
         date: "2025-01-01",
         org: "testing club",
         imgLink: "image.jpg",
-        imgAlt: "talk poster",
+        imgAltText: "talk poster",
         location: "ballroom",
         food: true,
         startTime: "2:00",
@@ -22,17 +22,14 @@ test("Event card renders the correct data into the shadow dom", async () => {
 
     const shadow = eventCard.shadowRoot;
 
-    console.log(shadow);
-    console.log(shadow.querySelector("img").alt);
-
-    expect(shadow.querySelector(".eventName").textContent).toBe("test card");
-    expect(shadow.querySelector(".org").textContent.trim()).toBe(
+    expect(shadow.querySelector(".event-name").textContent).toBe("test card");
+    expect(shadow.querySelector(".org-name").textContent.trim()).toBe(
         "testing club",
     );
-    expect(shadow.querySelector(".eventDescription").textContent).toContain(
+    expect(shadow.querySelector(".event-description").textContent).toContain(
         "testing discussion",
     );
     expect(shadow.querySelector("img").src).toContain("image.jpg");
     expect(shadow.querySelector("img").alt).toBe("talk poster");
-    expect(shadow.querySelector("p").textContent).toContain("Yes");
+    expect(shadow.querySelector(".food-status").textContent).toContain("Yes");
 });

@@ -1,5 +1,5 @@
 export const template = (data) => `
-    <img src = "${data.imgLink}" alt="${data.imgAlt}">
+    <img src = "${data.imgLink}" alt="${data.imgAltText}">
     <div class="name-and-org">
         <span class="event-name">${data.name}</span>
         <span class="org-name">${data.org}</span>
