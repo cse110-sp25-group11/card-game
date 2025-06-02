@@ -35,6 +35,7 @@ export const styles = `
         margin-bottom: 8px;
         padding-left: 30px;
         padding-top: 30px;
+        padding-right: 30px;
     }
 
     .org-name {
@@ -44,6 +45,7 @@ export const styles = `
         font-family: "Merriweather Sans", sans-serif;
         color: #C69214;
         padding-left: 30px;
+        padding-right: 30px;
     }
 
     .info-section {
