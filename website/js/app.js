@@ -344,7 +344,7 @@ function showNextEvent() {
         existingCard.remove();
     }
 
-    const eventCard = createSwipeEventCard(nextEvent, 0);
+    const eventCard = createSwipeEventCard(nextEvent);
 
     eventCard.style.opacity = "0";
     eventCard.style.transition = "opacity 0.3s ease-in-out";
@@ -364,10 +364,9 @@ function showNextEvent() {
 /**
  * Creates an event card for the swipe interface
  * @param {Object} event - Event data from localStorage
- * @param {number} index - Index of the card (not used anymore since we show one at a time)
  * @returns {HTMLElement} - Event card element
  */
-function createSwipeEventCard(event, index) {
+function createSwipeEventCard(event) {
     const article = document.createElement("article");
     article.className = "event-card";
 
@@ -468,6 +467,7 @@ function showNoMoreEventsMessage() {
 
 /**
  * Saves an event to the liked events list
+ * @global
  * @param {Object} event - Event object to save
  */
 function saveEventAsLiked(event) {
@@ -494,6 +494,7 @@ function saveEventAsLiked(event) {
 
 /**
  * Saves an event to the disliked events list
+ * @global
  * @param {Object} event - Event object to save
  */
 function saveEventAsDisliked(event) {
@@ -520,6 +521,7 @@ function saveEventAsDisliked(event) {
 
 /**
  * Gets the event data for the current card being displayed
+ * @global
  * @param {HTMLElement} card - The card element
  * @returns {Object|null} - Event data from localStorage or null if not found
  */
