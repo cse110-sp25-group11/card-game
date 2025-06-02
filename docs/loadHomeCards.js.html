@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>carousel.js - Documentation</title>
+    <title>loadHomeCards.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">carousel.js</h1>
+    <h1 class="page-title">loadHomeCards.js</h1>
     
 
     
@@ -39,184 +39,96 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @fileoverview Carousel navigation functionality for Campus Swipe browse page
- * Handles prev/next button interactions and smooth scrolling
+            <pre class="prettyprint source linenums"><code>/* global swipeRight, swipeLeft */
+
+/**
+ * @fileoveriew Load home cards dynamically instead of hardcoding them in HTML.
  */
 
 /**
- * Initializes carousel navigation for all carousels on the page
+ * Global variable to keep track of the current index of the event card being displayed.
  */
-function initializeCarousels() {
-    const carousels = document.querySelectorAll(".event-carousel");
+let currentIndex = 0;
 
-    carousels.forEach((carousel, index) => {
-        const prevBtn = carousel.querySelector(".prev");
-        const nextBtn = carousel.querySelector(".next");
-        const eventCards = carousel.querySelector(".event-cards");
+/**
+ * HTML elements for accept and reject buttons.
+ */
+const acceptBtn = document.getElementById("acceptBtn");
+const rejectBtn = document.getElementById("rejectBtn");
 
-        if (!prevBtn || !nextBtn || !eventCards) {
-            console.warn(`Carousel ${index} missing required elements`);
-            return;
-        }
-
-        setupCarouselNavigation(prevBtn, nextBtn, eventCards);
-
-        updateButtonStates(prevBtn, nextBtn, eventCards);
-
-        eventCards.addEventListener("scroll", () => {
-            updateButtonStates(prevBtn, nextBtn, eventCards);
-        });
-    });
+/**
+ * Retrieves events from localStorage
+ * @returns JSON array of events
+ */
+function getEvents() {
+    return JSON.parse(localStorage.getItem("events") || "[]");
 }
 
 /**
- * Sets up navigation event listeners for a carousel
- * @param {HTMLElement} prevBtn - Previous button element
- * @param {HTMLElement} nextBtn - Next button element
- * @param {HTMLElement} eventCards - Event cards container element
+ * Appends and displays an event card in the card container.
+ * @param {object} event  - event to be appended to container to display
  */
-function setupCarouselNavigation(prevBtn, nextBtn, eventCards) {
-    const scrollAmount = 320; // Width of one card plus gap
+function appendEventCard(event) {
+    const cardContainer = document.querySelector(".card-container");
+    if (!cardContainer) return;
 
-    prevBtn.addEventListener("click", () => {
-        eventCards.scrollBy({
-            left: -scrollAmount,
-            behavior: "smooth",
-        });
-    });
-
-    nextBtn.addEventListener("click", () => {
-        eventCards.scrollBy({
-            left: scrollAmount,
-            behavior: "smooth",
-        });
-    });
+    const eventCard = document.createElement("home-event-card");
+    eventCard.data = event;
+    cardContainer.appendChild(eventCard);
 }
 
 /**
- * Updates the visual state of navigation buttons based on scroll position
- * @param {HTMLElement} prevBtn - Previous button element
- * @param {HTMLElement} nextBtn - Next button element
- * @param {HTMLElement} eventCards - Event cards container element
+ * Clears the card container by removing all child elements.
+ * This is useful for resetting the display before loading new events.
  */
-function updateButtonStates(prevBtn, nextBtn, eventCards) {
-    const scrollLeft = eventCards.scrollLeft;
-    const maxScrollLeft = eventCards.scrollWidth - eventCards.clientWidth;
+function clearCardContainer() {
+    const cardContainer = document.querySelector(".card-container");
+    if (cardContainer) {
+        cardContainer.innerHTML = "";
+    }
+}
 
-    // Update previous button state
-    if (scrollLeft &lt;= 0) {
-        prevBtn.disabled = true;
-        prevBtn.style.opacity = "0.5";
-        prevBtn.style.cursor = "not-allowed";
+/**
+ * Navigates to the next event card in the array of events.
+ * @param {Array} events - The array of events to navigate through
+ */
+function nextCard(events) {
+    currentIndex++;
+    if (currentIndex &lt; events.length) {
+        clearCardContainer();
+        appendEventCard(events[currentIndex]);
     } else {
-        prevBtn.disabled = false;
-        prevBtn.style.opacity = "1";
-        prevBtn.style.cursor = "pointer";
+        console.warn("No more events to display.");
     }
-
-    // Update next button state
-    if (scrollLeft >= maxScrollLeft - 1) {
-        // -1 for rounding errors
-        nextBtn.disabled = true;
-        nextBtn.style.opacity = "0.5";
-        nextBtn.style.cursor = "not-allowed";
-    } else {
-        nextBtn.disabled = false;
-        nextBtn.style.opacity = "1";
-        nextBtn.style.cursor = "pointer";
-    }
-}
-
-/**
- * Handles keyboard navigation for carousels
- * @param {KeyboardEvent} event - Keyboard event
- */
-function handleKeyboardNavigation(event) {
-    if (event.target.closest(".event-carousel")) {
-        const carousel = event.target.closest(".event-carousel");
-        const eventCards = carousel.querySelector(".event-cards");
-        const scrollAmount = 320;
-
-        switch (event.key) {
-            case "ArrowLeft":
-                event.preventDefault();
-                eventCards.scrollBy({
-                    left: -scrollAmount,
-                    behavior: "smooth",
-                });
-                break;
-            case "ArrowRight":
-                event.preventDefault();
-                eventCards.scrollBy({
-                    left: scrollAmount,
-                    behavior: "smooth",
-                });
-                break;
-        }
-    }
-}
-
-/**
- * Adds touch/swipe support for mobile devices
- * @param {HTMLElement} eventCards - Event cards container element
- */
-function addTouchSupport(eventCards) {
-    let startX = 0;
-    let scrollStart = 0;
-    let isDown = false;
-
-    eventCards.addEventListener("mousedown", (e) => {
-        isDown = true;
-        startX = e.pageX - eventCards.offsetLeft;
-        scrollStart = eventCards.scrollLeft;
-        eventCards.style.cursor = "grabbing";
-    });
-
-    eventCards.addEventListener("mouseleave", () => {
-        isDown = false;
-        eventCards.style.cursor = "grab";
-    });
-
-    eventCards.addEventListener("mouseup", () => {
-        isDown = false;
-        eventCards.style.cursor = "grab";
-    });
-
-    eventCards.addEventListener("mousemove", (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - eventCards.offsetLeft;
-        const walk = (x - startX) * 2;
-        eventCards.scrollLeft = scrollStart - walk;
-    });
-
-    // Touch events for mobile
-    eventCards.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].pageX;
-        scrollStart = eventCards.scrollLeft;
-    });
-
-    eventCards.addEventListener("touchmove", (e) => {
-        const x = e.touches[0].pageX;
-        const walk = (startX - x) * 2;
-        eventCards.scrollLeft = scrollStart + walk;
-    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        initializeCarousels();
+    const cardContainer = document.querySelector(".card-container");
+    if (!cardContainer) return;
 
-        document.addEventListener("keydown", handleKeyboardNavigation);
+    // Get events from localStorage
+    const events = getEvents();
 
-        const eventCardsContainers = document.querySelectorAll(".event-cards");
-        eventCardsContainers.forEach(addTouchSupport);
-    }, 100);
-});
+    // Clear previously loaded cards
+    clearCardContainer();
 
-document.addEventListener("eventsLoaded", () => {
-    initializeCarousels();
+    // Append first event card if available
+    if (events.length > 0 &amp;&amp; events[currentIndex]) {
+        appendEventCard(events[currentIndex]);
+    }
+
+    acceptBtn.addEventListener("click", () => {
+        swipeRight();
+        setTimeout(() => {
+            nextCard(events);
+        }, 500);
+    });
+    rejectBtn.addEventListener("click", () => {
+        swipeLeft();
+        setTimeout(() => {
+            nextCard(events);
+        }, 500);
+    });
 });
 </code></pre>
         </article>
