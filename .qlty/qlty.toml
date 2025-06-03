@@ -102,7 +102,6 @@ name = "trufflehog"
 
 [[plugin]]
 name = "yamllint"
-# Yamllint’s CLI flag to specify a config is “-c <path>”
 args = [
   "-c", "./.config/.yamllint.yaml"
 ]
