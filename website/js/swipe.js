@@ -1,4 +1,6 @@
 /* global getEventDataFromCard, saveEventAsLiked, saveEventAsDisliked, showNextEvent */
+const cards = document.querySelectorAll(".event-card");
+const numCards = JSON.parse(localStorage.getItem("all-events") || "[]").length;
 
 let lastSwipe = null;
 
@@ -16,7 +18,7 @@ function getCurrentCard() {
 
 // handle swiping left or right
 function swipe(direction) {
-    const card = getCurrentCard();
+    const card = document.querySelector("home-event-card");
     if (!card) return;
 
     // Get event data before swiping
