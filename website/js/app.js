@@ -6,14 +6,6 @@
 /* global fetchData */
 
 /**
- * Example function to show an alert when the button is clicked.
- * @returns {void}
- */
-function handleClick() {
-    alert("Button clicked!");
-}
-
-/**
  * updates the specific data in localStorage given the key.
  * If it doesn't exist, it will create it
  * @param {string} key the key of the data
@@ -242,9 +234,13 @@ function mapEventData(event) {
     // Handle both data structures: form submission (eventName, orgName) and debug populate (name, org)
     const name = event.eventName || event.name || "Untitled Event";
     const org = event.orgName || event.org || "Unknown Organization";
+
+    // Create fallback image URL using placehold.co with event name
+    const fallbackImageUrl = `https://placehold.co/300x200?text=${encodeURIComponent(name.replace(/\s+/g, "+"))}`;
+
     const imgLink = event.photoFileName
         ? `uploads/${event.photoFileName}`
-        : event.imgLink || "https://via.placeholder.com/300x200?text=No+Image";
+        : event.imgLink || fallbackImageUrl;
     const imgAltText = event.altText || event.imgAltText || `${name} photo`;
 
     return {
