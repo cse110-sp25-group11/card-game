@@ -10,7 +10,7 @@
  * @returns {void}
  */
 function handleClick() {
-        alert("Button clicked!");
+    alert("Button clicked!");
 }
 
 /**
