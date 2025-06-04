@@ -1,5 +1,7 @@
 # Campus Swipe Tool
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f4e92ef50e584c1088b2041910af876f)](https://app.codacy.com/gh/cse110-sp25-group11/card-game?utm_source=github.com&utm_medium=referral&utm_content=cse110-sp25-group11/card-game&utm_campaign=Badge_Grade)
+
 #### Introduction 👋
 This repository holds the 11x developers' campus swipe tool website. Everything regarding code, documentation, and other project information can be found here. Navigate through the information below on how to get started.
 
