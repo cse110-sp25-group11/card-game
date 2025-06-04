@@ -118,7 +118,7 @@ form:hover {
 }
 
 /* Time inputs container */
-` .start-end-times {
+ .start-end-times {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
