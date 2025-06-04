@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 /**
  * updates the specific data in localStorage given the key.
  * If it doesn't exist, it will create it
