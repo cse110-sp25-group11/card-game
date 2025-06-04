@@ -53,70 +53,110 @@
         <main>
             <h2 id="post-header">Post An Event</h2>
             <form>
-                <div class="form-group">
-                    <label for="eventName">Event Name</label>
-                    <input
-                        type="text"
-                        id="eventName"
-                        name="eventName"
-                        placeholder="String Input"
-                        required
-                    />
-                </div>
-
-                <div class="form-group">
-                    <label for="orgName">Club/Org Name</label>
-                    <input
-                        type="text"
-                        id="orgName"
-                        name="orgName"
-                        placeholder="String Input"
-                        required
-                    />
-                </div>
-
-                <div class="form-group">
-                    <label for="date">Date</label>
-                    <input
-                        type="text"
-                        id="date"
-                        name="date"
-                        placeholder="MM/DD/YYYY"
-                        required
-                    />
-                </div>
-
-                <div class="form-group">
-                    <label>Start and End Time</label>
-                    <div class="start-end-times">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="eventName"
+                            >Event Name
+                            <span class="required-asterisk">*</span></label
+                        >
                         <input
-                            type="time"
-                            id="startTime"
-                            name="startTime"
-                            required
-                        />
-                        <input
-                            type="time"
-                            id="endTime"
-                            name="endTime"
+                            type="text"
+                            id="eventName"
+                            name="eventName"
+                            placeholder="String Input"
                             required
                         />
                     </div>
+
+                    <div class="form-group">
+                        <label for="orgName"
+                            >Club/Org Name
+                            <span class="required-asterisk">*</span></label
+                        >
+                        <input
+                            type="text"
+                            id="orgName"
+                            name="orgName"
+                            placeholder="String Input"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date"
+                            >Date
+                            <span class="required-asterisk">*</span></label
+                        >
+                        <input type="date" id="date" name="date" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label
+                            >Start and End Time
+                            <span class="required-asterisk">*</span></label
+                        >
+                        <div class="start-end-times">
+                            <input
+                                type="time"
+                                id="startTime"
+                                name="startTime"
+                                required
+                            />
+                            <input
+                                type="time"
+                                id="endTime"
+                                name="endTime"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location"
+                            >Location
+                            <span class="required-asterisk">*</span></label
+                        >
+                        <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            placeholder="String Input"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label
+                            >Food
+                            <span class="required-asterisk">*</span></label
+                        >
+                        <div class="food-group">
+                            <input
+                                type="radio"
+                                id="foodYes"
+                                name="food"
+                                value="yes"
+                                required
+                            />
+                            <label for="foodYes">Yes</label>
+
+                            <input
+                                type="radio"
+                                id="foodNo"
+                                name="food"
+                                value="no"
+                                required
+                            />
+                            <label for="foodNo">No</label>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input
-                        type="text"
-                        id="location"
-                        name="location"
-                        placeholder="String Input"
-                        required
-                    />
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Description</label>
+                <div class="form-group full-width">
+                    <label for="description"
+                        >Description
+                        <span class="required-asterisk">*</span></label
+                    >
                     <textarea
                         id="description"
                         name="description"
@@ -125,56 +165,35 @@
                     ></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label>Food</label>
-                    <div class="food-group">
-                        <input
-                            type="radio"
-                            id="foodYes"
-                            name="food"
-                            value="yes"
-                            required
-                        />
-                        <label for="foodYes">Yes</label>
-
-                        <input
-                            type="radio"
-                            id="foodNo"
-                            name="food"
-                            value="no"
-                            required
-                        />
-                        <label for="foodNo">No</label>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Upload Flyer/Photo</label>
+                        <div class="custom-file-upload">
+                            <input
+                                type="file"
+                                id="photo"
+                                name="photo"
+                                accept="image/*"
+                            />
+                            <div class="upload-icon">
+                                <img
+                                    src="assets/uploadButton.svg"
+                                    alt="Upload"
+                                />
+                            </div>
+                            <p id="fileNameDisplay">No file chosen</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label>Upload Flyer/Photo</label>
-                    <div class="custom-file-upload">
-                        <label for="photo" class="upload-icon">
-                            <img src="assets/uploadButton.svg" alt="Upload" />
-                        </label>
+                    <div class="form-group">
+                        <label for="altText">Alt Text</label>
                         <input
-                            type="file"
-                            id="photo"
-                            name="photo"
-                            accept="image/*"
-                            required
-                            hidden
+                            type="text"
+                            id="altText"
+                            name="altText"
+                            placeholder="String Input"
                         />
-                        <p id="fileNameDisplay"></p>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="altText">Alt Text</label>
-                    <input
-                        type="text"
-                        id="altText"
-                        name="altText"
-                        placeholder="String Input"
-                        required
-                    />
                 </div>
 
                 <button type="submit" id="submitButton">Submit</button>
@@ -189,9 +208,17 @@
         document
             .getElementById("photo")
             .addEventListener("change", function () {
-                const fileName = this.files[0]?.name || "No file chosen";
-                document.getElementById("fileNameDisplay").textContent =
-                    `File Selected: ${fileName}`;
+                const file = this.files[0];
+                if (file) {
+                    const fileName = file.name;
+                    const fileSize = (file.size / 1024).toFixed(1);
+                    const displayText = `File Selected: ${fileName} (${fileSize} KB)`;
+                    document.getElementById("fileNameDisplay").textContent =
+                        displayText;
+                } else {
+                    document.getElementById("fileNameDisplay").textContent =
+                        "No file chosen";
+                }
             });
     </script>
 </html>

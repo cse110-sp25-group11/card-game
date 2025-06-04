@@ -15,5 +15,9 @@
     "transform": {},
     "verbose": true,
     "testEnvironment": "jsdom"
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "useTabs": false
   }
 }

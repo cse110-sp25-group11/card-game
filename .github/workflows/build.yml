@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Generate API docs
-        run: npx jsdoc -c jsdoc.json -r -d docs/docs website/js
+        run: npx jsdoc -c .config/jsdoc.json -r -d docs/docs website/js
 
       - name: Copy sample site
         run: cp -R website/* docs/
