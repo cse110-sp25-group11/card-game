@@ -2,31 +2,20 @@
 
 /**
  * @fileoveriew Load home cards dynamically instead of hardcoding them in HTML.
+ * NOTE: This file is currently disabled in favor of the app.js loading system
+ * to prevent duplicate card loading.
  */
 
-/**
- * Global variable to keep track of the current index of the event card being displayed.
- */
+// Disabled to prevent conflicts with app.js
+// The event loading is now handled by app.js loadEventsForSwipe()
+
+/*
 let currentIndex = 0;
 
-/**
- * HTML elements for accept and reject buttons.
- */
-const acceptBtn = document.getElementById("acceptBtn");
-const rejectBtn = document.getElementById("rejectBtn");
-
-/**
- * Retrieves events from localStorage
- * @returns JSON array of events
- */
 function getEvents() {
     return JSON.parse(localStorage.getItem("events") || "[]");
 }
 
-/**
- * Appends and displays an event card in the card container.
- * @param {object} event  - event to be appended to container to display
- */
 function appendEventCard(event) {
     const cardContainer = document.querySelector(".card-container");
     if (!cardContainer) return;
@@ -36,10 +25,6 @@ function appendEventCard(event) {
     cardContainer.appendChild(eventCard);
 }
 
-/**
- * Clears the card container by removing all child elements.
- * This is useful for resetting the display before loading new events.
- */
 function clearCardContainer() {
     const cardContainer = document.querySelector(".card-container");
     if (cardContainer) {
@@ -47,10 +32,6 @@ function clearCardContainer() {
     }
 }
 
-/**
- * Navigates to the next event card in the array of events.
- * @param {Array} events - The array of events to navigate through
- */
 function nextCard(events) {
     currentIndex++;
     if (currentIndex < events.length) {
@@ -65,27 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardContainer = document.querySelector(".card-container");
     if (!cardContainer) return;
 
-    // Get events from localStorage
     const events = getEvents();
 
-    // Clear previously loaded cards
     clearCardContainer();
 
-    // Append first event card if available
     if (events.length > 0 && events[currentIndex]) {
         appendEventCard(events[currentIndex]);
     }
-
-    acceptBtn.addEventListener("click", () => {
-        swipeRight();
-        setTimeout(() => {
-            nextCard(events);
-        }, 500);
-    });
-    rejectBtn.addEventListener("click", () => {
-        swipeLeft();
-        setTimeout(() => {
-            nextCard(events);
-        }, 500);
-    });
 });
+*/
