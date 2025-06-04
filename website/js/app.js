@@ -271,10 +271,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (events.length === 0) {
         populateSampleEvents();
     }
-    
+
     loadEventsForBrowse();
     // Only load events for swipe if we're on the main page
-    if (document.querySelector('.swipe-page')) {
+    if (document.querySelector(".swipe-page")) {
         loadEventsForSwipe();
     }
 });
@@ -286,50 +286,56 @@ function populateSampleEvents() {
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
-    
+
     function formatDate(date) {
         return `${(date.getMonth() + 1).toString().padStart(2, "0")}/${date.getDate().toString().padStart(2, "0")}/${date.getFullYear()}`;
     }
-    
+
     const sampleEvents = [
         {
             name: "Tech Workshop",
-            description: "Learn the latest in web development and coding techniques. Perfect for beginners and advanced developers alike.",
+            description:
+                "Learn the latest in web development and coding techniques. Perfect for beginners and advanced developers alike.",
             date: formatDate(today),
             org: "Computer Science Club",
-            imgLink: "https://via.placeholder.com/400x300/0066cc/ffffff?text=Tech+Workshop",
+            imgLink:
+                "https://via.placeholder.com/400x300/0066cc/ffffff?text=Tech+Workshop",
             imgAltText: "Tech Workshop promotional image",
             location: "Science Building Room 101",
             food: true,
             startTime: "14:00",
-            endTime: "16:00"
+            endTime: "16:00",
         },
         {
             name: "Art Exhibition",
-            description: "Showcase of student artwork featuring paintings, sculptures, and digital art from talented campus artists.",
+            description:
+                "Showcase of student artwork featuring paintings, sculptures, and digital art from talented campus artists.",
             date: formatDate(tomorrow),
             org: "Art Club",
-            imgLink: "https://via.placeholder.com/400x300/ff6b6b/ffffff?text=Art+Exhibition",
+            imgLink:
+                "https://via.placeholder.com/400x300/ff6b6b/ffffff?text=Art+Exhibition",
             imgAltText: "Art Exhibition promotional image",
             location: "Art Studio",
             food: false,
             startTime: "18:00",
-            endTime: "20:00"
+            endTime: "20:00",
         },
         {
             name: "Study Group Session",
-            description: "Collaborative study session for upcoming midterm exams. Bring your textbooks and notes!",
+            description:
+                "Collaborative study session for upcoming midterm exams. Bring your textbooks and notes!",
             date: formatDate(today),
             org: "Student Government",
-            imgLink: "https://via.placeholder.com/400x300/4ecdc4/ffffff?text=Study+Session",
+            imgLink:
+                "https://via.placeholder.com/400x300/4ecdc4/ffffff?text=Study+Session",
             imgAltText: "Study Group promotional image",
             location: "Library Auditorium",
             food: true,
             startTime: "19:00",
-            endTime: "21:00"
-        }
+            endTime: "21:00",
+        },
     ];
-    
+
     localStorage.setItem("events", JSON.stringify(sampleEvents));
     console.log("Sample events populated:", sampleEvents.length);
 }

@@ -39,7 +39,7 @@ function fetchData(data) {
     if (!rawdata) {
         return [];
     }
-    
+
     try {
         return JSON.parse(rawdata);
     } catch (error) {

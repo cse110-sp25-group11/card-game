@@ -22,7 +22,9 @@ function initializeButtons() {
 
 // return the currently displayed card
 function getCurrentCard() {
-    return document.querySelector(".event-card:not(.no-events):not(.no-more-events)");
+    return document.querySelector(
+        ".event-card:not(.no-events):not(.no-more-events)",
+    );
 }
 
 // Get event data from the current card
@@ -102,7 +104,10 @@ function undoSwipe() {
         if (existingCard) {
             existingCard.remove();
         }
-        cardContainer.insertBefore(card, cardContainer.querySelector(".swipe-buttons"));
+        cardContainer.insertBefore(
+            card,
+            cardContainer.querySelector(".swipe-buttons"),
+        );
     }
 
     lastSwipe = null;
@@ -161,7 +166,10 @@ function showUndo() {
 //checks if there are no cards left to swipe
 function checkIfNoCardsLeft() {
     const currentCard = getCurrentCard();
-    const hasCard = currentCard && !currentCard.classList.contains('no-events') && !currentCard.classList.contains('no-more-events');
+    const hasCard =
+        currentCard &&
+        !currentCard.classList.contains("no-events") &&
+        !currentCard.classList.contains("no-more-events");
     updateButtons(hasCard);
 }
 
