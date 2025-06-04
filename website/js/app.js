@@ -470,54 +470,54 @@ function showNoMoreEventsMessage() {
  * @global
  * @param {Object} event - Event object to save
  */
-function saveEventAsLiked(event) {
-    if (!event) return;
+// function saveEventAsLiked(event) {
+//     if (!event) return;
 
-    let likedEvents = fetchData("likedEvents");
+//     let likedEvents = fetchData("likedEvents");
 
-    const eventId = event.id || event.name;
-    const alreadyLiked = likedEvents.some(
-        (liked) => (liked.id || liked.name) === eventId,
-    );
+//     const eventId = event.id || event.name;
+//     const alreadyLiked = likedEvents.some(
+//         (liked) => (liked.id || liked.name) === eventId,
+//     );
 
-    if (!alreadyLiked) {
-        const eventWithTimestamp = {
-            ...event,
-            likedAt: new Date().toISOString(),
-        };
+//     if (!alreadyLiked) {
+//         const eventWithTimestamp = {
+//             ...event,
+//             likedAt: new Date().toISOString(),
+//         };
 
-        likedEvents.push(eventWithTimestamp);
-        localStorage.setItem("likedEvents", JSON.stringify(likedEvents));
-        console.log("Event saved as liked:", event.name || event.eventName);
-    }
-}
+//         likedEvents.push(eventWithTimestamp);
+//         localStorage.setItem("likedEvents", JSON.stringify(likedEvents));
+//         console.log("Event saved as liked:", event.name || event.eventName);
+//     }
+// }
 
 /**
  * Saves an event to the disliked events list
  * @global
  * @param {Object} event - Event object to save
  */
-function saveEventAsDisliked(event) {
-    if (!event) return;
+// function saveEventAsDisliked(event) {
+//     if (!event) return;
 
-    let dislikedEvents = fetchData("dislikedEvents");
+//     let dislikedEvents = fetchData("dislikedEvents");
 
-    const eventId = event.id || event.name;
-    const alreadyDisliked = dislikedEvents.some(
-        (disliked) => (disliked.id || disliked.name) === eventId,
-    );
+//     const eventId = event.id || event.name;
+//     const alreadyDisliked = dislikedEvents.some(
+//         (disliked) => (disliked.id || disliked.name) === eventId,
+//     );
 
-    if (!alreadyDisliked) {
-        const eventWithTimestamp = {
-            ...event,
-            dislikedAt: new Date().toISOString(),
-        };
+//     if (!alreadyDisliked) {
+//         const eventWithTimestamp = {
+//             ...event,
+//             dislikedAt: new Date().toISOString(),
+//         };
 
-        dislikedEvents.push(eventWithTimestamp);
-        localStorage.setItem("dislikedEvents", JSON.stringify(dislikedEvents));
-        console.log("Event saved as disliked:", event.name || event.eventName);
-    }
-}
+//         dislikedEvents.push(eventWithTimestamp);
+//         localStorage.setItem("dislikedEvents", JSON.stringify(dislikedEvents));
+//         console.log("Event saved as disliked:", event.name || event.eventName);
+//     }
+// }
 
 /**
  * Gets the event data for the current card being displayed
@@ -525,12 +525,12 @@ function saveEventAsDisliked(event) {
  * @param {HTMLElement} card - The card element
  * @returns {Object|null} - Event data from localStorage or null if not found
  */
-function getEventDataFromCard(card) {
-    if (!card) return null;
+// function getEventDataFromCard(card) {
+//     if (!card) return null;
 
-    const eventId = card.dataset.eventId;
-    if (!eventId) return null;
+//     const eventId = card.dataset.eventId;
+//     if (!eventId) return null;
 
-    const events = fetchData("events");
-    return events.find((event) => (event.id || event.name) === eventId);
-}
+//     const events = fetchData("events");
+//     return events.find((event) => (event.id || event.name) === eventId);
+// }
