@@ -1,4 +1,4 @@
-/* global getEventDataFromCard, saveEventAsLiked, saveEventAsDisliked, showNextEvent */
+/* global saveEventAsLiked, saveEventAsDisliked, fetchData */
 const cards = document.querySelectorAll(".event-card");
 const numCards = JSON.parse(localStorage.getItem("all-events") || "[]").length;
 
@@ -7,18 +7,38 @@ let lastSwipe = null;
 // Initialize when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
     checkIfNoCardsLeft();
+    initializeButtons();
 });
+
+function initializeButtons() {
+    const rejectBtn = document.getElementById("rejectBtn");
+    const acceptBtn = document.getElementById("acceptBtn");
+    const undoBtn = document.getElementById("undoBtn");
+
+    if (rejectBtn) rejectBtn.addEventListener("click", swipeLeft);
+    if (acceptBtn) acceptBtn.addEventListener("click", swipeRight);
+    if (undoBtn) undoBtn.addEventListener("click", undoSwipe);
+}
 
 // return the currently displayed card
 function getCurrentCard() {
-    return document.querySelector(
-        ".event-card:not(.no-events):not(.no-more-events)",
-    );
+    return document.querySelector(".event-card:not(.no-events):not(.no-more-events)");
+}
+
+// Get event data from the current card
+function getEventDataFromCard(card) {
+    if (!card) return null;
+
+    const eventId = card.dataset.eventId;
+    if (!eventId) return null;
+
+    const events = fetchData("events");
+    return events.find((event) => (event.id || event.name) === eventId);
 }
 
 // handle swiping left or right
 function swipe(direction) {
-    const card = document.querySelector("home-event-card");
+    const card = getCurrentCard();
     if (!card) return;
 
     // Get event data before swiping
@@ -41,11 +61,12 @@ function swipe(direction) {
 
     // Show next event after animation completes
     setTimeout(() => {
+        // Use the app.js showNextEvent function if available
         if (typeof showNextEvent === "function") {
             showNextEvent();
         }
         checkIfNoCardsLeft();
-    }, 200); // Reduced delay for smoother transition
+    }, 200);
 
     showUndo();
 }
@@ -74,29 +95,22 @@ function undoSwipe() {
     // remove the swiping animation
     card.classList.remove("slide-out-left", "slide-out-right");
 
-    // Move back the index and show the previous card
-    if (window.currentEventIndex > 0) {
-        window.currentEventIndex -= 2; // Go back two positions (one for current increment, one to go back)
-    }
-
-    // Remove current card and show the undone card
-    const currentCard = getCurrentCard();
-    if (currentCard && currentCard !== card) {
-        currentCard.remove();
-    }
-
     // Insert the undone card back
     const cardContainer = document.querySelector(".card-container");
     if (cardContainer) {
-        cardContainer.insertBefore(
-            card,
-            cardContainer.querySelector(".swipe-buttons"),
-        );
+        const existingCard = cardContainer.querySelector(".event-card");
+        if (existingCard) {
+            existingCard.remove();
+        }
+        cardContainer.insertBefore(card, cardContainer.querySelector(".swipe-buttons"));
     }
 
     lastSwipe = null;
     // hides the undo button and shows the check mark and cross buttons
-    undoBtn.style.display = "none";
+    const undoBtn = document.getElementById("undoBtn");
+    if (undoBtn) {
+        undoBtn.style.display = "none";
+    }
     updateButtons(true);
 }
 
@@ -107,7 +121,7 @@ function undoSwipe() {
 function removeEventFromLiked(event) {
     if (!event) return;
 
-    let likedEvents = JSON.parse(localStorage.getItem("likedEvents") || "[]");
+    let likedEvents = fetchData("likedEvents");
     const eventId = event.id || event.name;
 
     likedEvents = likedEvents.filter(
@@ -125,9 +139,7 @@ function removeEventFromLiked(event) {
 function removeEventFromDisliked(event) {
     if (!event) return;
 
-    let dislikedEvents = JSON.parse(
-        localStorage.getItem("dislikedEvents") || "[]",
-    );
+    let dislikedEvents = fetchData("dislikedEvents");
     const eventId = event.id || event.name;
 
     dislikedEvents = dislikedEvents.filter(
@@ -149,11 +161,8 @@ function showUndo() {
 //checks if there are no cards left to swipe
 function checkIfNoCardsLeft() {
     const currentCard = getCurrentCard();
-    if (!currentCard) {
-        updateButtons(false);
-    } else {
-        updateButtons(true);
-    }
+    const hasCard = currentCard && !currentCard.classList.contains('no-events') && !currentCard.classList.contains('no-more-events');
+    updateButtons(hasCard);
 }
 
 // updates the state of the accept and reject buttons based on 'enable'
@@ -173,14 +182,6 @@ function updateButtons(enable) {
         }
     }
 }
-
-const rejectBtn = document.getElementById("rejectBtn");
-const acceptBtn = document.getElementById("acceptBtn");
-const undoBtn = document.getElementById("undoBtn");
-
-if (rejectBtn) rejectBtn.addEventListener("click", swipeLeft);
-if (acceptBtn) acceptBtn.addEventListener("click", swipeRight);
-if (undoBtn) undoBtn.addEventListener("click", undoSwipe);
 
 // Initial check in case there's no card at all
 checkIfNoCardsLeft();

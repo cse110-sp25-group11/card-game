@@ -32,14 +32,18 @@ function addToStorage(key, value) {
  */
 function fetchData(data) {
     if (!data) {
-        console.warn(`[!] Failed to parse "${data}"`);
         return [];
     }
 
     const rawdata = localStorage.getItem(data);
     if (!rawdata) {
-        console.warn(`[!] Failed to parse "${data}"`);
         return [];
     }
-    return JSON.parse(rawdata);
+    
+    try {
+        return JSON.parse(rawdata);
+    } catch (error) {
+        console.warn(`[!] Failed to parse "${data}":`, error);
+        return [];
+    }
 }
