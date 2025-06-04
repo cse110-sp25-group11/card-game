@@ -1,7 +1,7 @@
 /**
  * @fileoverview Main application logic for Campus Swipe
  * @requires storage.js - fetchData function
- * @requires popularEvents.js - populateEvents function
+ * @requires populateEvents.js - populateEvents function
  */
 
 /* global fetchData */
