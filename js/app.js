@@ -1,9 +1,27 @@
 /**
  * @fileoverview Main application logic for Campus Swipe
  * @requires storage.js - fetchData function
+ * @requires populateEvents.js - populateEvents function
  */
 
 /* global fetchData */
+
+/**
+ * Initalization methods once the DOM is loaded
+ */
+document.addEventListener("DOMContentLoaded", () => {
+    // Add sample events if none exist
+    const events = fetchData("events");
+    if (events.length === 0) {
+        populateEvents();
+    }
+
+    loadEventsForBrowse();
+    // Only load events for swipe if we're on the main page
+    if (document.querySelector(".swipe-page")) {
+        loadEventsForSwipe();
+    }
+});
 
 /**
  * updates the specific data in localStorage given the key.
@@ -264,20 +282,6 @@ function mapEventData(event) {
         description: event.description || "No description available",
     };
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Add sample events if none exist
-    const events = fetchData("events");
-    if (events.length === 0) {
-        populateSampleEvents();
-    }
-
-    loadEventsForBrowse();
-    // Only load events for swipe if we're on the main page
-    if (document.querySelector(".swipe-page")) {
-        loadEventsForSwipe();
-    }
-});
 
 /**
  * Populates localStorage with a few sample events if none exist
