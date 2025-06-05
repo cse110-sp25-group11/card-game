@@ -230,9 +230,17 @@ form:hover {
     flex-grow: 1;
 }
 
-/* Submit button styling */
-#submitButton {
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
+/* Container to align submit and reset buttons side by side */
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+/* Common button styles */
+#submitButton,
+#resetButton {
     font-family: "Inter", sans-serif;
     font-size: 18px;
     font-weight: 600;
@@ -241,12 +249,15 @@ form:hover {
     padding: 14px 32px;
     color: white;
     cursor: pointer;
-    display: block;
-    margin: 30px auto 0;
     transition: all 0.2s ease;
     box-shadow: 0 4px 12px rgba(46, 204, 113, 0.25);
     letter-spacing: 0.3px;
     text-transform: uppercase;
+}
+
+/* Submit button styling */
+#submitButton {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
 }
 
 #submitButton:hover {
@@ -258,6 +269,23 @@ form:hover {
 #submitButton:active {
     transform: translateY(0);
     box-shadow: 0 3px 8px rgba(46, 204, 113, 0.25);
+}
+
+/* Reset (Cancel) button styling */
+#resetButton {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.25);
+}
+
+#resetButton:hover {
+    background: linear-gradient(135deg, #a93226, #c0392b);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(231, 76, 60, 0.3);
+}
+
+#resetButton:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(231, 76, 60, 0.25);
 }
 
 /* Form validation styles */
