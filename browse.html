@@ -71,8 +71,18 @@
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </section>
-            <h2 class="spaced-heading">Past Events</h2>
-            <section class="event-carousel">
+            <div class="past-events-header">
+                <h2 class="spaced-heading">Past Events</h2>
+                <button class="toggle-past-events" id="togglePastEvents">
+                    <span class="toggle-text">Show Events</span>
+                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                </button>
+            </div>
+            <section
+                class="event-carousel"
+                id="pastEventsCarousel"
+                style="display: none"
+            >
                 <button class="prev">
                     <i class="fa-solid fa-arrow-left"></i>
                 </button>
