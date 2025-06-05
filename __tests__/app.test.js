@@ -1,4 +1,5 @@
 import { checkValidEvent } from "../website/js/app.js";
+// const { checkValidEvent } = require("../website/js/app");
 
 /**
  * Testing function: {checkValidEvent}
