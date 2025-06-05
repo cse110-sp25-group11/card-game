@@ -88,9 +88,10 @@ function createLikedEventCard(event) {
     article.dataset.eventId = event.id || event.name;
 
     // Use global mapEventData if available, otherwise use local function
-    const eventData = (typeof window.mapEventData === "function") 
-        ? window.mapEventData(event) 
-        : mapEventDataLocal(event);
+    const eventData =
+        typeof window.mapEventData === "function"
+            ? window.mapEventData(event)
+            : mapEventDataLocal(event);
 
     const duration = calculateEventDuration(
         eventData.startTime,

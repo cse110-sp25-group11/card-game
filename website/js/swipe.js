@@ -29,14 +29,14 @@ function getCurrentCard() {
     let card = document.querySelector(
         ".event-card:not(.no-events):not(.no-more-events):not(.slide-out-left):not(.slide-out-right)",
     );
-    
+
     // If no visible card, try to get any card that isn't a status message
     if (!card) {
         card = document.querySelector(
             ".event-card:not(.no-events):not(.no-more-events)",
         );
     }
-    
+
     return card;
 }
 
@@ -147,7 +147,7 @@ function undoSwipe() {
         if (existingCard && existingCard !== card) {
             existingCard.remove();
         }
-        
+
         // Insert the undone card back at the beginning
         const swipeButtons = cardContainer.querySelector(".swipe-buttons");
         if (swipeButtons) {
@@ -155,7 +155,7 @@ function undoSwipe() {
         } else {
             cardContainer.appendChild(card);
         }
-        
+
         // Reset card styles
         card.style.opacity = "1";
         card.style.transform = "none";
@@ -163,7 +163,10 @@ function undoSwipe() {
     }
 
     // Decrement the current event index if it exists
-    if (typeof window.currentEventIndex !== 'undefined' && window.currentEventIndex > 0) {
+    if (
+        typeof window.currentEventIndex !== "undefined" &&
+        window.currentEventIndex > 0
+    ) {
         window.currentEventIndex--;
     }
 
