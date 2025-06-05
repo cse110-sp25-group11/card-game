@@ -134,12 +134,12 @@ h2 {
 }
 
 .toggle-icon {
-    transition: transform 0.3s ease;  
+    transition: transform 0.3s ease;
     font-size: 12px;
 }
 
 .toggle-past-events[aria-expanded="true"] .toggle-icon {
-    transform: rotate(180deg);  
+    transform: rotate(180deg);
 }
 
 .event-carousel .prev:active::before,

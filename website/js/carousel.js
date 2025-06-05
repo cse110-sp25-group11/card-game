@@ -56,62 +56,63 @@ function setupCarouselNavigation(prevBtn, nextBtn, eventCards) {
  * Initializes the toggle functionality for past events section
  */
 function initializePastEventsToggle() {
-    const toggleBtn = document.getElementById('togglePastEvents');
-    const pastEventsCarousel = document.getElementById('pastEventsCarousel');
-    const toggleText = toggleBtn?.querySelector('.toggle-text');
-    const toggleIcon = toggleBtn?.querySelector('.toggle-icon');
+    const toggleBtn = document.getElementById("togglePastEvents");
+    const pastEventsCarousel = document.getElementById("pastEventsCarousel");
+    const toggleText = toggleBtn?.querySelector(".toggle-text");
+    const toggleIcon = toggleBtn?.querySelector(".toggle-icon");
 
     if (!toggleBtn || !pastEventsCarousel || !toggleText || !toggleIcon) {
-        console.warn('Past events toggle elements not found');
+        console.warn("Past events toggle elements not found");
         return;
     }
 
     let isExpanded = false;
 
-    toggleBtn.addEventListener('click', () => {
+    toggleBtn.addEventListener("click", () => {
         isExpanded = !isExpanded;
-        
+
         if (isExpanded) {
             // Show the carousel
-            pastEventsCarousel.style.display = 'flex';
-            toggleText.textContent = 'Hide Events';
-            toggleBtn.setAttribute('aria-expanded', 'true');
-            
+            pastEventsCarousel.style.display = "flex";
+            toggleText.textContent = "Hide Events";
+            toggleBtn.setAttribute("aria-expanded", "true");
+
             // Add smooth slide-down animation
-            pastEventsCarousel.style.opacity = '0';
-            pastEventsCarousel.style.transform = 'translateY(-20px)';
-            
+            pastEventsCarousel.style.opacity = "0";
+            pastEventsCarousel.style.transform = "translateY(-20px)";
+
             // Force reflow then animate
             setTimeout(() => {
-                pastEventsCarousel.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                pastEventsCarousel.style.opacity = '1';
-                pastEventsCarousel.style.transform = 'translateY(0)';
+                pastEventsCarousel.style.transition =
+                    "opacity 0.3s ease, transform 0.3s ease";
+                pastEventsCarousel.style.opacity = "1";
+                pastEventsCarousel.style.transform = "translateY(0)";
             }, 10);
-            
+
             // Re-initialize carousel for past events when shown
             setTimeout(() => {
                 initializeCarousels();
             }, 100);
-            
         } else {
             // Hide the carousel
-            pastEventsCarousel.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-            pastEventsCarousel.style.opacity = '0';
-            pastEventsCarousel.style.transform = 'translateY(-20px)';
-            
+            pastEventsCarousel.style.transition =
+                "opacity 0.3s ease, transform 0.3s ease";
+            pastEventsCarousel.style.opacity = "0";
+            pastEventsCarousel.style.transform = "translateY(-20px)";
+
             setTimeout(() => {
-                pastEventsCarousel.style.display = 'none';
-                pastEventsCarousel.style.transition = '';
+                pastEventsCarousel.style.display = "none";
+                pastEventsCarousel.style.transition = "";
             }, 300);
-            
-            toggleText.textContent = 'Show Events';
-            toggleBtn.setAttribute('aria-expanded', 'false');
+
+            toggleText.textContent = "Show Events";
+            toggleBtn.setAttribute("aria-expanded", "false");
         }
     });
 
     // Set initial ARIA attributes
-    toggleBtn.setAttribute('aria-expanded', 'false');
-    toggleBtn.setAttribute('aria-controls', 'pastEventsCarousel');
+    toggleBtn.setAttribute("aria-expanded", "false");
+    toggleBtn.setAttribute("aria-controls", "pastEventsCarousel");
 }
 
 /**
