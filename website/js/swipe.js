@@ -1,6 +1,6 @@
 /* global saveEventAsLiked, saveEventAsDisliked, fetchData */
 const cards = document.querySelectorAll(".event-card");
-const numCards = JSON.parse(localStorage.getItem("all-events") || "[]").length;
+const numCards = JSON.parse(localStorage.getItem("events") || "[]").length;
 
 let lastSwipe = null;
 
