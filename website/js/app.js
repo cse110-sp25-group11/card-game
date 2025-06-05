@@ -1,3 +1,4 @@
+
 /**
  * @fileoverview Main application logic for Campus Swipe
  * @requires storage.js - fetchData function
@@ -600,3 +601,4 @@ function getEventDataFromCard(card) {
     const events = fetchData("events");
     return events.find((event) => (event.id || event.name) === eventId);
 }
+
