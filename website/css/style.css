@@ -31,53 +31,179 @@ body {
     scroll-behavior: smooth;
 }
 
-/*Nav Bar*/
+/*Nav Bar - Enhanced Responsive Design*/
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
+    padding: 15px 5%; /* Use percentage-based padding */
     background-color: #c69214f2;
     position: sticky;
     top: 0;
     left: 0;
     z-index: 1000;
-    height: 70px;
+    min-height: 50px; /* Use min-height instead of fixed height */
     box-sizing: border-box;
+    flex-wrap: wrap; /* Allow wrapping on very small screens */
+}
+
+.navbar-title {
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(8px, 2vw, 12px); /* Responsive gap */
+    flex-shrink: 0; /* Prevent title from shrinking too much */
+}
+
+.navbar-title p {
+    margin: 0;
+    font-size: clamp(12px, 2.5vw, 14px); /* Responsive font size */
+    color: white; 
+    padding-bottom: 6px;
 }
 
 .navbar h1 {
     margin: 0;
-    font-size: 30px;
+    font-size: clamp(20px, 5vw, 30px); /* Responsive title size */
 }
 
 .navbar h1 a {
     text-decoration: none;
     font-family: "Merriweather Sans", sans-serif;
     color: white;
-    font-size: 36px;
-    letter-spacing: 1.5px;
+    font-size: clamp(24px, 6vw, 36px); /* Responsive main title */
+    letter-spacing: clamp(0.5px, 0.3vw, 1.5px); /* Responsive letter spacing */
     font-weight: bold;
+    display: block; /* Ensure proper display */
 }
 
 .navbar-items {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: clamp(10px, 3vw, 20px); /* Responsive gap between items */
+    flex-wrap: wrap; /* Allow wrapping if needed */
 }
 
 .navbar-items a button {
-    padding: 8px 20px;
-    font-size: 18px;
+    padding: clamp(6px, 1.5vw, 8px) clamp(12px, 3vw, 20px); /* Responsive padding */
+    font-size: clamp(14px, 3vw, 18px); /* Responsive font size */
     font-family: "Merriweather Sans", sans-serif;
     cursor: pointer;
     background-color: #182b49;
     color: white;
-    border-radius: 10px;
-    border-color: white;
+    border-radius: 8px;
+    border: 1px solid white;
+    transition: all 0.3s ease; /* Add smooth transitions */
+    white-space: nowrap; /* Prevent button text from wrapping */
 }
+
+.navbar-items a button:hover {
+    background-color: #2a3d5a;
+    transform: translateY(-1px);
+}
+
 .navbar-items a button i {
-    margin-right: 8px;
+    margin-right: clamp(4px, 1vw, 8px); /* Responsive icon spacing */
+}
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 4%;
+        min-height: 45px;
+    }
+    
+    .navbar-title {
+        gap: 8px;
+    }
+    
+    .navbar-items {
+        gap: 12px;
+    }
+    
+    .navbar-items a button {
+        padding: 6px 12px;
+        font-size: 15px;
+    }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 3%;
+        min-height: 40px;
+        flex-direction: column; /* Stack vertically on very small screens */
+        gap: 8px;
+    }
+    
+    .navbar-title {
+        justify-content: center;
+        gap: 6px;
+    }
+    
+    .navbar-title p {
+        font-size: 11px;
+        padding-bottom: 4px;
+    }
+    
+    .navbar h1 a {
+        font-size: 22px;
+        letter-spacing: 0.5px;
+    }
+    
+    .navbar-items {
+        gap: 8px;
+        justify-content: center;
+    }
+    
+    .navbar-items a button {
+        padding: 5px 10px;
+        font-size: 13px;
+        border-radius: 6px;
+    }
+    
+    .navbar-items a button i {
+        margin-right: 4px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+    .navbar {
+        padding: 8px 2%;
+        min-height: 35px;
+    }
+    
+    .navbar h1 a {
+        font-size: 18px;
+        letter-spacing: 0.3px;
+    }
+    
+    .navbar-title p {
+        font-size: 10px;
+    }
+    
+    .navbar-items a button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .navbar {
+        padding: 8px 4%;
+        min-height: 35px;
+        flex-direction: row; /* Keep horizontal on landscape */
+    }
+    
+    .navbar h1 a {
+        font-size: 20px;
+    }
+    
+    .navbar-items a button {
+        padding: 4px 10px;
+        font-size: 13px;
+    }
 }
 
 /*Event Card - General styles for all pages*/
