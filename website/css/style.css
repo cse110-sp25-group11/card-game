@@ -57,7 +57,7 @@ body {
 .navbar-title p {
     margin: 0;
     font-size: clamp(12px, 2.5vw, 14px); /* Responsive font size */
-    color: white; 
+    color: white;
     padding-bottom: 6px;
 }
 
@@ -111,15 +111,15 @@ body {
         padding: 12px 4%;
         min-height: 45px;
     }
-    
+
     .navbar-title {
         gap: 8px;
     }
-    
+
     .navbar-items {
         gap: 12px;
     }
-    
+
     .navbar-items a button {
         padding: 6px 12px;
         font-size: 15px;
@@ -134,33 +134,33 @@ body {
         flex-direction: column; /* Stack vertically on very small screens */
         gap: 8px;
     }
-    
+
     .navbar-title {
         justify-content: center;
         gap: 6px;
     }
-    
+
     .navbar-title p {
         font-size: 11px;
         padding-bottom: 4px;
     }
-    
+
     .navbar h1 a {
         font-size: 22px;
         letter-spacing: 0.5px;
     }
-    
+
     .navbar-items {
         gap: 8px;
         justify-content: center;
     }
-    
+
     .navbar-items a button {
         padding: 5px 10px;
         font-size: 13px;
         border-radius: 6px;
     }
-    
+
     .navbar-items a button i {
         margin-right: 4px;
     }
@@ -172,16 +172,16 @@ body {
         padding: 8px 2%;
         min-height: 35px;
     }
-    
+
     .navbar h1 a {
         font-size: 18px;
         letter-spacing: 0.3px;
     }
-    
+
     .navbar-title p {
         font-size: 10px;
     }
-    
+
     .navbar-items a button {
         padding: 4px 8px;
         font-size: 12px;
@@ -195,11 +195,11 @@ body {
         min-height: 35px;
         flex-direction: row; /* Keep horizontal on landscape */
     }
-    
+
     .navbar h1 a {
         font-size: 20px;
     }
-    
+
     .navbar-items a button {
         padding: 4px 10px;
         font-size: 13px;

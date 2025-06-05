@@ -283,7 +283,6 @@ function mapEventData(event) {
     };
 }
 
-
 /**
  * Loads events from localStorage for the main swipe page
  * Populates the card container with events that haven't been swiped yet
