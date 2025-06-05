@@ -31,12 +31,14 @@ function calculateRemainingCards() {
     const events = fetchData("events");
     const likedEvents = fetchData("likedEvents");
     const dislikedEvents = fetchData("dislikedEvents");
-    
+
     const likedEventIds = likedEvents.map((event) => event.id || event.name);
-    const dislikedEventIds = dislikedEvents.map((event) => event.id || event.name);
+    const dislikedEventIds = dislikedEvents.map(
+        (event) => event.id || event.name,
+    );
     const swipedEventIds = [...likedEventIds, ...dislikedEventIds];
-    
-    return events.filter(event => {
+
+    return events.filter((event) => {
         const eventId = event.id || event.name;
         return !swipedEventIds.includes(eventId);
     }).length;
@@ -50,7 +52,7 @@ function createCardCounter() {
     counterSticker.id = "cardCounter";
     counterSticker.className = "card-counter-sticker";
     counterSticker.innerHTML = `<i class="fa-solid fa-layer-group"></i> <span id="counterText">${cardsRemaining} events left</span>`;
-    
+
     cardContainer.appendChild(counterSticker);
 }
 
