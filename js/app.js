@@ -336,6 +336,7 @@ function getNextUnswipedEvent() {
 
 /**
  * Shows the next available event card
+ * @global
  */
 function showNextEvent() {
     const cardContainer = document.querySelector(".card-container");
@@ -543,3 +544,10 @@ function getEventDataFromCard(card) {
     const events = fetchData("events");
     return events.find((event) => (event.id || event.name) === eventId);
 }
+
+// Expose functions globally for swipe.js
+window.showNextEvent = showNextEvent;
+window.saveEventAsLiked = saveEventAsLiked;
+window.saveEventAsDisliked = saveEventAsDisliked;
+window.getEventDataFromCard = getEventDataFromCard;
+window.mapEventData = mapEventData;
