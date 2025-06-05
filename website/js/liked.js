@@ -7,6 +7,39 @@
 /* global fetchData, mapEventData */
 
 /**
+ * Maps stored event data to the format expected by the display components
+ * Handles both form submission format and debug populate format
+ * @param {Object} event - Event object from localStorage
+ * @returns {Object} - Mapped event data
+ */
+function mapEventDataLocal(event) {
+    // Handle both data structures: form submission (eventName, orgName) and debug populate (name, org)
+    const name = event.eventName || event.name || "Untitled Event";
+    const org = event.orgName || event.org || "Unknown Organization";
+
+    // Create fallback image URL using placehold.co with event name
+    const fallbackImageUrl = `https://placehold.co/300x200?text=${encodeURIComponent(name.replace(/\s+/g, "+"))}`;
+
+    const imgLink = event.photoFileName
+        ? `uploads/${event.photoFileName}`
+        : event.imgLink || fallbackImageUrl;
+    const imgAltText = event.altText || event.imgAltText || `${name} photo`;
+
+    return {
+        name: name,
+        org: org,
+        date: event.date || "",
+        imgLink: imgLink,
+        imgAltText: imgAltText,
+        location: event.location || "Location TBD",
+        food: event.food === "yes" || event.food === true,
+        startTime: event.startTime || "00:00",
+        endTime: event.endTime || "23:59",
+        description: event.description || "No description available",
+    };
+}
+
+/**
  * Loads and displays liked events from localStorage
  */
 function loadLikedEvents() {
@@ -54,7 +87,10 @@ function createLikedEventCard(event) {
     article.className = "event-card";
     article.dataset.eventId = event.id || event.name;
 
-    const eventData = mapEventData(event);
+    // Use global mapEventData if available, otherwise use local function
+    const eventData = (typeof window.mapEventData === "function") 
+        ? window.mapEventData(event) 
+        : mapEventDataLocal(event);
 
     const duration = calculateEventDuration(
         eventData.startTime,
