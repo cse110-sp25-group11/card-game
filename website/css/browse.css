@@ -91,6 +91,57 @@ h2 {
         height 0.6s;
 }
 
+/* Past Events Toggle CSS */
+.past-events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 20px 20px;
+}
+
+.past-events-header h2 {
+    margin: 0;
+    color: white;
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 25px;
+}
+
+.toggle-past-events {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: #c69214f2;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 12px rgba(198, 146, 20, 0.3);
+}
+
+.toggle-past-events:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(198, 146, 20, 0.4);
+}
+
+.toggle-past-events:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(198, 146, 20, 0.2);
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;  
+    font-size: 12px;
+}
+
+.toggle-past-events[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);  
+}
+
 .event-carousel .prev:active::before,
 .event-carousel .next:active::before {
     width: 200px;
