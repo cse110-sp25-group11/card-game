@@ -1,7 +1,6 @@
 /* global saveEventAsLiked, saveEventAsDisliked, fetchData */
 const cards = document.querySelectorAll(".event-card");
 const numCards = JSON.parse(localStorage.getItem("events") || "[]").length;
-let cardsRemaining = calculateRemainingCards(); // Track remaining cards
 
 let lastSwipe = null;
 
@@ -10,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Wait a bit for events to be populated by app.js
     setTimeout(() => {
         createCardCounter();
-        updateCardCounter();
         checkIfNoCardsLeft();
         initializeButtons();
     }, 100);
@@ -51,7 +49,7 @@ function createCardCounter() {
     const counterSticker = document.createElement("div");
     counterSticker.id = "cardCounter";
     counterSticker.className = "card-counter-sticker";
-    counterSticker.innerHTML = `<i class="fa-solid fa-layer-group"></i> <span id="counterText">${cardsRemaining} events left</span>`;
+    counterSticker.innerHTML = `<i class="fa-solid fa-layer-group"></i> <span id="counterText">${calculateRemainingCards()} events left</span>`;
 
     cardContainer.appendChild(counterSticker);
 }
@@ -60,7 +58,7 @@ function createCardCounter() {
 function updateCardCounter() {
     const counterText = document.getElementById("counterText");
     if (counterText) {
-        counterText.textContent = `${cardsRemaining} events left`;
+        counterText.textContent = `${calculateRemainingCards()} events left`;
     }
 }
 
@@ -137,8 +135,7 @@ function swipe(direction) {
 
     // save the last swipe info for undo functionality
     lastSwipe = { card, direction, eventData };
-    // Decrease amount of cards remaining
-    cardsRemaining--;
+
     updateCardCounter();
     // Show next event after animation completes
     setTimeout(() => {
@@ -212,8 +209,7 @@ function undoSwipe() {
     ) {
         window.currentEventIndex--;
     }
-    // Increase cards remaining count for undo
-    cardsRemaining++;
+
     updateCardCounter();
     lastSwipe = null;
     // hides the undo button and shows the check mark and cross buttons
