@@ -49,7 +49,7 @@ function loadLikedEvents() {
     if (!likedEventsGrid) return;
 
     const likedEvents = fetchData("likedEvents");
-    
+
     likedEventsGrid.innerHTML = "";
 
     if (likedEvents.length === 0) {
