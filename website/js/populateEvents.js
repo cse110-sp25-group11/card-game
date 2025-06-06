@@ -1,9 +1,4 @@
 /**
- * Debug utility for populating localStorage with sample events
- * This file should only be loaded on the debug page
- */
-
-/**
  * Generates sample events for different categories with proper dates
  * @returns {Object} Object containing arrays of events for each category
  */
