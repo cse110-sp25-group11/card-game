@@ -49,6 +49,8 @@ function loadLikedEvents() {
     if (!likedEventsGrid) return;
 
     const likedEvents = fetchData("likedEvents");
+    
+    likedEventsGrid.innerHTML = "";
 
     if (likedEvents.length === 0) {
         likedEventsGrid.style.display = "none";
@@ -62,8 +64,6 @@ function loadLikedEvents() {
     if (noEventsMessage) {
         noEventsMessage.hidden = true;
     }
-
-    likedEventsGrid.innerHTML = "";
 
     const sortedEvents = likedEvents.sort((a, b) => {
         const dateA = new Date(a.likedAt || 0);
