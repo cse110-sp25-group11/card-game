@@ -1,13 +1,15 @@
 describe("Loading Browse Page", () => {
     beforeAll(async () => {
-        await page.goto('https://cse110-sp25-group11.github.io/card-game');
+        await page.goto("https://cse110-sp25-group11.github.io/card-game");
     });
 
     // Show events button toggles
-    it('Show Events Button Toggles', async () => {
-        await page.goto('https://cse110-sp25-group11.github.io/card-game/browse.html');
-        
-        console.log('Checking show events button toggle...');
+    it("Show Events Button Toggles", async () => {
+        await page.goto(
+            "https://cse110-sp25-group11.github.io/card-game/browse.html",
+        );
+
+        console.log("Checking show events button toggle...");
 
         await page.waitForSelector("#togglePastEvents");
         const initialState = await page.$eval(
