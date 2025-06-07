@@ -2,7 +2,6 @@
  * Test loading the home page
  * and checking if the event cards are rendered correctly.
  */
-import puppeteer from 'puppeteer';
 
 describe("Loading Home Page", () => {
     beforeAll(async () => {
