@@ -1,5 +1,7 @@
 # User Personas
 
+[Link to Miro](https://miro.com/app/board/uXjVI-UbQ1E=/?share_link_id=636988946)
+
 Since we wanted to design an app for student life on campus, we created two user personas to better understand the needs and goals of our primary users. Our app, **Campus Swipe**, helps students discover campus events in real time through a swiping feature, while also giving student organizations an easy way to promote their events.
 
 These personas reflect the two main user groups we are designing for:
