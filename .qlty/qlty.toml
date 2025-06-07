@@ -81,6 +81,10 @@ name = "prettier"
 [[plugin]]
 name = "radarlint-js"
 include_patterns = ["**/*.js", "**/*.jsx"]
+args = [
+  "--config", "./.config/.eslint.config.js"
+]
+
 
 [[plugin]]
 name = "ripgrep"
@@ -98,3 +102,6 @@ name = "trufflehog"
 
 [[plugin]]
 name = "yamllint"
+args = [
+  "-c", "./.config/.yamllint.yaml"
+]

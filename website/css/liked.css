@@ -24,24 +24,195 @@ h2 {
     font-family: "Merriweather Sans", sans-serif;
 }
 
-
-
-/* Styling the Liked Events subtitle */
+/* Improved Liked Events Grid Layout */
 .liked-events-grid {
-    /* Spacing */
-    padding: 0 20px 40px 20px;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
-    justify-items: center;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+    gap: 30px !important;
+    padding: 20px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    position: relative !important;
 }
 
+/* Event Card Styling - Override global styles */
+.liked-events-grid .event-card {
+    background: white !important;
+    border-radius: 15px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    width: auto !important;
+    position: relative !important;
+    transform: none !important;
+    opacity: 1 !important;
+    padding: 0 !important;
+    outline: none !important;
+    outline-offset: 0 !important;
+}
 
+.liked-events-grid .event-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+}
 
-/* Adding responsive design for the liked events cards */
+/* Photo Container */
+.liked-events-grid .photo-container {
+    width: 100% !important;
+    height: 220px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    background-color: #eee !important;
+    border-radius: 0 !important;
+}
+
+.liked-events-grid .photo-container img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease !important;
+}
+
+.liked-events-grid .event-card:hover .photo-container img {
+    transform: scale(1.05) !important;
+}
+
+/* Event Info */
+.liked-events-grid .event-info {
+    padding: 20px !important;
+    margin-top: 0 !important;
+    display: block !important;
+    justify-content: unset !important;
+    align-items: unset !important;
+}
+
+.liked-events-grid .event-info h3 {
+    margin: 0 0 8px 0 !important;
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+    font-family: "Merriweather Sans", sans-serif !important;
+}
+
+.liked-events-grid .org-name {
+    color: #03629c !important;
+    font-weight: 500 !important;
+    margin-bottom: 15px !important;
+    font-size: 1rem !important;
+}
+
+.liked-events-grid .event-info p {
+    margin: 8px 0 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+}
+
+.liked-events-grid .event-date,
+.liked-events-grid .event-time,
+.liked-events-grid .event-duration,
+.liked-events-grid .event-location {
+    color: #5a6c7d !important;
+    font-weight: 500 !important;
+}
+
+.liked-events-grid .event-description {
+    color: #2c3e50 !important;
+    line-height: 1.6 !important;
+    margin: 12px 0 !important;
+}
+
+.liked-events-grid .food-info {
+    color: #27ae60 !important;
+    font-weight: 600 !important;
+}
+
+/* Unlike Button */
+.liked-events-grid .unlike-button {
+    background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 20px !important;
+    border-radius: 25px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    margin-top: 15px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+}
+
+.liked-events-grid .unlike-button:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3) !important;
+}
+
+.liked-events-grid .unlike-button:active {
+    transform: translateY(0) !important;
+}
+
+/* No Events Message */
+.no-events-message {
+    text-align: center !important;
+    padding: 60px 20px !important;
+    color: white !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+}
+
+.no-events-message p {
+    font-size: 1.2rem !important;
+    margin-bottom: 30px !important;
+    line-height: 1.6 !important;
+}
+
+.no-events-message button {
+    background: linear-gradient(135deg, #03629c, #024a74) !important;
+    color: white !important;
+    border: none !important;
+    padding: 15px 30px !important;
+    border-radius: 25px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.no-events-message button:hover {
+    background: linear-gradient(135deg, #024a74, #013a5a) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(3, 98, 156, 0.3) !important;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .liked-events-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 15px !important;
+    }
+
+    .liked-events-grid .photo-container {
+        height: 180px !important;
+    }
+
+    .liked-events-grid .event-info {
+        padding: 15px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .liked-events-grid {
+        gap: 15px !important;
+        padding: 10px !important;
+    }
+
+    .liked-events-grid .event-info h3 {
+        font-size: 1.1rem !important;
     }
 }

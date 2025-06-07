@@ -18,14 +18,18 @@
             rel="stylesheet"
         />
     </head>
-    <body>
+    <body class="swipe-page">
         <header>
             <nav class="navbar">
-                <h1><a href="index.html">CAMPUS SWIPE</a></h1>
+                <div class="navbar-title">
+                    <h1><a href="index.html">🔱CAMPUS SWIPE</a></h1>
+                    <p>Make UCSD less dead</p>
+                </div>
+
                 <div class="navbar-items">
                     <a href="browse.html">
                         <button>
-                            <i class="fa-solid fa-magnifying-glass"></i>Browse
+                            <i class="fa-solid fa-compass"></i>Browse Events
                         </button>
                     </a>
                     <a href="post.html">
@@ -43,42 +47,24 @@
         </header>
         <main>
             <div class="card-container">
-                <article class="event-card">
-                    <div class="event-image">
-                        <img src="#" alt="Event Photo" />
-                    </div>
-
-                    <div class="event-details">
-                        <div class="event-header">
-                            <h2>Title</h2>
-                            <span>Org</span>
-                        </div>
-
-                        <div class="event-date">
-                            <span>Date/Duration</span>
-                        </div>
-
-                        <div class="event-description">
-                            <p>Description</p>
-                        </div>
-                    </div>
-                </article>
-                <div class="swipe-buttons">
-                    <button id="rejectBtn">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                    <button id="acceptBtn">
-                        <i class="fa-solid fa-check"></i>
-                    </button>
-                </div>
-                <button id="undoBtn" style="display: none">
-                    <i class="fa-solid fa-rotate-left"></i>
+                <!-- Events will be dynamically loaded here-->
+            </div>
+            <div class="swipe-buttons">
+                <button id="rejectBtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <button id="acceptBtn">
+                    <i class="fa-solid fa-check"></i>
                 </button>
             </div>
+            <button id="undoBtn" style="display: none">
+                <i class="fa-solid fa-rotate-left"></i>
+            </button>
         </main>
+        <script src="js/storage.js"></script>
+        <script src="js/populateEvents.js"></script>
+        <script type="module" src="js/app.js"></script>
         <script src="js/swipe.js"></script>
+        <script type="module" src="js/homeEventCard/homeEventCard.js"></script>
     </body>
-    <script src="js/EventCard.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/storage.js"></script>
 </html>

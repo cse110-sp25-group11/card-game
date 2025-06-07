@@ -30,11 +30,14 @@
     <body>
         <header>
             <nav class="navbar">
-                <h1><a href="index.html">CAMPUS SWIPE</a></h1>
+                <div class="navbar-title">
+                    <h1><a href="index.html">🔱CAMPUS SWIPE</a></h1>
+                    <p>Make UCSD less dead</p>
+                </div>
                 <div class="navbar-items">
                     <a href="browse.html">
                         <button>
-                            <i class="fa-solid fa-magnifying-glass"></i>Browse
+                            <i class="fa-solid fa-compass"></i>Browse Events
                         </button>
                     </a>
                     <a href="post.html">
@@ -51,147 +54,177 @@
             </nav>
         </header>
         <main>
-            <h2 id="post-header">Post An Event</h2>
+            <h2 id="post-header">Add An Event</h2>
             <form>
-                <div class="form-group">
-                    <label for="event-name">Event Name</label>
-                    <input
-                        type="text"
-                        id="event-name"
-                        name="event-name"
-                        placeholder="String Input"
-                        required
-                    />
-                </div>
-
-                <div class="form-group">
-                    <label for="org-name">Club/Org Name</label>
-                    <input
-                        type="text"
-                        id="org-name"
-                        name="org-name"
-                        placeholder="String Input"
-                        required
-                    />
-                </div>
-
-                <div class="form-group">
-                    <label for="date">Date</label>
-                    <input
-                        type="text"
-                        id="date"
-                        name="date"
-                        placeholder="MM/DD/YYYY"
-                        required
-                    />
-                </div>
-
-                <div class="form-group">
-                    <label>Start and End Time</label>
-                    <div class="start-end-times">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="eventName"
+                            >Event Name
+                            <span class="required-asterisk">*</span></label
+                        >
                         <input
-                            type="time"
-                            id="startTime"
-                            name="startTime"
-                            required
-                        />
-                        <input
-                            type="time"
-                            id="endTime"
-                            name="endTime"
+                            type="text"
+                            id="eventName"
+                            name="eventName"
+                            placeholder="E.g., Galactic Dance-Off 3000"
+                            autofocus
                             required
                         />
                     </div>
+
+                    <div class="form-group">
+                        <label for="orgName"
+                            >Club/Org Name
+                            <span class="required-asterisk">*</span></label
+                        >
+                        <input
+                            type="text"
+                            id="orgName"
+                            name="orgName"
+                            placeholder="E.g., Intergalactic Boogie Club"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date"
+                            >Date
+                            <span class="required-asterisk">*</span></label
+                        >
+                        <input type="date" id="date" name="date" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label
+                            >Start and End Time
+                            <span class="required-asterisk">*</span></label
+                        >
+                        <div class="start-end-times">
+                            <input
+                                type="time"
+                                id="startTime"
+                                name="startTime"
+                                required
+                            />
+                            <input
+                                type="time"
+                                id="endTime"
+                                name="endTime"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location"
+                            >Location
+                            <span class="required-asterisk">*</span></label
+                        >
+                        <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            placeholder="Secret lair? Room 101? You decide."
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label
+                            >Food
+                            <span class="required-asterisk">*</span></label
+                        >
+                        <div class="food-group">
+                            <input
+                                type="radio"
+                                id="foodYes"
+                                name="food"
+                                value="yes"
+                                required
+                            />
+                            <label for="foodYes">Yes</label>
+
+                            <input
+                                type="radio"
+                                id="foodNo"
+                                name="food"
+                                value="no"
+                                required
+                            />
+                            <label for="foodNo">No</label>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input
-                        type="text"
-                        id="location"
-                        name="location"
-                        placeholder="String Input"
-                        required
-                    />
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Description</label>
+                <div class="form-group full-width">
+                    <label for="description"
+                        >Description
+                        <span class="required-asterisk">*</span></label
+                    >
                     <textarea
                         id="description"
                         name="description"
-                        placeholder="String Input"
+                        placeholder="What's happening? Why should we care? Will there be dragons?"
                         required
                     ></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label>Food</label>
-                    <div class="food-group">
-                        <input
-                            type="radio"
-                            id="food-yes"
-                            name="food"
-                            value="yes"
-                            required
-                        />
-                        <label for="food-yes">Yes</label>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Upload Flyer/Photo</label>
+                        <div class="custom-file-upload">
+                            <input
+                                type="file"
+                                id="photo"
+                                name="photo"
+                                accept="image/*"
+                            />
+                            <div class="upload-icon">
+                                <img
+                                    src="assets/uploadButton.svg"
+                                    alt="Upload"
+                                />
+                            </div>
+                            <p id="fileNameDisplay">No file chosen</p>
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="altText">Alt Text</label>
                         <input
-                            type="radio"
-                            id="food-no"
-                            name="food"
-                            value="no"
-                            required
+                            type="text"
+                            id="altText"
+                            name="altText"
+                            placeholder="Describe the image, like 'unicorn eating pizza'"
                         />
-                        <label for="food-no">No</label>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label>Upload Flyer/Photo</label>
-                    <div class="custom-file-upload">
-                        <label for="photo" class="upload-icon">
-                            <img src="assets/uploadButton.svg" alt="Upload" />
-                        </label>
-                        <input
-                            type="file"
-                            id="photo"
-                            name="photo"
-                            accept="image/*"
-                            required
-                            hidden
-                        />
-                        <p id="file-name-display"></p>
-                    </div>
+                <div class="buttonGroup">
+                    <button type="reset" id="resetButton">Reset</button>
+                    <button type="submit" id="submitButton">Add Event</button>
                 </div>
-
-                <div class="form-group">
-                    <label for="alt-text">Alt Text</label>
-                    <input
-                        type="text"
-                        id="alt-text"
-                        name="alt-text"
-                        placeholder="String Input"
-                        required
-                    />
-                </div>
-
-                <button type="submit" id="submit-button">Submit</button>
             </form>
         </main>
     </body>
-    <script src="js/EventCard.js"></script>
-    <script src="js/app.js"></script>
+    <script type="module" src="js/EventCard.js"></script>
+    <script type="module" src="js/app.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/custom_form.js"></script>
     <script>
         document
             .getElementById("photo")
             .addEventListener("change", function () {
-                const fileName = this.files[0]?.name || "No file chosen";
-                document.getElementById("file-name-display").textContent =
-                    `File Selected: ${fileName}`;
+                const file = this.files[0];
+                if (file) {
+                    const fileName = file.name;
+                    const fileSize = (file.size / 1024).toFixed(1);
+                    const displayText = `File Selected: ${fileName} (${fileSize} KB)`;
+                    document.getElementById("fileNameDisplay").textContent =
+                        displayText;
+                } else {
+                    document.getElementById("fileNameDisplay").textContent =
+                        "No file chosen";
+                }
             });
     </script>
 </html>

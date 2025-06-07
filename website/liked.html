@@ -22,11 +22,14 @@
     <body>
         <header>
             <nav class="navbar">
-                <h1><a href="index.html">CAMPUS SWIPE</a></h1>
+                <div class="navbar-title">
+                    <h1><a href="index.html">🔱CAMPUS SWIPE</a></h1>
+                    <p>Make UCSD less dead</p>
+                </div>
                 <div class="navbar-items">
                     <a href="browse.html">
                         <button>
-                            <i class="fa-solid fa-magnifying-glass"></i>Browse
+                            <i class="fa-solid fa-compass"></i>Browse Events
                         </button>
                     </a>
                     <a href="post.html">
@@ -47,96 +50,7 @@
             <h2>Liked Events</h2>
 
             <section class="liked-events-grid">
-                <article class="event-card">
-                    <div class="photo-container">
-                        <img src="#" alt="Event Photo" />
-                    </div>
-
-                    <div class="event-info">
-                        <h3>Event Title</h3>
-                        <p class="org-name">
-                            Organization Name
-                        </p>
-                        <p class="event-date">
-                            Date:
-                            <time datetime="2024-03-21">March 21, 2024</time>
-                        </p>
-                        <p class="event-duration">
-                            Duration: 2 hours
-                        </p>
-                        <p class="event-location">
-                            Location: Event Venue
-                        </p>
-                        <p class="event-description">
-                            Event description goes here with more details about
-                            what the event is about.
-                        </p>
-                        <p class="food-info">
-                            Food: Yes
-                        </p>
-                        <button class="unlike-button">Unlike</button>
-                    </div>
-                </article>
-
-                <article class="event-card">
-                    <div class="photo-container">
-                        <img src="#" alt="Event Photo" />
-                    </div>
-
-                    <div class="event-info">
-                        <h3>Event Title</h3>
-                        <p class="org-name">
-                            Organization Name
-                        </p>
-                        <p class="event-date">
-                            Date:
-                            <time datetime="2024-03-22">March 22, 2024</time>
-                        </p>
-                        <p class="event-duration">
-                            Duration: 3 hours
-                        </p>
-                        <p class="event-location">
-                            Location: Event Venue
-                        </p>
-                        <p class="event-description">
-                            Event description goes here with more details about
-                            what the event is about.
-                        </p>
-                        <p class="food-info">
-                            Food: No
-                        </p>
-                        <button class="unlike-button">Unlike</button>
-                    </div>
-                </article>
-
-                <article class="event-card">
-                    <div class="photo-container">
-                        <img src="#" alt="Event Photo" />
-                    </div>
-
-                    <div class="event-info">
-                        <h3>Event Title</h3>
-                        <p class="org-name">
-                            Organization Name
-                        </p>
-                        <p class="event-date">
-                            Date:
-                            <time datetime="2024-03-23">March 23, 2024</time>
-                        </p>
-                        <p class="event-duration">
-                            Duration: 1 hour
-                        </p>
-                        <p class="event-location">
-                            Location: Event Venue
-                        </p>
-                        <p class="event-description">
-                            Event description goes here with more details about
-                            what the event is about.
-                        </p>
-                        <p class="food-info">Food: Yes</p>
-                        <button class="unlike-button">Unlike</button>
-                    </div>
-                </article>
+                <!-- Events will be dynamically loaded here -->
             </section>
 
             <div class="no-events-message" hidden>
@@ -148,7 +62,8 @@
             </div>
         </main>
     </body>
-    <script src="js/EventCard.js"></script>
-    <script src="js/app.js"></script>
+    <script type="module" src="js/EventCard.js"></script>
     <script src="js/storage.js"></script>
+    <script type="module" src="js/app.js"></script>
+    <script src="js/liked.js"></script>
 </html>
