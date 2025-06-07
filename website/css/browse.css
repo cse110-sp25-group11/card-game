@@ -42,8 +42,8 @@ h2
     /*Layout*/
     display: flex;
     align-items: center;
-
     gap: 50px;
+
     overflow: hidden;
 }
 
