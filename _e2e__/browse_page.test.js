@@ -9,14 +9,20 @@ describe("Loading Browse Page", () => {
         
         console.log('Checking show events button toggle...');
 
-        await page.waitForSelector('#togglePastEvents');
-        const initialState = await page.$eval('.toggle-text', (el) => el.textContent);
-        
-        expect(initialState).toBe('Show Events');
-        
-        await page.click('#togglePastEvents');
-        const toggledState = await page.$eval('.toggle-text', (el) => el.textContent);
-        
-        expect(toggledState).toBe('Hide Events');
+        await page.waitForSelector("#togglePastEvents");
+        const initialState = await page.$eval(
+            ".toggle-text",
+            (el) => el.textContent,
+        );
+
+        expect(initialState).toBe("Show Events");
+
+        await page.click("#togglePastEvents");
+        const toggledState = await page.$eval(
+            ".toggle-text",
+            (el) => el.textContent,
+        );
+
+        expect(toggledState).toBe("Hide Events");
     });
 });
