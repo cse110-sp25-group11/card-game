@@ -1,9 +1,13 @@
+/*Global Styles*/
 body
 {
     /*Text*/
     font-family: Arial, sans-serif;
 }
 
+
+
+/*Event Popup*/
 .event-page-bg
 {
     /*Coloring*/
@@ -19,6 +23,9 @@ body
     align-items: center;
 }
 
+
+
+/*Individual Card*/
 .event-card-layout
 {
     /*Coloring*/
@@ -138,7 +145,7 @@ body
     top: 20px;
     width: 60px;
     height: 50px;
-    
+
     border: none;
     border-radius: 2px;
     cursor: pointer;
