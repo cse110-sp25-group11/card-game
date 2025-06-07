@@ -35,7 +35,6 @@ Most testers said the swiping interaction felt intuitive:
 
 * “Yes, it was very easy to figure out.”
 * “Feels intuitive and natural for this kind of use.”
-* “It makes it easier to finish.”
 
 ### Design and Layout
 
