@@ -22,8 +22,8 @@
     "transform": {},
     "verbose": true,
     "testMatch": [
-        "**/__tests__/*.test.js",
-        "**/_e2e__/*.test.js"
+      "**/__tests__/*.test.js",
+      "**/_e2e__/*.test.js"
     ]
   },
   "prettier": {
