@@ -1,4 +1,4 @@
-name: Unit tests, End-to-end tests, and coverage
+name: Unit tests, end-to-end tests, and coverage
 
 on: [push, pull_request]
 
@@ -20,7 +20,7 @@ jobs:
         run: npm ci
 
       - name: Run unit tests with coverage
-        run: npm test:unit   # assumes the "test" script runs Jest with --coverage
+        run: npm run test:unit   # assumes the "test" script runs Jest with --coverage
 
       - name: Install Codacy coverage reporter
         run: npm install --no-save codacy-coverage
@@ -32,4 +32,4 @@ jobs:
           npx codacy-coverage < coverage/lcov.info
 
       - name: Run end-to-end tests
-        run: npm test:e2e
+        run: npm run test:e2e
