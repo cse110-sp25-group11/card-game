@@ -89,5 +89,5 @@ Below is a summary of the key features we implemented using user storie.
   → [#115](https://github.com/cse110-sp25-group11/card-game/issues/115)
 
 ---
-
+# Conclusion
 These incremental improvements were essential to making **Campus Swipe** more intuitive, accessible, and enjoyable for both students and event organizers.
