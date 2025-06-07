@@ -144,4 +144,42 @@ describe("Loading Home Page", () => {
         expect(newCounterVal).toBe("14 events left");
     });
 
+    // Check if liked events page is correctly updated
+    it ('Check liked events page', async() => {
+        console.log('Checking liked events page...');
+
+        await page.goto('https://cse110-sp25-group11.github.io/card-game/liked.html');
+
+        const likedEventsCount = await page.$$eval('.event-card', (cards) => {
+            return cards.length;
+        });
+
+        expect(likedEventsCount).toBe(1);
+    });
+
+    // Unlike the event
+    it ('Unlike the event', async() => {
+        console.log('Unliking the event...');
+
+        const initialCount = await page.evaluate(() => {
+            const events = JSON.parse(localStorage.getItem('likedEvents'));
+            return events ? events.length : 0;
+        });
+
+        await page.click('.event-card .event-info button');
+        await page.waitForFunction(
+            () => {
+                const events = document.querySelectorAll('.event-card');
+                return events.length == 0;
+            },
+        );
+
+        const updatedCount = await page.evaluate(() => {
+            const events = JSON.parse(localStorage.getItem('likedEvents'));
+            return events ? events.length : 0;
+        });
+
+        expect(updatedCount).toBe(initialCount - 1);
+        await page.goBack();
+    }, 15000);
 });
