@@ -177,3 +177,6 @@ function populateEvents() {
         console.error("Error populating events:", error);
     }
 }
+
+// exporting for testing purposes
+export { generateSampleEvents, populateEvents };
