@@ -5,7 +5,7 @@
 
 /**
  * Initializes carousel navigation for all carousels on the page
- * @return {void} 
+ * @return {void}
  */
 function initializeCarousels() {
     const carousels = document.querySelectorAll(".event-carousel");

@@ -84,11 +84,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     /**
      * Displays an error message for a given field.
-    * @param {HTMLElement} field The field or group to show the error for
-    * @param {string} message The error message to display
-    * @param {string} [type="input"] The type of field ("input" or "radio")
-    * @return {void}
-    */
+     * @param {HTMLElement} field The field or group to show the error for
+     * @param {string} message The error message to display
+     * @param {string} [type="input"] The type of field ("input" or "radio")
+     * @return {void}
+     */
     function showFieldError(field, message, type = "input") {
         const fieldContainer = field.closest(".form-group");
         clearFieldError(field, type);
@@ -152,7 +152,6 @@ window.addEventListener("DOMContentLoaded", () => {
         }
         return field.name;
     }
-
 
     /**
      * Displays a success message after successful form submission.
@@ -282,7 +281,8 @@ window.addEventListener("DOMContentLoaded", () => {
         }
 
         // Reset file name display
-        document.getElementById("fileNameDisplay").textContent = "No file chosen";
+        document.getElementById("fileNameDisplay").textContent =
+            "No file chosen";
 
         // Remove any lingering error/success classes and messages
         form.querySelectorAll(".error, .success").forEach((el) => {

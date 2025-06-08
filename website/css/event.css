@@ -1,15 +1,11 @@
 /*Global Styles*/
-body
-{
+body {
     /*Text*/
     font-family: Arial, sans-serif;
 }
 
-
-
 /*Event Popup*/
-.event-page-bg
-{
+.event-page-bg {
     /*Coloring*/
     background: #29629e;
 
@@ -23,11 +19,8 @@ body
     align-items: center;
 }
 
-
-
 /*Individual Card*/
-.event-card-layout
-{
+.event-card-layout {
     /*Coloring*/
     background: #dedede;
 
@@ -39,11 +32,10 @@ body
     flex-direction: row;
 }
 
-.event-title
-{
+.event-title {
     /*Text*/
     font-size: 2rem;
-    
+
     /*Coloring*/
     background: #b3abb0;
     color: white;
@@ -60,8 +52,7 @@ body
     border-radius: 2px;
 }
 
-.event-flyer
-{
+.event-flyer {
     /*Coloring*/
     background: #9d7e7e;
 
@@ -77,8 +68,7 @@ body
     z-index: 1;
 }
 
-.event-flyer span
-{
+.event-flyer span {
     /*Text*/
     font-size: 2rem;
 
@@ -86,8 +76,7 @@ body
     color: white;
 }
 
-.event-dislike
-{
+.event-dislike {
     /*Text*/
     font-size: 1.5rem;
 
@@ -103,13 +92,12 @@ body
     height: 60px;
     cursor: pointer;
     z-index: 3;
-    
+
     border: none;
     border-radius: 2px;
 }
 
-.event-like
-{
+.event-like {
     /*Text*/
     font-size: 1.5rem;
 
@@ -130,11 +118,10 @@ body
     border-radius: 2px;
 }
 
-.event-undo
-{
+.event-undo {
     /*Text*/
     font-size: 2.5rem;
-    
+
     /*Coloring*/
     background: #d32f2f;
     color: black;

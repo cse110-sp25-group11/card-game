@@ -1,6 +1,5 @@
 /*Global Styles*/
-body
-{
+body {
     /*Text*/
     font-family: "Raleway", sans-serif;
 
@@ -9,14 +8,12 @@ body
     padding: 0;
 }
 
-main
-{
+main {
     /*Spacing*/
     padding: 0px 20px 20px 20px;
 }
 
-h2
-{
+h2 {
     /*Text*/
     font-size: 25px;
     font-family: "Merriweather Sans", sans-serif;
@@ -29,11 +26,8 @@ h2
     margin-top: 30px;
 }
 
-
-
 /*Improved Liked Events Grid Layout*/
-.liked-events-grid
-{
+.liked-events-grid {
     /*Spacing*/
     padding: 20px !important;
     margin: 0 auto !important;
@@ -47,8 +41,7 @@ h2
 }
 
 /*Event Card Styling - Override global styles*/
-.liked-events-grid .event-card
-{
+.liked-events-grid .event-card {
     /*Coloring*/
     background: white !important;
 
@@ -70,15 +63,13 @@ h2
     outline-offset: 0 !important;
 }
 
-.liked-events-grid .event-card:hover
-{
+.liked-events-grid .event-card:hover {
     transform: translateY(-5px) !important;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
 }
 
 /*Photo Container*/
-.liked-events-grid .photo-container
-{
+.liked-events-grid .photo-container {
     /*Coloring*/
     background-color: #eee !important;
 
@@ -87,12 +78,11 @@ h2
     height: 220px !important;
     overflow: hidden !important;
     position: relative !important;
-    
+
     border-radius: 0 !important;
 }
 
-.liked-events-grid .photo-container img
-{
+.liked-events-grid .photo-container img {
     /*Layout*/
     width: 100% !important;
     height: 100% !important;
@@ -101,14 +91,12 @@ h2
     transition: transform 0.3s ease !important;
 }
 
-.liked-events-grid .event-card:hover .photo-container img
-{
+.liked-events-grid .event-card:hover .photo-container img {
     transform: scale(1.05) !important;
 }
 
 /*Event Info*/
-.liked-events-grid .event-info
-{
+.liked-events-grid .event-info {
     /*Spacing*/
     padding: 20px !important;
     margin-top: 0 !important;
@@ -119,8 +107,7 @@ h2
     align-items: unset !important;
 }
 
-.liked-events-grid .event-info h3
-{
+.liked-events-grid .event-info h3 {
     /*Text*/
     font-size: 1.3rem !important;
     font-weight: 600 !important;
@@ -131,8 +118,7 @@ h2
     font-family: "Merriweather Sans", sans-serif !important;
 }
 
-.liked-events-grid .org-name
-{
+.liked-events-grid .org-name {
     /*Text*/
     font-weight: 500 !important;
     font-size: 1rem !important;
@@ -144,8 +130,7 @@ h2
     margin-bottom: 15px !important;
 }
 
-.liked-events-grid .event-info p
-{
+.liked-events-grid .event-info p {
     /*Text*/
     font-size: 0.9rem !important;
     line-height: 1.4 !important;
@@ -157,8 +142,7 @@ h2
 .liked-events-grid .event-date,
 .liked-events-grid .event-time,
 .liked-events-grid .event-duration,
-.liked-events-grid .event-location
-{
+.liked-events-grid .event-location {
     /*Text*/
     font-weight: 500 !important;
 
@@ -166,8 +150,7 @@ h2
     color: #5a6c7d !important;
 }
 
-.liked-events-grid .event-description
-{
+.liked-events-grid .event-description {
     /*Text*/
     line-height: 1.6 !important;
 
@@ -178,18 +161,16 @@ h2
     margin: 12px 0 !important;
 }
 
-.liked-events-grid .food-info
-{
+.liked-events-grid .food-info {
     /*Text*/
     font-weight: 600 !important;
 
     /*Coloring*/
-    color: #27ae60 !important;   
+    color: #27ae60 !important;
 }
 
 /*Unlike Button*/
-.liked-events-grid .unlike-button
-{
+.liked-events-grid .unlike-button {
     /*Text*/
 
     /*Coloring*/
@@ -215,8 +196,7 @@ h2
     gap: 8px !important;
 }
 
-.liked-events-grid .unlike-button:hover
-{
+.liked-events-grid .unlike-button:hover {
     /*Coloring*/
     background: linear-gradient(135deg, #c0392b, #a93226) !important;
 
@@ -224,30 +204,25 @@ h2
     box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3) !important;
 }
 
-.liked-events-grid .unlike-button:active
-{
+.liked-events-grid .unlike-button:active {
     transform: translateY(0) !important;
 }
 
-
-
 /*No Events Message*/
-.no-events-message
-{
+.no-events-message {
     /*Coloring*/
     color: white !important;
-    
+
     /*Spacing*/
     padding: 60px 20px !important;
     margin: 0 auto !important;
-    
+
     /*Layout*/
     max-width: 500px !important;
     text-align: center !important;
 }
 
-.no-events-message p
-{
+.no-events-message p {
     /*Text*/
     font-size: 1.2rem !important;
     line-height: 1.6 !important;
@@ -256,8 +231,7 @@ h2
     margin-bottom: 30px !important;
 }
 
-.no-events-message button
-{
+.no-events-message button {
     /*Text*/
     font-size: 1rem !important;
     font-weight: 600 !important;
@@ -275,8 +249,7 @@ h2
     transition: all 0.3s ease !important;
 }
 
-.no-events-message button:hover
-{
+.no-events-message button:hover {
     /*Coloring*/
     background: linear-gradient(135deg, #024a74, #013a5a) !important;
 
@@ -284,13 +257,9 @@ h2
     box-shadow: 0 8px 20px rgba(3, 98, 156, 0.3) !important;
 }
 
-
-
 /*Responsive Design*/
-@media (max-width: 768px)
-{
-    .liked-events-grid
-    {
+@media (max-width: 768px) {
+    .liked-events-grid {
         /*Spacing*/
         padding: 15px !important;
 
@@ -299,23 +268,19 @@ h2
         gap: 20px !important;
     }
 
-    .liked-events-grid .photo-container
-    {
+    .liked-events-grid .photo-container {
         /*Layout*/
         height: 180px !important;
     }
 
-    .liked-events-grid .event-info
-    {
+    .liked-events-grid .event-info {
         /*Layout*/
         padding: 15px !important;
     }
 }
 
-@media (max-width: 480px)
-{
-    .liked-events-grid
-    {
+@media (max-width: 480px) {
+    .liked-events-grid {
         /*Spacing*/
         padding: 10px !important;
 
@@ -323,8 +288,7 @@ h2
         gap: 15px !important;
     }
 
-    .liked-events-grid .event-info h3
-    {
+    .liked-events-grid .event-info h3 {
         /*Text*/
         font-size: 1.1rem !important;
     }
