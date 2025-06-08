@@ -1,4 +1,6 @@
 ## [What's Next for Campus Swipe](templates/whats-next.md)
+## [Team Repo](https://github.com/cse110-sp25-group11/card-game)
+## [GitHub Pages](https://cse110-sp25-group11.github.io/card-game/)
 # Campus Swipe Tool
 
 #### Introduction 👋
