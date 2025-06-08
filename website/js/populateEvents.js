@@ -179,7 +179,4 @@ function populateEvents() {
 }
 
 // exporting for testing purposes
-export{
-    generateSampleEvents,
-    populateEvents
-}
+export { generateSampleEvents, populateEvents };

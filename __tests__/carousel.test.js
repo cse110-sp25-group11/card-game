@@ -1,8 +1,8 @@
-import {updateButtonStates} from '../website/js/carousel.js';
+import { updateButtonStates } from "../website/js/carousel.js";
 
 let previousButton, nextButton, cards;
 
-beforeEach(() =>{
+beforeEach(() => {
     document.body.innerHTML = `
         <button class="prev">Prev</button>
         <button class="next">Next</button>
@@ -15,13 +15,13 @@ beforeEach(() =>{
     previousButton = document.querySelector(".prev");
     nextButton = document.querySelector(".next");
     cards = document.querySelector(".event-cards");
-})
+});
 
 // testing if previous button properly disables
-test("disables previous button when scrollLeft is at 0", ()=>{
-    const previousButton = {disabled: false, style: {}};
-    const nextButton = {disabled: false, style: {}};
-    const cards   = {scrollLeft: 0, scrollWidth: 500, clientWidth: 200};
+test("disables previous button when scrollLeft is at 0", () => {
+    const previousButton = { disabled: false, style: {} };
+    const nextButton = { disabled: false, style: {} };
+    const cards = { scrollLeft: 0, scrollWidth: 500, clientWidth: 200 };
 
     updateButtonStates(previousButton, nextButton, cards);
 
@@ -29,13 +29,13 @@ test("disables previous button when scrollLeft is at 0", ()=>{
     expect(previousButton.style.opacity).toBe("0.5");
     expect(nextButton.disabled).toBe(false);
     expect(nextButton.style.opacity).toBe("1");
-})
+});
 
 // testing if next button properly disables
-test("disables next button when scrollLeft is at the right most point", ()=>{
-    const previousButton = {disabled: false, style: {}};
-    const nextButton = {disabled: false, style: {}};
-    const cards = {scrollLeft: 500-200, scrollWidth: 500, clientWidth: 200};
+test("disables next button when scrollLeft is at the right most point", () => {
+    const previousButton = { disabled: false, style: {} };
+    const nextButton = { disabled: false, style: {} };
+    const cards = { scrollLeft: 500 - 200, scrollWidth: 500, clientWidth: 200 };
 
     updateButtonStates(previousButton, nextButton, cards);
 
@@ -43,13 +43,13 @@ test("disables next button when scrollLeft is at the right most point", ()=>{
     expect(nextButton.style.opacity).toBe("0.5");
     expect(previousButton.disabled).toBe(false);
     expect(previousButton.style.opacity).toBe("1");
-})
+});
 
 // testing if both buttons work properly when not in either of edge cases
-test("enables both buttons when scroll left is not at the end states", ()=>{
-    const previousButton = {disabled: false, style: {}};
-    const nextButton = {disabled: false, style: {}};
-    const cards = {scroll: 150, scrollWidth: 500, clientWidth: 200};
+test("enables both buttons when scroll left is not at the end states", () => {
+    const previousButton = { disabled: false, style: {} };
+    const nextButton = { disabled: false, style: {} };
+    const cards = { scroll: 150, scrollWidth: 500, clientWidth: 200 };
 
     updateButtonStates(previousButton, nextButton, cards);
 
@@ -57,4 +57,4 @@ test("enables both buttons when scroll left is not at the end states", ()=>{
     expect(nextButton.disabled).toBe(false);
     expect(previousButton.style.opacity).toBe("1");
     expect(nextButton.style.opacity).toBe("1");
-})
+});
