@@ -1,4 +1,4 @@
-import { updateButtonStates } from "../website/js/carousel.js";
+import { initializeCarousels, initializePastEventsToggle, updateButtonStates } from "../website/js/carousel.js";
 
 let previousButton, nextButton, cards;
 
@@ -58,3 +58,46 @@ test("enables both buttons when scroll left is not at the end states", () => {
     expect(previousButton.style.opacity).toBe("1");
     expect(nextButton.style.opacity).toBe("1");
 });
+
+// adding testing for the past events
+const pastEvents = `
+    <button id="togglePastEvents">
+        <span class="toggle-text">Show Events</span>
+        <span class="toggle-icon"></span>
+    </button>
+    <div id="pastEventsCarousel" style="display:none"></div>
+`;
+
+test("if the initializePastEventsToggle sets correct ARIA attributes or not", () => {
+    document.body.innerHTML = pastEvents;
+
+    initializePastEventsToggle();
+
+    const button = document.getElementById("togglePastEvents");
+    expect(button.getAttribute("aria-expanded")).toBe("false");
+    expect(button.getAttribute("aria-controls")).toBe("pastEventsCarousel");
+});
+
+test("togglePastEvents button click shows then hides the carousel", ()=>{
+    document.body.innerHTML = pastEvents;
+    initializePastEventsToggle();
+
+    const button = document.getElementById("togglePastEvents");
+    const carousel = document.getElementById("pastEventsCarousel");
+    const text = button.querySelector(".toggle-text");
+
+    // first click should show
+    button.click();
+    expect(carousel.style.display).toBe("flex");
+    expect(carousel.style.opacity).toBe("0");
+    expect(carousel.style.transform).toBe("translateY(-20px)");
+    expect(text.textContent).toBe("Hide Events");
+    expect(button.getAttribute("aria-expanded")).toBe("true");
+
+    // second click should hide
+    button.click();
+    expect(text.textContent).toBe("Show Events");
+    expect(button.getAttribute("aria-expanded")).toBe("false");
+    expect(carousel.style.opacity).toBe("0");
+    expect(carousel.style.transform).toBe("translateY(-20px)");
+})
