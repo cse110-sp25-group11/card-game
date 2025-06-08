@@ -52,6 +52,7 @@ function setupCarouselNavigation(prevBtn, nextBtn, eventCards) {
         });
     });
 }
+
 /**
  * Initializes the toggle functionality for past events section
  */

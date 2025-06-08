@@ -36,6 +36,11 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    /**
+     * Validates a single form field for required value and end time logic.
+     * @param {HTMLElement} field The form field to validate
+     * @return {boolean} True if the field is valid, false otherwise
+     */
     function validateField(field) {
         const value = field.value.trim();
 
@@ -56,6 +61,10 @@ window.addEventListener("DOMContentLoaded", () => {
         return true;
     }
 
+    /**
+     * Validates the radio group for food selection.
+     * @return {boolean} True if a radio button is selected, false otherwise
+     */
     function validateRadioGroup() {
         const foodRadioGroup = form.querySelector(".food-group");
         const isChecked = foodRadios.some((radio) => radio.checked);
@@ -73,6 +82,13 @@ window.addEventListener("DOMContentLoaded", () => {
         return true;
     }
 
+    /**
+     * Displays an error message for a given field.
+    * @param {HTMLElement} field The field or group to show the error for
+    * @param {string} message The error message to display
+    * @param {string} [type="input"] The type of field ("input" or "radio")
+    * @return {void}
+    */
     function showFieldError(field, message, type = "input") {
         const fieldContainer = field.closest(".form-group");
         clearFieldError(field, type);
@@ -95,6 +111,12 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * Clears the error message for a given field.
+     * @param {HTMLElement} field The field or group to clear the error for
+     * @param {string} [type="input"] The type of field ("input" or "radio")
+     * @return {void}
+     */
     function clearFieldError(field, type = "input") {
         const fieldContainer = field.closest(".form-group");
 
@@ -112,6 +134,11 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * Gets the label text for a given field.
+     * @param {HTMLElement} field The field to get the label for
+     * @return {string} The label text for the field
+     */
     function getFieldLabel(field) {
         const fieldContainer = field.closest(".form-group");
         const label = fieldContainer.querySelector("label");
@@ -126,6 +153,11 @@ window.addEventListener("DOMContentLoaded", () => {
         return field.name;
     }
 
+
+    /**
+     * Displays a success message after successful form submission.
+     * @return {void}
+     */
     function showSuccessMessage() {
         const existing = document.querySelector(".success-message");
         if (existing) {
@@ -146,6 +178,11 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 5000);
     }
 
+    /**
+     * Handles file upload and returns file data as a Promise.
+     * @param {File} file The file to upload
+     * @return {Promise<Object|null>} A promise that resolves to the file data object or null
+     */
     function handleFileUpload(file) {
         if (!file) return null;
 
@@ -168,10 +205,11 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevent default form submission
 
         let isValid = true;
 
+        // Validate all required fields
         requiredFields.forEach((fieldName) => {
             const field = form.elements[fieldName];
             if (field && !validateField(field)) {
@@ -179,10 +217,12 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         });
 
+        // Validate food radio group
         if (!validateRadioGroup()) {
             isValid = false;
         }
 
+        // If not valid, scroll to the first error and stop
         if (!isValid) {
             const firstError = form.querySelector(".error, .has-error");
             if (firstError) {
@@ -194,6 +234,7 @@ window.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // Handle photo file upload if a file is selected
         const photoInput = document.getElementById("photo");
         const photoFile = photoInput.files[0];
 
@@ -208,6 +249,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+        // Gather all event data from the form
         const eventData = {
             eventName: form.elements["eventName"].value,
             orgName: form.elements["orgName"].value,
@@ -222,12 +264,16 @@ window.addEventListener("DOMContentLoaded", () => {
             timestamp: new Date().toISOString(),
         };
 
+        // Retrieve existing events from localStorage
         let events = JSON.parse(localStorage.getItem("events") || "[]");
 
+        // Add new event to the array
         events.push(eventData);
 
+        // Save updated events array to localStorage
         localStorage.setItem("events", JSON.stringify(events));
 
+        // Show success message and reset the form
         showSuccessMessage();
         form.reset();
         foodRadios.forEach((r) => (r.checked = false));
@@ -235,9 +281,10 @@ window.addEventListener("DOMContentLoaded", () => {
             foodDetails.style.display = "none";
         }
 
-        document.getElementById("fileNameDisplay").textContent =
-            "No file chosen";
+        // Reset file name display
+        document.getElementById("fileNameDisplay").textContent = "No file chosen";
 
+        // Remove any lingering error/success classes and messages
         form.querySelectorAll(".error, .success").forEach((el) => {
             el.classList.remove("error", "success");
         });
