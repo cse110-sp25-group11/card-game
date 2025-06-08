@@ -86,8 +86,8 @@ Below is a summary of the key features we implemented using user stories:
     - Clearer button labels (e.g., “Submit” → “Add Event”).
     - Improved placeholder text in forms.
     - Added the UCSD logo and tagline on the main page.
-  <br>
-  → [#115](https://github.com/cse110-sp25-group11/card-game/issues/115)
+      <br>
+      → [#115](https://github.com/cse110-sp25-group11/card-game/issues/115)
 
 ---
 
