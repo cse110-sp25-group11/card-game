@@ -1,9 +1,7 @@
 import { fetchData, addToStorage } from "../website/js/storage.js";
 
 // clearing local storage
-beforeEach(() => {
-    localStorage.clear();
-});
+localStorage.clear();
 
 test("fetchData rejects bad data", () => {
     expect(fetchData(null)).toStrictEqual([]);

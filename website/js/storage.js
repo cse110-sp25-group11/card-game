@@ -17,7 +17,7 @@ function deleteLocalStorage() {
  * @param string value - The value to store in localStorage.
  * @returns {boolean} - Returns true if the item was added, false if it already exists.
  */
-export function addToStorage(key, value) {
+function addToStorage(key, value) {
     if (localStorage.getItem(key) === null) {
         localStorage.setItem(key, value);
         return true;
@@ -30,7 +30,7 @@ export function addToStorage(key, value) {
  * @param {string} data - The key to retrieve from localStorage
  * @returns {Array} - Returns parsed JSON data or empty array if parsing fails
  */
-export function fetchData(data) {
+function fetchData(data) {
     if (!data) {
         return [];
     }
@@ -46,4 +46,9 @@ export function fetchData(data) {
         console.warn(`[!] Failed to parse "${data}":`, error);
         return [];
     }
+}
+
+export{
+    addToStorage,
+    fetchData
 }
