@@ -61,20 +61,52 @@ export function generateSampleEvents() {
         "Networking Event",
     ];
 
+    const images = [
+        // Workshop
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29ya3Nob3B8ZW58MHx8MHx8fDA%3D",
+
+        // Seminar
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3nhwunZbexBzJb-lM4Kp8_g4nW9O4YItjjg&s",
+
+        // Social event
+        "https://today.ucsd.edu/news_uploads/fall-preview-1.jpg",
+
+        // Competition
+        "https://today.ucsd.edu/news_uploads/steel_bridge_competition_secondary_shot_.jpg",
+
+        // Meeting
+        "https://universitycenters.ucsd.edu/_images/reservation-images/MCR_0.jpg",
+
+        // Preformance
+        "https://cdn.kpbs.org/dims4/default/dc09096/2147483647/strip/true/crop/1336x701+0+0/resize/1200x630!/quality/90/?url=http%3A%2F%2Fkpbs-brightspot.s3.us-west-2.amazonaws.com%2Fe3%2Fc8%2F93321a0a41ada1483e2135c1a232%2Famphitheater-ucsandiegoerikjepsen7.jpg",
+
+        // Exhibition
+        "https://visarts.ucsd.edu/_images/homepage-v5/home_MFA-1_550x370.jpg",
+
+        // Fundraiser
+        "https://mapsatucsd.weebly.com/uploads/9/5/1/7/95170948/img-1420_orig.png",
+
+        // Study Session
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ69djgk42ZTW5CGF5zHJ-uapmAHp24e_Jl3A&s",
+
+        // Networking Event
+        "https://sdchamber.org/wp-content/uploads/2021/09/Chamber-IMG_5319-Photo-by-Melissa-Jacobs-scaled.jpg",
+    ];
+
     // Events happening now (today)
     const happeningNow = [];
     for (let i = 1; i <= 5; i++) {
         const startHour = Math.floor(Math.random() * 6) + 10; // 10 AM to 3 PM
         const endHour = startHour + Math.floor(Math.random() * 3) + 1; // 1-4 hours later
-
+        const eventType = Math.floor(Math.random() * eventTypes.length);
         happeningNow.push({
-            name: `${eventTypes[Math.floor(Math.random() * eventTypes.length)]} ${i}`,
-            description: `Join us for an exciting ${eventTypes[Math.floor(Math.random() * eventTypes.length)].toLowerCase()} that will enhance your college experience. This event features interactive activities, networking opportunities, and valuable learning experiences.`,
+            name: `${eventTypes[eventType]} ${i}`,
+            description: `Join us for an exciting ${eventTypes[eventType].toLowerCase()} that will enhance your college experience. This event features interactive activities, networking opportunities, and valuable learning experiences.`,
             date: formatDate(today),
             org: organizations[
                 Math.floor(Math.random() * organizations.length)
             ],
-            imgLink: `https://placehold.co/400x300/0066cc/ffffff?text=Event+${i}`,
+            imgLink: images[eventType],
             imgAltText: `Event ${i} promotional image`,
             location: locations[Math.floor(Math.random() * locations.length)],
             food: Math.random() > 0.5,
@@ -91,15 +123,15 @@ export function generateSampleEvents() {
         eventDate.setDate(eventDate.getDate() + Math.floor(Math.random() * 30)); // Random date in next 30 days
         const startHour = Math.floor(Math.random() * 12) + 9; // 9 AM to 8 PM
         const endHour = startHour + Math.floor(Math.random() * 4) + 1; // 1-5 hours later
-
+        const eventType = Math.floor(Math.random() * eventTypes.length);
         upcomingEvents.push({
-            name: `Upcoming ${eventTypes[Math.floor(Math.random() * eventTypes.length)]} ${i}`,
-            description: `Don't miss this upcoming ${eventTypes[Math.floor(Math.random() * eventTypes.length)].toLowerCase()}! We have planned an amazing experience with guest speakers, hands-on activities, and opportunities to connect with fellow students.`,
+            name: `Upcoming ${eventTypes[eventType]} ${i}`,
+            description: `Don't miss this upcoming ${eventTypes[eventType].toLowerCase()}! We have planned an amazing experience with guest speakers, hands-on activities, and opportunities to connect with fellow students.`,
             date: formatDate(eventDate),
             org: organizations[
                 Math.floor(Math.random() * organizations.length)
             ],
-            imgLink: `https://placehold.co/400x300/009900/ffffff?text=Upcoming+${i}`,
+            imgLink: images[eventType],
             imgAltText: `Upcoming Event ${i} promotional image`,
             location: locations[Math.floor(Math.random() * locations.length)],
             food: Math.random() > 0.5,
@@ -116,15 +148,16 @@ export function generateSampleEvents() {
         eventDate.setDate(eventDate.getDate() + Math.floor(Math.random() * 14)); // Random date in next 2 weeks
         const startHour = Math.floor(Math.random() * 10) + 10; // 10 AM to 7 PM
         const endHour = startHour + Math.floor(Math.random() * 3) + 2; // 2-5 hours later
+        const eventType = Math.floor(Math.random() * eventTypes.length);
 
         popularEvents.push({
-            name: `Popular ${eventTypes[Math.floor(Math.random() * eventTypes.length)]} ${i}`,
-            description: `This is one of our most popular events! Join hundreds of students for this amazing ${eventTypes[Math.floor(Math.random() * eventTypes.length)].toLowerCase()}. Features include live entertainment, prizes, and unforgettable memories.`,
+            name: `Popular ${eventTypes[eventType]} ${i}`,
+            description: `This is one of our most popular events! Join hundreds of students for this amazing ${eventTypes[eventType].toLowerCase()}. Features include live entertainment, prizes, and unforgettable memories.`,
             date: formatDate(eventDate),
             org: organizations[
                 Math.floor(Math.random() * organizations.length)
             ],
-            imgLink: `https://placehold.co/400x300/cc6600/ffffff?text=Popular+${i}`,
+            imgLink: images[eventType],
             imgAltText: `Popular Event ${i} promotional image`,
             location: locations[Math.floor(Math.random() * locations.length)],
             food: Math.random() > 0.3, // Higher chance of food for popular events
