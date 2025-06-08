@@ -243,13 +243,3 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("eventsLoaded", () => {
     initializeCarousels();
 });
-
-// exporting for testing purposes
-export {
-    initializeCarousels,
-    setupCarouselNavigation,
-    updateButtonStates,
-    handleKeyboardNavigation,
-    initializePastEventsToggle,
-    addTouchSupport,
-};
