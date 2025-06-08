@@ -17,7 +17,7 @@ beforeEach(() =>{
     cards = document.querySelector(".event-cards");
 })
 
-// the tests
+// testing if previous button properly disables
 test("disables previous button when scrollLeft is at 0", ()=>{
     const previousButton = {disabled: false, style: {}};
     const nextButton = {disabled: false, style: {}};
@@ -31,6 +31,7 @@ test("disables previous button when scrollLeft is at 0", ()=>{
     expect(nextButton.style.opacity).toBe("1");
 })
 
+// testing if next button properly disables
 test("disables next button when scrollLeft is at the right most point", ()=>{
     const previousButton = {disabled: false, style: {}};
     const nextButton = {disabled: false, style: {}};
@@ -44,6 +45,7 @@ test("disables next button when scrollLeft is at the right most point", ()=>{
     expect(previousButton.style.opacity).toBe("1");
 })
 
+// testing if both buttons work properly when not in either of edge cases
 test("enables both buttons when scroll left is not at the end states", ()=>{
     const previousButton = {disabled: false, style: {}};
     const nextButton = {disabled: false, style: {}};
