@@ -62,84 +62,85 @@ const form = `
 </form>
 `;
 
-beforeEach(()=>{
-  document.body.innerHTML = form;
+beforeEach(() => {
+    document.body.innerHTML = form;
 
-  //clearing localStorage
-  localStorage.clear();
+    //clearing localStorage
+    localStorage.clear();
 
-  // so that the other functions load
-  window.dispatchEvent(new Event("DOMContentLoaded"));
-})
+    // so that the other functions load
+    window.dispatchEvent(new Event("DOMContentLoaded"));
+});
 
-test("food details is hidden to begin with", ()=>{
-  const yes = document.querySelector("input[name='food'][value='yes']");
-  const no = document.querySelector("input[name='food'][value='no']");
-  const details = document.getElementById("foodDetails");
+test("food details is hidden to begin with", () => {
+    const yes = document.querySelector("input[name='food'][value='yes']");
+    const no = document.querySelector("input[name='food'][value='no']");
+    const details = document.getElementById("foodDetails");
 
-  expect(details.style.display).toBe("none");
+    expect(details.style.display).toBe("none");
 
-  // checking the behavior when yes is checked
-  yes.checked = true;
-  yes.dispatchEvent(new Event("change"));
-  expect(details.style.display).toBe("block");
+    // checking the behavior when yes is checked
+    yes.checked = true;
+    yes.dispatchEvent(new Event("change"));
+    expect(details.style.display).toBe("block");
 
-  // checking the behavior when no is checked
-  no.checked = true;
-  no.dispatchEvent(new Event("change"));
-  expect(details.style.display).toBe("none");
-})
+    // checking the behavior when no is checked
+    no.checked = true;
+    no.dispatchEvent(new Event("change"));
+    expect(details.style.display).toBe("none");
+});
 
-test("blurring empty required field shows error message", ()=>{
-  const input = document.getElementById("eventName");
-  input.value = "";
-  input.dispatchEvent(new Event("blur"));
+test("blurring empty required field shows error message", () => {
+    const input = document.getElementById("eventName");
+    input.value = "";
+    input.dispatchEvent(new Event("blur"));
 
+    // checking has container error -- from GitHub
+    const container = input.closest(".form-group");
+    expect(container.classList.contains("has-error")).toBe(true);
 
-  // checking has container error -- from GitHub
-  const container = input.closest(".form-group");
-  expect(container.classList.contains("has-error")).toBe(true);
+    const error = container.querySelector(".error-message");
+    expect(error).not.toBeNull();
+    expect(error.textContent).toMatch(/Event Name is required/);
+});
 
-  const error = container.querySelector(".error-message");
-  expect(error).not.toBeNull();
-  expect(error.textContent).toMatch(/Event Name is required/);
-})
+test("submitting without selecting food shows radio-group error", () => {
+    const form = document.querySelector("form");
+    form.dispatchEvent(
+        new Event("submit", { bubbles: true, cancelable: true }),
+    );
 
-test("submitting without selecting food shows radio-group error", ()=>{
-  const form = document.querySelector("form");
-  form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    const group = document.querySelector(".food-group");
+    expect(group.classList.contains("has-error")).toBe(true);
+    expect(group.querySelector(".radio-group-error")).not.toBeNull();
+});
 
-  const group = document.querySelector(".food-group");
-  expect(group.classList.contains("has-error")).toBe(true);
-  expect(group.querySelector(".radio-group-error")).not.toBeNull();
-})
+test("successful submit saves everything to local stoage and shows the successful message", () => {
+    document.getElementById("eventName").value = "test event";
+    document.getElementById("orgName").value = "test org";
+    document.getElementById("date").value = "2025-06-10";
+    document.getElementById("startTime").value = "10:00";
+    document.getElementById("endTime").value = "11:00";
+    document.getElementById("location").value = "ballroom";
+    document.getElementById("description").value = "test description";
 
-test("successful submit saves everything to local stoage and shows the successful message", ()=>{
-  document.getElementById("eventName").value = "test event";
-  document.getElementById("orgName").value = "test org";
-  document.getElementById("date").value = "2025-06-10";
-  document.getElementById("startTime").value = "10:00";
-  document.getElementById("endTime").value = "11:00";
-  document.getElementById("location").value = "ballroom";
-  document.getElementById("description").value = "test description";
+    // selecting yes
+    const yes = document.querySelector('input[name="food"][value="yes"]');
+    yes.checked = true;
+    yes.dispatchEvent(new Event("change"));
 
-  // selecting yes
-  const yes = document.querySelector('input[name="food"][value="yes"]');
-  yes.checked = true;
-  yes.dispatchEvent(new Event("change"));
+    // submitting the form
+    document.getElementById("submitButton").click();
 
-  // submitting the form
-  document.getElementById("submitButton").click();
+    // checking local storage
+    const events = JSON.parse(localStorage.getItem("events"));
+    expect(events).toHaveLength(1);
+    expect(events[0].eventName).toBe("test event");
+    expect(events[0].startTime).toBe("10:00");
+    expect(events[0].description).toBe("test description");
 
-  // checking local storage
-  const events = JSON.parse(localStorage.getItem("events"));
-  expect(events).toHaveLength(1);
-  expect(events[0].eventName).toBe("test event");
-  expect(events[0].startTime).toBe("10:00");
-  expect(events[0].description).toBe("test description");
-
-  // checking for the successful message
-  const message = document.querySelector(".success-message");
-  expect(message).not.toBeNull();
-  expect(message.textContent).toContain("Event Successfully Posted!");
-})
+    // checking for the successful message
+    const message = document.querySelector(".success-message");
+    expect(message).not.toBeNull();
+    expect(message.textContent).toContain("Event Successfully Posted!");
+});
