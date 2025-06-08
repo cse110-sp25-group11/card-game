@@ -5,6 +5,7 @@
 
 /**
  * Initializes carousel navigation for all carousels on the page
+ * @return {void}
  */
 function initializeCarousels() {
     const carousels = document.querySelectorAll(".event-carousel");
@@ -52,8 +53,10 @@ function setupCarouselNavigation(prevBtn, nextBtn, eventCards) {
         });
     });
 }
+
 /**
  * Initializes the toggle functionality for past events section
+ * @return {void}
  */
 function initializePastEventsToggle() {
     const toggleBtn = document.getElementById("togglePastEvents");
