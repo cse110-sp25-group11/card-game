@@ -47,3 +47,5 @@ function fetchData(data) {
         return [];
     }
 }
+
+export { addToStorage, fetchData };
