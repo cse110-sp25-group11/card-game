@@ -48,7 +48,4 @@ function fetchData(data) {
     }
 }
 
-export{
-    addToStorage,
-    fetchData
-}
+export { addToStorage, fetchData };
