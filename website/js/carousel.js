@@ -241,6 +241,7 @@ document.addEventListener("eventsLoaded", () => {
     initializeCarousels();
 });
 
+// exporting for testing purposes
 export{
     initializeCarousels,
     setupCarouselNavigation,
