@@ -79,7 +79,7 @@ export function generateSampleEvents() {
 
         // Preformance
         "https://cdn.kpbs.org/dims4/default/dc09096/2147483647/strip/true/crop/1336x701+0+0/resize/1200x630!/quality/90/?url=http%3A%2F%2Fkpbs-brightspot.s3.us-west-2.amazonaws.com%2Fe3%2Fc8%2F93321a0a41ada1483e2135c1a232%2Famphitheater-ucsandiegoerikjepsen7.jpg",
-        
+
         // Exhibition
         "https://visarts.ucsd.edu/_images/homepage-v5/home_MFA-1_550x370.jpg",
 
@@ -90,7 +90,7 @@ export function generateSampleEvents() {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ69djgk42ZTW5CGF5zHJ-uapmAHp24e_Jl3A&s",
 
         // Networking Event
-        "https://sdchamber.org/wp-content/uploads/2021/09/Chamber-IMG_5319-Photo-by-Melissa-Jacobs-scaled.jpg"
+        "https://sdchamber.org/wp-content/uploads/2021/09/Chamber-IMG_5319-Photo-by-Melissa-Jacobs-scaled.jpg",
     ];
 
     // Events happening now (today)
