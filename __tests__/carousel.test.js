@@ -1,34 +1,58 @@
-beforeEach(async () =>{
+import {updateButtonStates} from '../website/js/carousel.js';
+
+let previousButton, nextButton, cards;
+
+beforeEach(() =>{
     document.body.innerHTML = `
-        <section class="event-carousel">
-            <button class="prev">Prev</button>
-            <div class="event-cards" style="overflow: auto; width: 500px;">
-            <div style="width: 1000px; height: 100px;"></div> <!-- fake content -->
-            </div>
-            <button class="next">Next</button>
-        </section>
+        <button class="prev">Prev</button>
+        <button class="next">Next</button>
+        <div class="event-cards" style="overflow:auto;width:200px">
+        <div style="width:500px;height:1px"></div>
+        </div>
     `;
 
-    // importing the corresponding js file
-    await import("../website/js/carousel.js");
-
-    // beacuse the initializer is inside the DOM content loaded, I need to dispatch it manually for it to run
-    document.dispatchEvent(new Event("DOMContentLoaded", { bubbles: true}));
+    // getting the buttons
+    previousButton = document.querySelector(".prev");
+    nextButton = document.querySelector(".next");
+    cards = document.querySelector(".event-cards");
 })
 
-test("arrowRight key triggers the ", ()=>{
-    const eventCards = document.querySelector(".event-cards");
-    
-    // spying on the scroll by function
-    const scrollBySpy = jest.spyOn(eventCards, "scrollBy");
-    
-    //activating the scroll by function
-    const carousel = document.querySelector(".event-carousel");
-    document.dispatchEvent(new KeyboardEvent("keydown", {
-        key: "ArrowRight",
-        bubbles: true
-    }))
+// the tests
+test("disables previous button when scrollLeft is at 0", ()=>{
+    const previousButton = {disabled: false, style: {}};
+    const nextButton = {disabled: false, style: {}};
+    const cards   = {scrollLeft: 0, scrollWidth: 500, clientWidth: 200};
 
-    // the test
-    expect(scrollBySpy).toHaveBeenCalled();
+    updateButtonStates(previousButton, nextButton, cards);
+
+    expect(previousButton.disabled).toBe(true);
+    expect(previousButton.style.opacity).toBe("0.5");
+    expect(nextButton.disabled).toBe(false);
+    expect(nextButton.style.opacity).toBe("1");
+})
+
+test("disables next button when scrollLeft is at the right most point", ()=>{
+    const previousButton = {disabled: false, style: {}};
+    const nextButton = {disabled: false, style: {}};
+    const cards = {scrollLeft: 500-200, scrollWidth: 500, clientWidth: 200};
+
+    updateButtonStates(previousButton, nextButton, cards);
+
+    expect(nextButton.disabled).toBe(true);
+    expect(nextButton.style.opacity).toBe("0.5");
+    expect(previousButton.disabled).toBe(false);
+    expect(previousButton.style.opacity).toBe("1");
+})
+
+test("enables both buttons when scroll left is not at the end states", ()=>{
+    const previousButton = {disabled: false, style: {}};
+    const nextButton = {disabled: false, style: {}};
+    const cards = {scroll: 150, scrollWidth: 500, clientWidth: 200};
+
+    updateButtonStates(previousButton, nextButton, cards);
+
+    expect(previousButton.disabled).toBe(false);
+    expect(nextButton.disabled).toBe(false);
+    expect(previousButton.style.opacity).toBe("1");
+    expect(nextButton.style.opacity).toBe("1");
 })

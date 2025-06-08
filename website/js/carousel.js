@@ -240,3 +240,12 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("eventsLoaded", () => {
     initializeCarousels();
 });
+
+export{
+    initializeCarousels,
+    setupCarouselNavigation,
+    updateButtonStates,
+    handleKeyboardNavigation,
+    initializePastEventsToggle,
+    addTouchSupport
+}
