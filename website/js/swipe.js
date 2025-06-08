@@ -4,7 +4,11 @@ const numCards = JSON.parse(localStorage.getItem("events") || "[]").length;
 
 let lastSwipe = null;
 
-// Initialize when DOM is loaded and events are available
+/**
+ * Initializes the swipe page after DOM content is loaded.
+ * Sets up the card counter, checks if cards are left, and initializes button listeners.
+ * @return {void}
+ */
 document.addEventListener("DOMContentLoaded", () => {
     // Wait a bit for events to be populated by app.js
     setTimeout(() => {
@@ -14,6 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100);
 });
 
+/**
+ * Adds click event listeners to the swipe action buttons (accept, reject, undo).
+ * @return {void}
+ */
 function initializeButtons() {
     const rejectBtn = document.getElementById("rejectBtn");
     const acceptBtn = document.getElementById("acceptBtn");
@@ -24,7 +32,10 @@ function initializeButtons() {
     if (undoBtn) undoBtn.addEventListener("click", undoSwipe);
 }
 
-// Calculate remaining unswiped events
+/**
+ * Calculates the number of remaining unswiped event cards.
+ * @return {number} The count of unswiped event cards
+ */
 function calculateRemainingCards() {
     const events = fetchData("events");
     const likedEvents = fetchData("likedEvents");
@@ -41,7 +52,11 @@ function calculateRemainingCards() {
         return !swipedEventIds.includes(eventId);
     }).length;
 }
-// Create the card counter sticker
+
+/**
+ * Creates and displays the card counter sticker in the card container.
+ * @return {void}
+ */
 function createCardCounter() {
     const cardContainer = document.querySelector(".card-container");
     if (!cardContainer) return;
@@ -54,7 +69,10 @@ function createCardCounter() {
     cardContainer.appendChild(counterSticker);
 }
 
-// Update the counter display
+/**
+ * Updates the card counter display with the current number of remaining cards.
+ * @return {void}
+ */
 function updateCardCounter() {
     const counterText = document.getElementById("counterText");
     if (counterText) {
@@ -62,7 +80,10 @@ function updateCardCounter() {
     }
 }
 
-// return the currently displayed card
+/**
+ * Returns the currently displayed event card element.
+ * @return {HTMLElement|null} The current event card or null if none found
+ */
 function getCurrentCard() {
     // First try to get a card that isn't hidden or animated
     let card = document.querySelector(
@@ -79,7 +100,11 @@ function getCurrentCard() {
     return card;
 }
 
-// Get event data from the current card
+/**
+ * Retrieves event data from the given card element.
+ * @param {HTMLElement} card The card element to extract event data from
+ * @return {Object|null} The event data object or null if not found
+ */
 function getEventDataFromCard(card) {
     if (!card) return null;
 
@@ -90,7 +115,12 @@ function getEventDataFromCard(card) {
     return events.find((event) => (event.id || event.name) === eventId);
 }
 
-// handle swiping left or right
+/**
+ * Handles the swipe action for the current card in the given direction.
+ * Saves user preference and animates the card.
+ * @param {string} direction The direction of the swipe ("left" or "right")
+ * @return {void}
+ */
 function swipe(direction) {
     const card = getCurrentCard();
     if (!card) {
@@ -155,15 +185,26 @@ function swipe(direction) {
     showUndo();
 }
 
+/**
+ * Handles the swipe left action for the current card.
+ * @return {void}
+ */
 function swipeLeft() {
     swipe("left");
 }
 
+/**
+ * Handles the swipe right action for the current card.
+ * @return {void}
+ */
 function swipeRight() {
     swipe("right");
 }
 
-// undoing the last swipe action
+/**
+ * Undoes the last swipe action, restoring the card and updating localStorage.
+ * @return {void}
+ */
 function undoSwipe() {
     if (!lastSwipe) return;
 
@@ -221,8 +262,9 @@ function undoSwipe() {
 }
 
 /**
- * Removes an event from the liked events list
- * @param {Object} event - Event object to remove
+ * Removes an event from the liked events list in localStorage.
+ * @param {Object} event The event object to remove from liked events
+ * @return {void}
  */
 function removeEventFromLiked(event) {
     if (!event) return;
@@ -239,8 +281,9 @@ function removeEventFromLiked(event) {
 }
 
 /**
- * Removes an event from the disliked events list
- * @param {Object} event - Event object to remove
+ * Removes an event from the disliked events list in localStorage.
+ * @param {Object} event The event object to remove from disliked events
+ * @return {void}
  */
 function removeEventFromDisliked(event) {
     if (!event) return;
@@ -256,7 +299,10 @@ function removeEventFromDisliked(event) {
     console.log("Event removed from disliked:", event.name || event.eventName);
 }
 
-//ends up showing the undo button
+/**
+ * Displays the undo button for swipe actions.
+ * @return {void}
+ */
 function showUndo() {
     const undoBtn = document.getElementById("undoBtn");
     if (undoBtn) {
@@ -264,7 +310,10 @@ function showUndo() {
     }
 }
 
-//checks if there are no cards left to swipe
+/**
+ * Checks if there are any cards left to swipe and updates button states.
+ * @return {void}
+ */
 function checkIfNoCardsLeft() {
     const currentCard = getCurrentCard();
     const hasCard =
@@ -274,7 +323,11 @@ function checkIfNoCardsLeft() {
     updateButtons(hasCard);
 }
 
-// updates the state of the accept and reject buttons based on 'enable'
+/**
+ * Updates the enabled/disabled state and opacity of the accept/reject buttons.
+ * @param {boolean} enable Whether to enable (true) or disable (false) the buttons
+ * @return {void}
+ */
 function updateButtons(enable) {
     const acceptBtn = document.getElementById("acceptBtn");
     const rejectBtn = document.getElementById("rejectBtn");

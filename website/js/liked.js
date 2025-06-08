@@ -40,7 +40,9 @@ function mapEventDataLocal(event) {
 }
 
 /**
- * Loads and displays liked events from localStorage
+ * Loads and displays liked events from localStorage.
+ * Updates the grid and no-events message accordingly.
+ * @return {void}
  */
 function loadLikedEvents() {
     const likedEventsGrid = document.querySelector(".liked-events-grid");
@@ -183,8 +185,9 @@ function formatDateForDisplay(dateString) {
 }
 
 /**
- * Removes an event from the liked events list
- * @param {string} eventId - ID or name of the event to unlike
+ * Removes an event from the liked events list.
+ * @param {string} eventId The ID or name of the event to unlike
+ * @return {void}
  */
 function unlikeEvent(eventId) {
     if (!eventId) return;
@@ -203,7 +206,9 @@ function unlikeEvent(eventId) {
 }
 
 /**
- * Sets up the browse events button functionality
+ * Sets up the browse events button functionality.
+ * Adds a click listener to redirect to the browse page.
+ * @return {void}
  */
 function setupBrowseButton() {
     const browseButton = document.querySelector(".no-events-message button");
