@@ -1,4 +1,3 @@
-
 export function clearFieldError(field, type = "input") {
     const fieldContainer = field.closest(".form-group");
 
