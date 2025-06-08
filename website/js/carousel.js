@@ -242,11 +242,11 @@ document.addEventListener("eventsLoaded", () => {
 });
 
 // exporting for testing purposes
-export{
+export {
     initializeCarousels,
     setupCarouselNavigation,
     updateButtonStates,
     handleKeyboardNavigation,
     initializePastEventsToggle,
-    addTouchSupport
-}
+    addTouchSupport,
+};
