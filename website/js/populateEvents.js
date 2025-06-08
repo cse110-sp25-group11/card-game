@@ -2,7 +2,7 @@
  * Generates sample events for different categories with proper dates
  * @returns {Object} Object containing arrays of events for each category
  */
-function generateSampleEvents() {
+export function generateSampleEvents() {
     const now = new Date();
     const today = new Date(now);
     const tomorrow = new Date(now);
@@ -144,7 +144,7 @@ function generateSampleEvents() {
 /**
  * Populates localStorage with sample events for all categories
  */
-function populateEvents() {
+export function populateEvents() {
     try {
         const events = generateSampleEvents();
 
