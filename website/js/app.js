@@ -5,6 +5,7 @@
  */
 
 /* global fetchData */
+import { populateEvents } from "./populateEvents.js";
 
 /**
  * Initalization methods once the DOM is loaded
