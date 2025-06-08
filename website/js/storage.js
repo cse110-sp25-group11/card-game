@@ -17,7 +17,7 @@ function deleteLocalStorage() {
  * @param string value - The value to store in localStorage.
  * @returns {boolean} - Returns true if the item was added, false if it already exists.
  */
-function addToStorage(key, value) {
+export function addToStorage(key, value) {
     if (localStorage.getItem(key) === null) {
         localStorage.setItem(key, value);
         return true;
