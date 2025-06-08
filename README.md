@@ -1,3 +1,4 @@
+## [What's Next for Campus Swipe](templates/whats-next.md)
 # Campus Swipe Tool
 
 #### Introduction 👋
