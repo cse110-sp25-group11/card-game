@@ -1,4 +1,8 @@
-import { initializeCarousels, initializePastEventsToggle, updateButtonStates } from "../website/js/carousel.js";
+import {
+    initializeCarousels,
+    initializePastEventsToggle,
+    updateButtonStates,
+} from "../website/js/carousel.js";
 
 let previousButton, nextButton, cards;
 
@@ -78,7 +82,7 @@ test("if the initializePastEventsToggle sets correct ARIA attributes or not", ()
     expect(button.getAttribute("aria-controls")).toBe("pastEventsCarousel");
 });
 
-test("togglePastEvents button click shows then hides the carousel", ()=>{
+test("togglePastEvents button click shows then hides the carousel", () => {
     document.body.innerHTML = pastEvents;
     initializePastEventsToggle();
 
@@ -100,4 +104,4 @@ test("togglePastEvents button click shows then hides the carousel", ()=>{
     expect(button.getAttribute("aria-expanded")).toBe("false");
     expect(carousel.style.opacity).toBe("0");
     expect(carousel.style.transform).toBe("translateY(-20px)");
-})
+});
