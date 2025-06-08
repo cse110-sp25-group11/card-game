@@ -1,8 +1,8 @@
 # What's Next
 
-Because CSE 110 is only a quarter long course, we understood from the beginning that we wouldn’t have time to perfect or fully flesh out every feature of our app. The short timeline required us to prioritize core functionality and rapidly iterate based on user feedback through short sprints.
+Because CSE 110 is only a quarter long course, we understood from the beginning that we wouldn’t have time to perfect or fully fledge out every feature of our app. The short timeline required us to prioritize core functionality and rapidly iterate based on user feedback through short sprints.
 
-While we've made good progress with **Campus Swipe**, there are still many features and improvements we would pursue if we had more time.
+While we've made good progress with **Campus Swipe**, there are still many features and improvements we would pursue if we simply had more time.
 
 ## Future Improvements and Features
 
@@ -15,7 +15,7 @@ Currently, event data is stored in local storage. A key next step is to implemen
 ### 2. User Authentication
 We plan to add login functionality so that users can:
 - Save favorite events to their profile
-- Post and manage their own events (for orgs)
+- Post and manage their own events (for clubs/orgs)
 - Receive recommendations based on past activity
 
 ### 3. Interactive Event Cards
@@ -46,3 +46,20 @@ Some things we need to also keep in mind:
 
 ## Final Thoughts
 
+Building and making Campus Swipe from scratch over a single quarter challenged us to focus on the essentials: rapid prototyping, user-centered design, and collaborative iteration. Given more time, the features outlined above would not only extend the app’s functionality but also directly support some of the many key software engineering "-ilities" taught in this course.
+
+  - **Scalability**: Adding backend support and a persistent database would allow the app to scale to more users, more events, and more organizations while maintaining performance across sessions and devices.
+
+  - **Usability**: Features like swipe gestures, calendar integration, and detailed event cards directly improve the user experience, making the app more intuitive and engaging, especially on mobile devices.
+
+  - **Maintainability**: By improving search, filters, and adjustable components (like interactive cards), we make the codebase easier to update and extend as new needs arise.
+
+  - **Accessibility**: Continued focus on contrast, responsiveness, and inclusive design aligns with the broader goal of creating an app usable by all students, regardless of ability or device.
+
+  - **Reliability**: Introducing authentication and event reminders would ensure that users can depend on the app for accurate, consistent behavior, whether it's saving favorites or receiving timely alerts.
+
+  - **Portability**: Enhancing cross browser compatibility and device responsiveness ensures the app is usable across a wide range of environments without platform specific issues.
+
+  - **Extensibility**: Features like event tracking, recommendations, and notifications pave the way for future integrations,whether with analytics tools or third-party services like Google Calendar.
+
+The team's experience with Campus Swipe was a meaningful introduction to real world software design. While our "final version" met key requirements, this roadmap reflects our shared understanding that good software is never truly finished, it just gets better with each thoughtful iteration.

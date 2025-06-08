@@ -28,7 +28,7 @@ so that I can stay involved without feeling overwhelmed or missing out.
 
 Throughout the development of **Campus Swipe**, we actively tracked issues and features using GitHub Issues. These improvements focused on both functionality and user experience, ensuring the app remains user-friendly, responsive, and engaging. 
 
-Below is a summary of the key features we implemented using user stories.
+Below is a summary of the key features we implemented using user stories:
 
 ## UI/UX Improvements
 
