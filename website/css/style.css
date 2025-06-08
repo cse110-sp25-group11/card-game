@@ -1,577 +1,922 @@
 /*Layout and Containers*/
-main {
+main
+{
+    /*Spacing*/
     padding: 0px 20px 20px 20px;
 }
 
-/* Specific styles for the swipe page (index.html) */
-.swipe-page main {
+body
+{
+    /*Text*/
+    font-family: "Raleway", sans-serif;
+
+    /*Coloring*/
+    background-color: #182b49;
+
+    /*Spacing*/
+    margin: 0;
+    padding: 0;
+
+    scroll-behavior: smooth;
+}
+
+
+
+/*Specific styles for the swipe page (index.html)*/
+.swipe-page main
+{
+    /*Spacing*/
     padding: 20px;
-    min-height: calc(100vh - 140px); /* Account for navbar height */
+
+    /*Layout*/
+    min-height: calc(100vh - 140px); /*Account for navbar height*/
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.card-container {
+/*Nav Bar - Enhanced Responsive Design*/
+.navbar
+{
+    /*Coloring*/
+    background-color: #c69214f2;
+
+    /*Spacing*/
+    padding: 15px 5%; /*Use percentage-based padding*/
+
+    /*Layout*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    min-height: 50px; /*Use min-height instead of fixed height*/
+    box-sizing: border-box;
+    flex-wrap: wrap; /*Allow wrapping on very small screens*/
+}
+
+.navbar-title
+{
+    /*Layout*/
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(8px, 2vw, 12px); /*Responsive gap*/
+    flex-shrink: 0; /*Prevent title from shrinking too much*/
+}
+
+.navbar-title p
+{
+    /*Text*/
+    font-size: clamp(12px, 2.5vw, 14px); /*Responsive font size*/
+    
+    /*Coloring*/
+    color: white;
+
+    /*Spacing*/
+    margin: 0;
+    padding-bottom: 6px;
+}
+
+.navbar h1
+{
+    /*Text*/
+    font-size: clamp(20px, 5vw, 30px); /*Responsive title size*/
+    
+    /*Spacing*/
+    margin: 0;
+}
+
+.navbar h1 a
+{
+    /*Text*/
+    text-decoration: none;
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: clamp(24px, 6vw, 36px); /*Responsive main title*/
+    letter-spacing: clamp(0.5px, 0.3vw, 1.5px); /*Responsive letter spacing*/
+    font-weight: bold;
+    
+    /*Coloring*/
+    color: white;
+
+    /*Layout*/
+    display: block; /*Ensure proper display*/
+}
+
+.navbar-items
+{
+    /*Layout*/
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 3vw, 20px); /*Responsive gap between items*/
+    flex-wrap: wrap; /*Allow wrapping if needed*/
+}
+
+.navbar-items a button
+{
+    /*Text*/
+    font-size: clamp(14px, 3vw, 18px); /*Responsive font size*/
+    font-family: "Merriweather Sans", sans-serif;
+    
+    /*Coloring*/
+    color: white;
+    background-color: #182b49;
+    
+    /*Spacing*/
+    padding: clamp(6px, 1.5vw, 8px) clamp(12px, 3vw, 20px); /*Responsive padding*/
+    
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid white;
+    transition: all 0.3s ease; /*Add smooth transitions*/
+    white-space: nowrap; /*Prevent button text from wrapping*/
+}
+
+.navbar-items a button:hover
+{
+    /*Coloring*/
+    background-color: #2a3d5a;
+    transform: translateY(-1px);
+}
+
+.navbar-items a button i
+{
+    /*Spacing*/
+    margin-right: clamp(4px, 1vw, 8px); /*Responsive icon spacing*/
+}
+
+
+
+/*Tablet breakpoint*/
+@media (max-width: 768px)
+{
+    .navbar
+    {
+        /*Spacing*/
+        padding: 12px 4%;
+        
+        /*Layout*/
+        min-height: 45px;
+    }
+
+    .navbar-title
+    {
+        /*Layout*/
+        gap: 8px;
+    }
+
+    .navbar-items
+    {
+        /*Layout*/
+        gap: 12px;
+    }
+
+    .navbar-items a button
+    {
+        /*Text*/
+        font-size: 15px;
+        
+        /*Spacing*/
+        padding: 6px 12px;
+    }
+}
+
+
+
+/*Mobile breakpoint*/
+@media (max-width: 480px)
+{
+    .navbar
+    {
+        /*Spacing*/
+        padding: 10px 3%;
+        
+        /*Layout*/
+        min-height: 40px;
+        flex-direction: column; /*Stack vertically on very small screens*/
+        gap: 8px;
+    }
+
+    .navbar-title
+    {
+        /*Layout*/
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .navbar-title p
+    {
+        /*Text*/
+        font-size: 11px;
+
+        /*Spacing*/
+        padding-bottom: 4px;
+    }
+
+    .navbar h1 a
+    {
+        /*Text*/
+        font-size: 22px;
+        letter-spacing: 0.5px;
+    }
+
+    .navbar-items
+    {
+        /*Layout*/
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .navbar-items a button
+    {
+        /*Text*/
+        font-size: 13px;
+        
+        /*Spacing*/
+        padding: 5px 10px;
+
+        border-radius: 6px;
+    }
+
+    .navbar-items a button i
+    {
+        /*Spacing*/
+        margin-right: 4px;
+    }
+}
+
+
+
+/*Extra small screens*/
+@media (max-width: 320px)
+{
+    .navbar
+    {
+        /*Spacing*/
+        padding: 8px 2%;
+
+        /*Layout*/
+        min-height: 35px;
+    }
+
+    .navbar h1 a
+    {
+        /*Text*/
+        font-size: 18px;
+        letter-spacing: 0.3px;
+    }
+
+    .navbar-title p
+    {
+        /*Text*/
+        font-size: 10px;
+    }
+
+    .navbar-items a button
+    {
+        /*Text*/
+        font-size: 12px;
+        
+        /*Spacing*/
+        padding: 4px 8px;
+    }
+}
+
+
+
+/*Landscape orientation adjustments for mobile*/
+@media (max-height: 500px) and (orientation: landscape)
+{
+    .navbar
+    {
+        /*Spacing*/
+        padding: 8px 4%;
+
+        /*Layout*/
+        min-height: 35px;
+        flex-direction: row; /*Keep horizontal on landscape*/
+    }
+
+    .navbar h1 a
+    {
+        /*Text*/
+        font-size: 20px;
+    }
+
+    .navbar-items a button
+    {
+        /*Text*/
+        font-size: 13px;
+        
+        /*Spacing*/
+        padding: 4px 10px;
+    }
+}
+
+
+
+/*Card Counter Sticker*/
+.card-counter-sticker
+{
+    /*Text*/
+    font-size: 14px;
+    font-weight: 600;
+
+    /*Coloring*/
+    background: #ff6b6b;
+    color: white;
+
+    /*Spacing*/
+    padding: 6px 10px;
+    
+    /*Layout*/
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 10;
+
+    border-radius: 15px;
+}
+
+
+
+/*Event Card - General styles for all pages*/
+.event-card
+{
+    /*Coloring*/
+    background-color: white;
+
+    /*Spacing*/
+    padding: 16px;
+    
+    /*Layout*/
+    width: 500px;
+    position: relative;
+    
+    outline: 2px solid #c69214f2;
+    outline-offset: 4px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+
+/*Card container styling*/
+.card-container
+{
+    /*Spacing*/
+    margin: 0 auto;
+    padding: 20px 0;
+    
+    /*Layout*/
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     width: 100%;
     max-width: 600px;
-    margin: 0 auto;
-    padding: 20px 0;
 }
 
-body {
-    background-color: #182b49;
-    font-family: "Raleway", sans-serif;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-}
-
-/*Nav Bar - Enhanced Responsive Design*/
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%; /* Use percentage-based padding */
-    background-color: #c69214f2;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    min-height: 50px; /* Use min-height instead of fixed height */
-    box-sizing: border-box;
-    flex-wrap: wrap; /* Allow wrapping on very small screens */
-}
-
-.navbar-title {
-    display: flex;
-    align-items: flex-end;
-    gap: clamp(8px, 2vw, 12px); /* Responsive gap */
-    flex-shrink: 0; /* Prevent title from shrinking too much */
-}
-
-.navbar-title p {
-    margin: 0;
-    font-size: clamp(12px, 2.5vw, 14px); /* Responsive font size */
-    color: white;
-    padding-bottom: 6px;
-}
-
-.navbar h1 {
-    margin: 0;
-    font-size: clamp(20px, 5vw, 30px); /* Responsive title size */
-}
-
-.navbar h1 a {
-    text-decoration: none;
-    font-family: "Merriweather Sans", sans-serif;
-    color: white;
-    font-size: clamp(24px, 6vw, 36px); /* Responsive main title */
-    letter-spacing: clamp(0.5px, 0.3vw, 1.5px); /* Responsive letter spacing */
-    font-weight: bold;
-    display: block; /* Ensure proper display */
-}
-
-.navbar-items {
-    display: flex;
-    align-items: center;
-    gap: clamp(10px, 3vw, 20px); /* Responsive gap between items */
-    flex-wrap: wrap; /* Allow wrapping if needed */
-}
-
-.navbar-items a button {
-    padding: clamp(6px, 1.5vw, 8px) clamp(12px, 3vw, 20px); /* Responsive padding */
-    font-size: clamp(14px, 3vw, 18px); /* Responsive font size */
-    font-family: "Merriweather Sans", sans-serif;
-    cursor: pointer;
-    background-color: #182b49;
-    color: white;
-    border-radius: 8px;
-    border: 1px solid white;
-    transition: all 0.3s ease; /* Add smooth transitions */
-    white-space: nowrap; /* Prevent button text from wrapping */
-}
-
-.navbar-items a button:hover {
-    background-color: #2a3d5a;
-    transform: translateY(-1px);
-}
-
-.navbar-items a button i {
-    margin-right: clamp(4px, 1vw, 8px); /* Responsive icon spacing */
-}
-
-/* Tablet breakpoint */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 12px 4%;
-        min-height: 45px;
-    }
-
-    .navbar-title {
-        gap: 8px;
-    }
-
-    .navbar-items {
-        gap: 12px;
-    }
-
-    .navbar-items a button {
-        padding: 6px 12px;
-        font-size: 15px;
-    }
-}
-
-/* Mobile breakpoint */
-@media (max-width: 480px) {
-    .navbar {
-        padding: 10px 3%;
-        min-height: 40px;
-        flex-direction: column; /* Stack vertically on very small screens */
-        gap: 8px;
-    }
-
-    .navbar-title {
-        justify-content: center;
-        gap: 6px;
-    }
-
-    .navbar-title p {
-        font-size: 11px;
-        padding-bottom: 4px;
-    }
-
-    .navbar h1 a {
-        font-size: 22px;
-        letter-spacing: 0.5px;
-    }
-
-    .navbar-items {
-        gap: 8px;
-        justify-content: center;
-    }
-
-    .navbar-items a button {
-        padding: 5px 10px;
-        font-size: 13px;
-        border-radius: 6px;
-    }
-
-    .navbar-items a button i {
-        margin-right: 4px;
-    }
-}
-
-/* Extra small screens */
-@media (max-width: 320px) {
-    .navbar {
-        padding: 8px 2%;
-        min-height: 35px;
-    }
-
-    .navbar h1 a {
-        font-size: 18px;
-        letter-spacing: 0.3px;
-    }
-
-    .navbar-title p {
-        font-size: 10px;
-    }
-
-    .navbar-items a button {
-        padding: 4px 8px;
-        font-size: 12px;
-    }
-}
-
-/* Landscape orientation adjustments for mobile */
-@media (max-height: 500px) and (orientation: landscape) {
-    .navbar {
-        padding: 8px 4%;
-        min-height: 35px;
-        flex-direction: row; /* Keep horizontal on landscape */
-    }
-
-    .navbar h1 a {
-        font-size: 20px;
-    }
-
-    .navbar-items a button {
-        padding: 4px 10px;
-        font-size: 13px;
-    }
-}
-
-/* Card Counter Sticker */
-.card-counter-sticker {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: #ff6b6b;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 15px;
-    font-size: 14px;
-    font-weight: 600;
-    z-index: 10;
-}
-
-/*Event Card - General styles for all pages*/
-.event-card {
-    background-color: white;
-    outline: 2px solid #c69214f2;
-    outline-offset: 4px;
-    border-radius: 8px;
-    padding: 16px;
-    width: 500px;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    position: relative;
-}
-
-/* Specific event card styles for swipe page only */
-.card-container .event-card {
-    border-radius: 12px;
+/*Specific event card styles for swipe page only*/
+.card-container .event-card
+{
+    /*Spacing*/
     padding: 20px;
+    
+    /*Layout*/
     width: 100%;
     max-width: 500px;
+    
+    border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease;
 }
 
-.card-container .event-card:hover {
+.card-container .event-card:hover
+{
     transform: translateY(-2px);
 }
 
-/* Event card content styling - only for swipe page */
-.card-container .event-image {
+/*Event card content styling - only for swipe page*/
+.card-container .event-image
+{
+    /*Spacing*/
+    margin-bottom: 16px;
+    
+    /*Layout*/
     width: 100%;
     height: 250px;
-    border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 16px;
+    
+    border-radius: 8px;
 }
 
-.card-container .event-image img {
+.card-container .event-image img
+{
+    /*Layout*/
     width: 100%;
     height: 100%;
+    
     object-fit: cover;
 }
 
-.card-container .event-details {
+.card-container .event-details
+{
+    /*Spacing*/
     padding: 0;
 }
 
-.card-container .event-header {
+.card-container .event-header
+{
+    /*Spacing*/
     margin-bottom: 12px;
 }
 
-.card-container .event-header h2 {
-    margin: 0 0 4px 0;
+.card-container .event-header h2
+{
+    /*Text*/
     font-size: 1.5rem;
     font-weight: 600;
-    color: #2c3e50;
     font-family: "Merriweather Sans", sans-serif;
+    
+    /*Coloring*/
+    color: #2c3e50;
+    
+    /*Spacing*/
+    margin: 0 0 4px 0;
 }
 
-.card-container .event-header span {
-    color: #03629c;
+.card-container .event-header span
+{
+    /*Text*/
     font-weight: 500;
     font-size: 1.1rem;
+    
+    /*Coloring*/
+    color: #03629c;
 }
 
 .card-container .event-date,
 .card-container .event-location,
-.card-container .event-food {
-    margin: 8px 0;
-    color: #5a6c7d;
+.card-container .event-food
+{
+    /*Text*/
     font-weight: 500;
+    
+    /*Coloring*/
+    color: #5a6c7d;
+    
+    /*Spacing*/
+    margin: 8px 0;
 }
 
-.card-container .event-description {
-    margin: 12px 0;
+.card-container .event-description
+{
+    /*Coloring*/
     color: #2c3e50;
+
+    /*Spacing*/
+    margin: 12px 0;
+    
     line-height: 1.6;
 }
 
 .card-container .event-location i,
-.card-container .event-food i {
-    margin-right: 6px;
+.card-container .event-food i
+{
+    /*Coloring*/
     color: #03629c;
+    
+    /*Spacing*/
+    margin-right: 6px;
 }
 
+
+
 /*Buttons*/
-.swipe-buttons {
+.swipe-buttons
+{
+    /*Spacing*/
+    margin: 20px auto 0 auto;
+    
+    /*Layout*/
     display: flex;
     justify-content: center;
     gap: 80px;
     width: 100%;
     max-width: 600px;
-    margin: 20px auto 0 auto;
 }
 
-.swipe-buttons button {
+.swipe-buttons button
+{
+    /*Text*/
+    font-size: 28px;
+    
+    /*Layout*/
     width: 70px;
     height: 70px;
-    border-radius: 50%;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
     display: flex;
     align-items: center;
+    position: relative;
     justify-content: center;
+    
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
     overflow: hidden;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
 }
 
-#rejectBtn {
+
+
+/*Reject Button*/
+#rejectBtn
+{
+    /*Coloring*/
     background: linear-gradient(135deg, #ff4757, #ff3742);
     color: white;
 }
 
-#rejectBtn:hover {
+#rejectBtn:hover
+{
+    /*Coloring*/
     background: linear-gradient(135deg, #ff3742, #ff2f3a);
+    
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
 }
 
-#rejectBtn:active {
+#rejectBtn:active
+{
     transform: translateY(0);
     box-shadow: 0 2px 10px rgba(255, 71, 87, 0.3);
 }
 
-#acceptBtn {
+
+
+/*Accept Button*/
+#acceptBtn
+{
+    /*Coloring*/
     background: linear-gradient(135deg, #2ed573, #1dd1a1);
     color: white;
 }
 
-#acceptBtn:hover {
+#acceptBtn:hover
+{
+    /*Coloring*/
     background: linear-gradient(135deg, #1dd1a1, #10ac84);
+    
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(46, 213, 115, 0.4);
 }
 
-#acceptBtn:active {
+#acceptBtn:active
+{
     transform: translateY(0);
     box-shadow: 0 2px 10px rgba(46, 213, 115, 0.3);
 }
 
+
+
 /* Add ripple effect */
-.swipe-buttons button::before {
-    content: "";
+.swipe-buttons button::before
+{
+    /*Coloring*/
+    background: rgba(255, 255, 255, 0.3);
+    
+    /*Layout*/
     position: absolute;
     top: 50%;
     left: 50%;
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
+    
+    content: "";
     transform: translate(-50%, -50%);
     transition:
         width 0.6s,
         height 0.6s;
 }
 
-.swipe-buttons button:active::before {
+.swipe-buttons button:active::before
+{
+    /*Layout*/
     width: 300px;
     height: 300px;
 }
 
-#undoBtn {
-    display: block;
-    margin: 15px auto 0 auto;
-    padding: 12px 20px;
+
+
+/*Undo Button*/
+#undoBtn
+{
+    /*Text*/
     font-size: 18px;
-    cursor: pointer;
+    
+    /*Coloring*/
     background: linear-gradient(135deg, #747d8c, #57606f);
     color: white;
+    
+    /*Spacing*/
+    margin: 15px auto 0 auto;
+    padding: 12px 20px;
+    
+    /*Layout*/
+    display: block;
+    
+    cursor: pointer;
     border: none;
     border-radius: 25px;
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-#undoBtn:hover {
+#undoBtn:hover
+{
+    /*Coloring*/
     background: linear-gradient(135deg, #57606f, #3d4454);
+    
     transform: translateY(-1px);
     box-shadow: 0 4px 15px rgba(116, 125, 140, 0.3);
 }
 
-#undoBtn:active {
+#undoBtn:active
+{
     transform: translateY(0);
     box-shadow: 0 2px 8px rgba(116, 125, 140, 0.2);
 }
 
+
+
 /*Animations*/
-@keyframes slideOutLeft {
-    from {
+@keyframes slideOutLeft
+{
+    from
+    {
         transform: translateX(0) rotateZ(0);
         opacity: 1;
     }
-    to {
+    to
+    {
         transform: translateX(-500px) rotateZ(-15deg);
         opacity: 0;
     }
 }
-@keyframes slideOutRight {
-    from {
+
+@keyframes slideOutRight
+{
+    from
+    {
         transform: translateX(0) rotateZ(0);
         opacity: 1;
     }
-    to {
+    to
+    {
         transform: translateX(500px) rotateZ(15deg);
         opacity: 0;
     }
 }
+
+
+
 /*Animation Classes*/
-.card {
+.card
+{
     transition:
         transform 0.4s ease,
         opacity 0.4s ease;
 }
-.slide-out-left {
+
+.slide-out-left
+{
     animation: slideOutLeft 0.6s forwards ease;
 }
-.slide-out-right {
+
+.slide-out-right
+{
     animation: slideOutRight 0.6s forwards ease;
 }
-.swipe-right {
+
+.swipe-right
+{
     transform: translateX(500px) rotateZ(15deg);
     opacity: 0;
     transition:
         transform 0.6s ease,
         opacity 0.6s ease;
 }
-.swipe-left {
+
+.swipe-left
+{
     transform: translateX(-500px) rotateZ(-15deg);
     opacity: 0;
     transition:
         transform 0.6s ease,
         opacity 0.6s ease;
 }
-/* adding responsive design for the liked events cards */
-@media (max-width: 768px) {
-    .liked-events-grid {
+
+
+
+/*Adding responsive design for the liked events cards*/
+@media (max-width: 768px)
+{
+    .liked-events-grid
+    {
+        /*Layout*/
         grid-template-columns: 1fr;
     }
 }
 
-/* Responsive Design for Swipe Interface */
-@media (max-width: 768px) {
-    /* Only apply to pages with card-container (swipe page) */
-    .swipe-page main {
+
+
+/*Responsive Design for Swipe Interface*/
+@media (max-width: 768px)
+{
+    /*Only apply to pages with card-container (swipe page)*/
+    .swipe-page main
+    {
+        /*Spacing*/
         padding: 15px;
+        
+        /*Layout*/
         min-height: calc(100vh - 120px);
     }
 
-    .card-container {
-        max-width: 100%;
+    .card-container
+    {
+        /*Spacing*/
         padding: 10px 0;
+        
+        /*Layout*/
+        max-width: 100%;
     }
 
-    .card-container .event-card {
-        max-width: 100%;
+    .card-container .event-card
+    {
+        /*Spacing*/
         padding: 15px;
+        
+        /*Layout*/
+        max-width: 100%;
+        
         border-radius: 10px;
     }
 
-    .card-container .event-image {
+    .card-container .event-image
+    {
+        /*Layout*/
         height: 200px;
     }
 
-    .card-container .event-header h2 {
+    .card-container .event-header h2
+    {
+        /*Text*/
         font-size: 1.3rem;
     }
 
-    .swipe-buttons {
-        gap: 60px;
+    .swipe-buttons
+    {
+        /*Spacing*/
         margin: 15px auto 0 auto;
+        
+        /*Layout*/
+        gap: 60px;
         max-width: 100%;
     }
 
-    .swipe-buttons button {
+    .swipe-buttons button
+    {
+        /*Text*/
+        font-size: 24px;
+        
+        /*Layout*/
         width: 60px;
         height: 60px;
-        font-size: 24px;
     }
 }
 
-@media (max-width: 480px) {
-    /* Only apply to pages with card-container (swipe page) */
-    .swipe-page main {
+
+
+@media (max-width: 480px)
+{
+    /*Only apply to pages with card-container (swipe page)*/
+    .swipe-page main
+    {
+        /*Spacing*/
         padding: 10px;
+        
+        /*Layout*/
         min-height: calc(100vh - 100px);
     }
 
-    .card-container {
+    .card-container
+    {
+        /*Spacing*/
         padding: 5px 0;
     }
-
-    .card-container .event-card {
+        
+    .card-container .event-card
+    {
+        /*Spacing*/
         padding: 12px;
+
         outline-width: 1px;
         outline-offset: 2px;
     }
 
-    .card-container .event-image {
-        height: 180px;
+    .card-container .event-image
+    {
+        /*Spacing*/
         margin-bottom: 12px;
+        
+        /*Layout*/
+        height: 180px;
     }
 
-    .card-container .event-header h2 {
+    .card-container .event-header h2
+    {
+        /*Text*/
         font-size: 1.2rem;
     }
 
-    .card-container .event-header span {
+    .card-container .event-header span
+    {
+        /*Text*/
         font-size: 1rem;
     }
 
-    .swipe-buttons {
-        gap: 50px;
+    .swipe-buttons
+    {
+        /*Spacing*/
         margin: 12px auto 0 auto;
+
+        /*Layout*/
+        gap: 50px;
         max-width: 100%;
     }
 
-    .swipe-buttons button {
+    .swipe-buttons button
+    {
+        /*Text*/
+        font-size: 22px;
+        
+        /*Layout*/
         width: 55px;
         height: 55px;
-        font-size: 22px;
     }
 
-    #undoBtn {
+    #undoBtn
+    {
+        /*Text*/
+        font-size: 16px;
+        
+        /*Spacing*/
         margin: 10px auto 0 auto;
         padding: 10px 16px;
-        font-size: 16px;
     }
 }
 
-/* Landscape orientation adjustments - only for swipe page */
-@media (max-height: 600px) and (orientation: landscape) {
-    .swipe-page main {
-        min-height: calc(100vh - 80px);
+
+
+/*Landscape orientation adjustments - only for swipe page*/
+@media (max-height: 600px) and (orientation: landscape)
+{
+    .swipe-page main
+    {
+        /*Spacing*/
         padding: 10px;
+
+        /*Layout*/
+        min-height: calc(100vh - 80px);
     }
 
-    .card-container {
+    .card-container
+    {
+        /*Spacing*/
         padding: 5px 0;
     }
 
-    .card-container .event-card {
+    .card-container .event-card
+    {
+        /*Layout*/
         max-width: 450px;
     }
 
-    .card-container .event-image {
+    .card-container .event-image
+    {
+        /*Layout*/
         height: 150px;
     }
 
-    .swipe-buttons {
+    .swipe-buttons
+    {
+        /*Spacing*/
         margin: 8px auto 0 auto;
     }
 }

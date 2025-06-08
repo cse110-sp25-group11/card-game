@@ -291,18 +291,23 @@ h2
 {
     .liked-events-grid
     {
+        /*Spacing*/
+        padding: 15px !important;
+
+        /*Layout*/
         grid-template-columns: 1fr !important;
         gap: 20px !important;
-        padding: 15px !important;
     }
 
     .liked-events-grid .photo-container
     {
+        /*Layout*/
         height: 180px !important;
     }
 
     .liked-events-grid .event-info
     {
+        /*Layout*/
         padding: 15px !important;
     }
 }
@@ -311,12 +316,16 @@ h2
 {
     .liked-events-grid
     {
-        gap: 15px !important;
+        /*Spacing*/
         padding: 10px !important;
+
+        /*Layout*/
+        gap: 15px !important;
     }
 
     .liked-events-grid .event-info h3
     {
+        /*Text*/
         font-size: 1.1rem !important;
     }
 }
