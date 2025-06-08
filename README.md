@@ -3,6 +3,7 @@
 #### Introduction 👋
 This repository holds the 11x developers' campus swipe tool website. Everything regarding code, documentation, and other project information can be found here. Navigate through the information below on how to get started.
 
+Meet the brains behind the website [here!](https://github.com/cse110-sp25-group11/cse110-sp25-group11)
 
 #### What's a Campus Swipe Tool Anyways? 🤔
 Our campus tool website is an online platform where UCSD students are able to see events that will take place across the university. This can range anywhere from club events to presentations. Anything taking place on campus is fair game! Users will get to explore each event in detail and determine which events they like and don't like through our home page. Imagine something similar to TikTok but with UCSD events! They will also be able to add activities onto the website themselves to help promote their own events! 
@@ -39,10 +40,13 @@ We are currently using Qlty to lint our code for every pull request. This is aut
 5. Close the appropriate issues if they are not closed already  
 
 
-#### Current Progress 🔄
-As of May 24, 2025, we are past the point of designing the UI and are currently working on coding the website and bringing it to life! Our top priorities are the following: 
-- Javascript unit testing is urgent since we want to start testing certain features as soon as possible
-- Making minor edits to the website UI is also urgent, since we were advised that the coloring looked too much like UCLA's colors rather than UCSD's 
+#### Website Breakdown 🔄
+- <u>Browse Page</u>: Displays one event at a time and lets the user decide if they either like or dislike the event. Any liked events will be added to the liked events page (see below)
+- <u>Browse Page</u>: Allows the user to see various on campus events separated by different categories. This can include categories such as "currently happening" and "upcoming events" 
+- <u>Add Page</u>: A page on the website that allows the user to add an event to the website that they would like to promote. This would include prompting the user for the club name, what the event is called, etc. 
+- <u>Liked Events Page</u>: Shows the user all the events they have liked before in the past. This is meant for easier organization of events that the user has expressed into. 
+
+
 
 
 #### Repository Tree 🌳
