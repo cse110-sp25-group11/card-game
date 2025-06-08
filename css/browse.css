@@ -1,55 +1,77 @@
 /*Global Styles*/
 body {
+    /*Text*/
     font-family: "Raleway", sans-serif;
+
+    /*Spacing*/
     margin: 0;
     padding: 0;
 }
 
 main {
+    /*Spacing*/
     padding: 0px 20px 20px 20px;
 }
+
 /*Section Heading*/
 h2 {
+    /*Text*/
+    font-size: 25px;
+    font-family: "Merriweather Sans", sans-serif;
+
+    /*Coloring*/
+    color: white;
+
+    /*Spacing*/
     margin-left: 20px;
     margin-top: 30px;
-    font-size: 25px;
-    color: white;
-    font-family: "Merriweather Sans", sans-serif;
 }
 
-/* Carousel container */
+/*Carousel container*/
 .event-carousel {
+    /*Spacing*/
+    margin: 20px 0;
+    padding: 0 20px;
+
+    /*Layout*/
     display: flex;
     align-items: center;
     gap: 50px;
+
     overflow: hidden;
-    margin: 20px 0;
-    padding: 0 20px;
 }
 
 /* Buttons */
 .event-carousel .prev,
 .event-carousel .next {
+    /*Coloring*/
+    background: linear-gradient(135deg, #03629c, #024a74);
+    color: white;
+
+    /*Text*/
+    font-size: 20px;
+
+    /*Layout*/
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, #03629c, #024a74);
-    color: white;
     position: relative;
     overflow: hidden;
+
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .event-carousel .prev:hover,
 .event-carousel .next:hover {
+    /*Coloring*/
     background: linear-gradient(135deg, #024a74, #013a5a);
+
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(3, 98, 156, 0.4);
 }
@@ -62,8 +84,9 @@ h2 {
 
 .event-carousel .prev:disabled,
 .event-carousel .next:disabled {
+    /*Coloring*/
     background: linear-gradient(135deg, #6c757d, #5a6268);
-    cursor: not-allowed;
+
     transform: none;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -77,48 +100,75 @@ h2 {
 /* Add ripple effect for carousel buttons */
 .event-carousel .prev::before,
 .event-carousel .next::before {
-    content: "";
+    /*Coloring*/
+    background: rgba(255, 255, 255, 0.3);
+
+    /*Layout*/
     position: absolute;
     top: 50%;
     left: 50%;
     width: 0;
     height: 0;
+
+    content: "";
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
     transform: translate(-50%, -50%);
     transition:
         width 0.6s,
         height 0.6s;
 }
 
+.event-carousel .prev:active::before,
+.event-carousel .next:active::before {
+    /*Layout*/
+    width: 200px;
+    height: 200px;
+}
+
 /* Past Events Toggle CSS */
 .past-events-header {
+    /*Spacing*/
+    margin: 30px 20px 20px;
+
+    /*Layout*/
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 30px 20px 20px;
 }
 
 .past-events-header h2 {
-    margin: 0;
+    /*Coloring*/
     color: white;
+
+    /*Text*/
     font-family: "Merriweather Sans", sans-serif;
     font-size: 25px;
+
+    /*Spacing*/
+    margin: 0;
 }
 
 .toggle-past-events {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
+    /*Coloring*/
     background: #c69214f2;
     color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
+
+    /*Text*/
     font-family: "Raleway", sans-serif;
     font-size: 14px;
     font-weight: 600;
+
+    /*Spacing*/
+    padding: 10px 18px;
+
+    /*Layout*/
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 3px 12px rgba(198, 146, 20, 0.3);
 }
@@ -134,49 +184,55 @@ h2 {
 }
 
 .toggle-icon {
-    transition: transform 0.3s ease;
+    /*Text*/
     font-size: 12px;
+
+    transition: transform 0.3s ease;
 }
 
 .toggle-past-events[aria-expanded="true"] .toggle-icon {
     transform: rotate(180deg);
 }
 
-.event-carousel .prev:active::before,
-.event-carousel .next:active::before {
-    width: 200px;
-    height: 200px;
-}
-
 /* Event cards container */
 .event-cards {
+    /*Spacing*/
+    padding: 10px 0;
+
+    /*Layout*/
     display: flex;
     gap: 50px;
+    flex: 1;
+
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    flex: 1;
-    padding: 10px 0;
     cursor: grab;
     scrollbar-width: thin;
     scrollbar-color: #03629c #f1f1f1;
 }
 
 .event-cards::-webkit-scrollbar {
+    /*Layout*/
     height: 8px;
 }
 
 .event-cards::-webkit-scrollbar-track {
+    /*Coloring*/
     background: #f1f1f1;
+
     border-radius: 4px;
 }
 
 .event-cards::-webkit-scrollbar-thumb {
+    /*Coloring*/
     background: linear-gradient(135deg, #03629c, #024a74);
+
     border-radius: 4px;
 }
 
 .event-cards::-webkit-scrollbar-thumb:hover {
+    /*Coloring*/
     background: linear-gradient(135deg, #024a74, #013a5a);
 }
 
@@ -186,58 +242,86 @@ h2 {
 
 /* Individual card */
 .event-card {
+    /*Coloring*/
+    background: white;
+
+    /*Spacing*/
+    padding: 10px;
+
+    /*Layout*/
     flex: 0 0 30%;
+    min-width: 250px;
+
     scroll-snap-align: start;
     border: 1px solid #ddd;
     border-radius: 10px;
-    background: white;
-    padding: 10px;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-    min-width: 250px;
 }
+
 .photo-container {
+    /*Coloring*/
+    background-color: #eee;
+
+    /*Layout*/
     width: 100%;
     height: 150px;
-    background-color: #eee;
-    border-radius: 6px;
     overflow: hidden;
     position: relative;
+
+    border-radius: 6px;
 }
+
 .photo-container img {
+    /*Layout*/
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .event-info {
+    /*Spacing*/
     margin-top: 10px;
+
+    /*Layout*/
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .event-info h3 {
-    margin: 0;
+    /*Text*/
     font-size: 1rem;
+
+    /*Spacing*/
+    margin: 0;
 }
 
 /* Liked indicator styling */
 .liked-indicator {
+    /*Coloring*/
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+
+    /*Text*/
+    font-size: 16px;
+
+    /*Layout*/
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgba(220, 53, 69, 0.9);
-    color: white;
-    border-radius: 50%;
     width: 35px;
     height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+
+    border-radius: 50%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
     animation: heartPulse 2s infinite;
 }
 
+/*Animation styling*/
 @keyframes heartPulse {
     0% {
         transform: scale(1);
