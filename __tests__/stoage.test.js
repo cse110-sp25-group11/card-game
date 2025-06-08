@@ -17,7 +17,7 @@ beforeEach(() => {
 });
 
 test("fetchData accepts good data", () => {
-    expect(addToStorage("5","5")).toStrictEqual(true);
+    expect(addToStorage("5", "5")).toStrictEqual(true);
     expect(fetchData("5")).toStrictEqual(5);
 });
 
@@ -32,7 +32,7 @@ beforeEach(() => {
 });
 
 test("fetchData accepts good data", () => {
-    expect(addToStorage("5","5")).toStrictEqual(true);
+    expect(addToStorage("5", "5")).toStrictEqual(true);
     expect(fetchData("5")).toStrictEqual(5);
 });
 
