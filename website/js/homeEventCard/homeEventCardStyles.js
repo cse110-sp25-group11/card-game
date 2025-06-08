@@ -1,121 +1,80 @@
 export const styles = `
-    .home-event-card
-    {
-        /*Coloring*/
+    .home-event-card {
         background-color: white;
-        
-        /*Layout*/
-        width: 500px;
-        
         outline: 2px solid #c69214f2;
         outline-offset: 4px;
         border-radius: 8px;
+        width: 500px;
         box-sizing: border-box;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         cursor: pointer;
     }
 
-    .home-event-card:hover
-    {
+    .home-event-card:hover {
         transform: scale(1.02);
         box-shadow: 0 8px 20px rgba(198, 146, 20, 0.4);
     }
 
-    img
-    {
-        /*Layout*/
+    img{
         width: 100%;
         height: 300px;
-
         object-fit: cover;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
     }
     
-    .name-and-org
-    {
-        /*Spacing*/
+    .name-and-org {
         margin-bottom: 30px;
     }
-        
-    .event-name
-    {
-        /*Text*/
+    .event-name {
+        display: block;
+        font-size: 40px;
         font-weight: 1000;
         font-family: "Merriweather Sans", sans-serif;
-        font-size: 40px;
-
-        /*Coloring*/
         color: #182B49;
-        
-        /*Spacing*/
         margin-bottom: 8px;
         padding-left: 30px;
         padding-top: 30px;
         padding-right: 30px;
-        
-        /*Layout*/
-        display: block;
     }
 
-    .org-name
-    {
-        /*Text*/
+    .org-name {
+        display: block;
         font-size: 35px;
         font-weight: 700;
         font-family: "Merriweather Sans", sans-serif;
-
-        /*Coloring*/
         color: #C69214;
-
-        /*Spacing*/
         padding-left: 30px;
         padding-right: 30px;
-
-        /*Layout*/
-        display: block;
     }
 
-    .info-section
-    {
-        /*Text*/
+    .info-section {
+        padding: 0 30px 30px 30px;
         font-family: "Merriweather Sans", sans-serif;
         font-weight: 300;
         letter-spacing: 1px;
-
-        /*Spacing*/
-        padding: 0 30px 30px 30px;
     }
 
-    .date-time-line
-    {
-        /*Layout*/
+    .date-time-line {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
     }
 
-    .event-time
-    {
-        /*Coloring*/
-        color: #182B49
-
-        /*Spacing*/
+    .event-time {
         margin: 0;
         padding-bottom: 10px;
+        color: #182B49
     }
 
-    .event-time-range
-    {
+    .event-time-range {
         white-space: nowrap;
     }
 
     .event-location,
     .food-status,
-    .event-description
-    {
-        /*Coloring*/
-        color: #182B49;
-    }
+    .event-description {
+    color: #182B49;
+}
 `;
