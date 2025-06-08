@@ -30,7 +30,7 @@ function addToStorage(key, value) {
  * @param {string} data - The key to retrieve from localStorage
  * @returns {Array} - Returns parsed JSON data or empty array if parsing fails
  */
-function fetchData(data) {
+export function fetchData(data) {
     if (!data) {
         return [];
     }
