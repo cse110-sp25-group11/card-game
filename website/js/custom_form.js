@@ -1,3 +1,26 @@
+
+export function clearFieldError(field, type = "input") {
+    const fieldContainer = field.closest(".form-group");
+
+    // adding to fix a bug for edge case
+    if (!fieldContainer) {
+        console.warn("Field container not found for:", field);
+        return;
+    }
+
+    if (type === "input") {
+        field.classList.remove("error", "success");
+    }
+
+    fieldContainer.classList.remove("has-error");
+
+    const errorSelector =
+        type === "radio" ? ".radio-group-error" : ".error-message";
+    const existingError = fieldContainer.querySelector(errorSelector);
+    if (existingError) {
+        existingError.remove();
+    }
+}
 window.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
     const foodRadios = Array.from(form.elements["food"]);
@@ -92,23 +115,6 @@ window.addEventListener("DOMContentLoaded", () => {
             fieldContainer.appendChild(errorElement);
         } else {
             field.insertAdjacentElement("afterend", errorElement);
-        }
-    }
-
-    function clearFieldError(field, type = "input") {
-        const fieldContainer = field.closest(".form-group");
-
-        if (type === "input") {
-            field.classList.remove("error", "success");
-        }
-
-        fieldContainer.classList.remove("has-error");
-
-        const errorSelector =
-            type === "radio" ? ".radio-group-error" : ".error-message";
-        const existingError = fieldContainer.querySelector(errorSelector);
-        if (existingError) {
-            existingError.remove();
         }
     }
 
