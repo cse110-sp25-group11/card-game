@@ -82,12 +82,12 @@ Below is a summary of the key features we implemented using user stories:
   _As a user, I must be able to understand what the app does and what each button does, in order to improve user experience and reduce the learning curve._  
   → Several key updates were made:
 
-    - Updated icons and color scheme for better visibility
-    - Clearer button labels (e.g., “Submit” → “Add Event”)
-    - Improved placeholder text in forms
-    - Added the UCSD logo and tagline on the main page
-
-            → [#115](https://github.com/cse110-sp25-group11/card-game/issues/115)
+    - Updated icons and color scheme for better visibility.
+    - Clearer button labels (e.g., “Submit” → “Add Event”).
+    - Improved placeholder text in forms.
+    - Added the UCSD logo and tagline on the main page.
+  <br>
+  → [#115](https://github.com/cse110-sp25-group11/card-game/issues/115)
 
 ---
 
