@@ -1,14 +1,4 @@
 /**
- * Clears all key/value pairs from the browser's localStorage.
- *
- * @function deleteLocalStorage
- * @returns {void}
- */
-function deleteLocalStorage() {
-    localStorage.clear();
-}
-
-/**
  * Add item to localStorage if it doesn't already exist.
  * If the item already exists or key already pertains to antoher value, it will not be added.
  *
