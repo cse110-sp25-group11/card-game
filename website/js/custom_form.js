@@ -250,17 +250,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
         // Gather all event data from the form
         const eventData = {
-            eventName: form.elements["eventName"].value,
-            orgName: form.elements["orgName"].value,
+            name: form.elements["eventName"].value,
+            org: form.elements["orgName"].value,
             date: form.elements["date"].value,
             startTime: form.elements["startTime"].value,
             endTime: form.elements["endTime"].value,
             location: form.elements["location"].value,
             description: form.elements["description"].value,
-            food: form.querySelector('input[name="food"]:checked').value,
-            photo: photoData,
-            altText: form.elements["altText"].value,
-            timestamp: new Date().toISOString(),
+            food:
+                form.querySelector('input[name="food"]:checked').value ===
+                "yes",
+            imgLink: photoData ? photoData.data : null,
+            imgAltText: form.elements["altText"].value,
         };
 
         // Retrieve existing events from localStorage
