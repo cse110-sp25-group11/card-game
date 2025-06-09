@@ -7,6 +7,15 @@ body {
     min-height: 100vh;
 }
 
+/*Icon For Nav Bar*/
+.trident img {
+    height: 40px;
+    width: 40px;
+    margin-bottom: 3px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
 main {
     /*Text*/
     font-family: "Inter", sans-serif;
