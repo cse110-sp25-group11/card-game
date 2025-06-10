@@ -34,13 +34,10 @@ The only IDE you are allowed to use is Visual Studio Code. This ensures that we 
 
 
 #### Build Pipeline 👷‍♂️
-We are currently using Qlty to lint our code for every pull request. This is automatically run in every pull request and will give you feedback if anything is wrong with your code. We are also 
-
 1. Create your own branch and write your code 
-2. Run local Qlty tests on your local machine 
-3. Open a pull request on Github and attach any issues related to your code. This will automatically run Jest tests that will test your code and ensure everything is working correctly. 
-4. Two other team members (not yourself) will come and review your code. If they choose to approve it, your branch will be merged to main!
-5. Close the appropriate issues if they are not closed already  
+2. Open a pull request on Github and attach any issues related to your code. This will automatically run Jest tests, code qaulity, end to end testing, and coding linting that will test your code and format it to ensure everything is working correctly and it is ready to be integrated into the exisiting code base. 
+3. Two other team members (not yourself) will come and review your code. If they choose to approve it, your branch will be merged to main!
+4. Close the appropriate issues if they are not closed already  
 
 
 #### Website Breakdown 🔄
