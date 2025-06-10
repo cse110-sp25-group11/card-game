@@ -19,7 +19,7 @@ function clearEvents() {
         console.error("Error clearing events:", error);
     }
 }
-
+// Example addition
 /**
  * Shows current event counts in localStorage
  */
